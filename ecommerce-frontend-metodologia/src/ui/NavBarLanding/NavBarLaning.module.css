@@ -1,0 +1,30 @@
+.containerNavBarLanding{
+    width: 100vw;
+    height: 15vh;
+    background-color: #EBEBEB;
+    position: relative;
+}
+
+.titleNavBarLanding{
+    position: absolute;
+    left: 43vw;
+    top: 1vh;
+}
+
+.containerCategoriesNavBarLanding{
+    display: flex;
+    justify-content: space-between;
+    width: 25vw;
+    position: absolute;
+    top: 10vh;
+    left: 1vw;
+}
+
+.categorieNavBarLanding:hover{
+    transition: font-size 0.2s ease;
+}
+
+.categorieNavBarLanding:hover{
+    cursor: pointer;
+    font-size: 1.1em;
+}

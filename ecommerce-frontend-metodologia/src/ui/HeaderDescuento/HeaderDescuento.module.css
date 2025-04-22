@@ -1,0 +1,13 @@
+.containerPrincipalHeaderDescuento{
+    width: 100vw;
+    height: 5vh;
+    background-color: black;
+}
+
+.textDescuento{
+    color: white;
+    position: absolute;
+    left: 35vw;
+    top: 1vh;
+    font-size: 1em;
+}
