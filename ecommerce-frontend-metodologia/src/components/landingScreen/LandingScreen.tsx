@@ -1,8 +1,9 @@
 
+import CarouselComponent from '../../ui/Carrusel/CarouselComponent'
 import { HeaderDescuento } from '../../ui/HeaderDescuento/HeaderDescuento'
 import { NavBarLanding } from '../../ui/NavBarLanding/NavBarLanding'
 import { PrincipalImagesLanding } from '../../ui/PrincipalImagesLanding/PrincipalImagesLanding'
-import styles from './LandingScreen.module.css'
+// import styles from './LandingScreen.module.css'
 
 export const LandingScreen = () => {
   return (
@@ -10,6 +11,7 @@ export const LandingScreen = () => {
     <HeaderDescuento />
     <NavBarLanding />
     <PrincipalImagesLanding />
+    <CarouselComponent/>
     </>
   )
 }
