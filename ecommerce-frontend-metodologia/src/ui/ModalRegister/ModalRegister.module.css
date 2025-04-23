@@ -1,0 +1,52 @@
+
+.containerPrincipalModalRegister {
+    width: 20vw;
+    height: 50vh;
+    background-color: white;
+    border-radius: 0.4rem;
+    position: absolute;
+    top: 57%;
+    left: 50%;
+    transform: translate(-50%, -70%);
+    display: flex;
+    justify-content: center;
+}
+
+.containerForm {
+    width: 100%;
+    padding: 1rem;
+}
+
+.containerElementsForm {
+    display: flex;
+    flex-direction: column;
+    gap: 0.7vw;
+    width: 100%;
+}
+
+.inputFormRegister{
+    padding: 1vh;
+    border-radius: 0.2rem;
+    outline: none;
+    border: 1px solid black;
+}
+
+.buttonRegistrarme{
+    height: 6vh;
+    color: white;
+    background-color: black;
+    border-radius: 0.4rem;
+    border: none;
+    transition: background-color 0.7s ease;
+}
+
+.buttonRegistrarme:hover{
+    cursor: pointer;
+    background-color: white;
+    color: black;
+    border: 1px solid black;
+}
+
+
+
+
