@@ -7,11 +7,12 @@ import { useState } from 'react';
 const CarouselComponent = () => {
     const [index, setIndex] = useState<number>(0);
 
-    // este handler recibe selectedIndex y e (evento opcional)
+    // este handler recibe selectedIndex y e 
     const handleSelect = (selectedIndex: number, e: Record<string, unknown> | null) => {
         console.log(e)
         setIndex(selectedIndex);
     };
+
 
     return (
         <div className={styles.containerPrincipal}>
