@@ -1,4 +1,4 @@
-import { ModalRegister } from '../../ui/ModalRegister/ModalRegister'
+import { FormRegister } from '../../../ui/ModalRegister/FormRegister'
 import styles from './RegisterScreen.module.css'
 
 export const RegisterScreen = () => {
@@ -6,7 +6,7 @@ export const RegisterScreen = () => {
     <div>
         <h1 className={styles.titleRegisterEcommerce}>ClothesShopMendoza</h1>
         <h2 className={styles.titleRegisterRegistrate}>Registrate</h2>
-        <ModalRegister />
+        <FormRegister />
     </div>
   )
 }

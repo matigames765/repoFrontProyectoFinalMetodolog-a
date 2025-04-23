@@ -1,12 +1,12 @@
-import styles from './ModalRegister.module.css'
+import styles from './FormRegister.module.css'
 
-export const ModalRegister = () => {
+export const FormRegister = () => {
   return (
-    <div className={styles.containerPrincipalModalRegister}>
+    <div className={styles.containerPrincipalFormRegister}>
         <div className={styles.containerForm}>
         <form>
             <div className={styles.containerElementsForm}>
-                <label htmlFor='email'>Crear correo electronico</label>
+                <label htmlFor='email'>Ingresar su correo electronico</label>
                 <input type='email' id='email' required placeholder='Ingrese su correo electronico' name='email' className={styles.inputFormRegister}/>
                 <label htmlFor='nombreUsuario'>Crear nombre de usuario</label>
                 <input type='text' id='nombreUsuario' required placeholder='Ingrese su nombre de usuario' name='nombreUsuario' className={styles.inputFormRegister}/>
