@@ -1,4 +1,4 @@
-import { FormRegister } from '../../../ui/ModalRegister/FormRegister'
+import { FormRegister } from '../../ui/ModalRegister/FormRegister'
 import styles from './RegisterScreen.module.css'
 
 export const RegisterScreen = () => {
