@@ -8,8 +8,8 @@ function App() {
 
   return (
     <>
-      {/* <LandingScreen /> */}
-      {/* <RegisterScreen />  */}
+      {/* <LandingScreen />  */}
+      {/* <RegisterScreen /> */}
       {/* <LoginScreen />  */}
       <CatalogoScreen />
     </>

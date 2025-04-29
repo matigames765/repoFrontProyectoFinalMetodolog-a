@@ -1,8 +1,7 @@
 .principalContainerColumFilter{
     width: 25vw;
-    height: 80vh;
+    height: 86.3vh;
     background-color: #EBEBEB;
-    position: relative;
 }
 
 
@@ -11,8 +10,7 @@
     flex-direction: column;
     gap: 1vw;
     margin-left: 5vw;
-    position: absolute;
-    top: 1vw;
+    padding-top: 1vw;
 }
 
 .desplegableFilter{
