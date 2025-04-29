@@ -10,8 +10,10 @@
 // )
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import App from './App';
+
 import { AdminScreen } from './components/screens/adminScreen/AdminScreen';
+
+import App from './App';
 
 
 const isAdmin = window.location.pathname.startsWith('/admin');
