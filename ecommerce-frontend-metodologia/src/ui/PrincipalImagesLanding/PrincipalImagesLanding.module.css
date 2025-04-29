@@ -3,9 +3,67 @@
     height: 70vh;
     margin-left: 10vh;
     margin-top: 2vw;
+    position: relative;
 }
 
 .imagenesPrincipales{
     height: 70vh;
     width: 30vw;
+}
+
+.buttonPrincipalImageMujer{
+    position: absolute;
+    top: 60vh;
+    left: 1vw;
+    width: 6vw;
+    height: 6vh;
+    background-color: #A1A0A0;
+    font-weight: 600;
+    border: none;
+    transition: width 0.6s ease, height 0.6s ease, background-color 0.6s ease;
+}
+
+.buttonPrincipalImageMujer:hover{
+    cursor: pointer;
+    width: 7vw;
+    height: 7vh;
+    background-color: #E0E0E0;
+}
+
+.buttonPrincipalImageHombre{
+    position: absolute;
+    top: 60vh;
+    left: 31vw;
+    width: 6vw;
+    height: 6vh;
+    background-color: #A1A0A0;
+    font-weight: 600;
+    border: none;
+    transition: width 0.6s ease, height 0.6s ease, background-color 0.6s ease;
+}
+
+.buttonPrincipalImageHombre:hover{
+    cursor: pointer;
+    width: 7vw;
+    height: 7vh;
+    background-color: #E0E0E0;
+}
+
+.buttonPrincipalImageNenio{
+    position: absolute;
+    top: 60vh;
+    left: 61vw;
+    width: 6vw;
+    height: 6vh;
+    background-color: #A1A0A0;
+    font-weight: 600;
+    border: none;
+    transition: width 0.6s ease, height 0.6s ease, background-color 0.6s ease;
+}
+
+.buttonPrincipalImageNenio:hover{
+    cursor: pointer;
+    width: 7vw;
+    height: 7vh;
+    background-color: #E0E0E0;
 }

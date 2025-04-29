@@ -7,9 +7,9 @@ function App() {
 
   return (
     <>
-      {/* <LandingScreen />  */}
+      <LandingScreen />
       {/* <RegisterScreen />  */}
-      <LoginScreen /> 
+      {/* <LoginScreen />  */}
     </>
   )
 }

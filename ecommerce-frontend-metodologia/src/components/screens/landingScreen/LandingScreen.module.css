@@ -1,0 +1,13 @@
+.landingContainer {
+    height: 100vh;  /* Asegura que el contenedor ocupe toda la altura de la ventana */
+    margin: 0;
+    overflow: auto; /* Permite desplazamiento */
+}
+
+.landingContainer::-webkit-scrollbar {
+    display: none; /* Oculta la barra de desplazamiento */
+}
+
+.landingContainer * {
+    overflow: visible; /* Permite que el contenido dentro del contenedor sea visible y desplazable */
+}

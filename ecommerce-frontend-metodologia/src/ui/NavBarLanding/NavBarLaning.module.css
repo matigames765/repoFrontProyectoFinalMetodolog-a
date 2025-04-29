@@ -20,8 +20,9 @@
     left: 1vw;
 }
 
-.categorieNavBarLanding:hover{
+.categorieNavBarLanding{
     transition: font-size 0.2s ease;
+    font-size: 1em;
 }
 
 .categorieNavBarLanding:hover{
