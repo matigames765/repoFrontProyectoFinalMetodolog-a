@@ -2,21 +2,12 @@ import Carousel from 'react-bootstrap/Carousel';
 import styles from './CarouselComponent.module.css';
 import img1 from './imagenes/fotos-Z9nC-SASRd8-unsplash.jpg'
 import img2 from './imagenes/frames-for-your-heart-ujEMKcsnN-s-unsplash.jpg'
-import { useState } from 'react';
 
 const CarouselComponent = () => {
-    const [index, setIndex] = useState<number>(0);
-
-    // este handler recibe selectedIndex y e 
-    const handleSelect = (selectedIndex: number, e: Record<string, unknown> | null) => {
-        console.log(e)
-        setIndex(selectedIndex);
-    };
-
 
     return (
         <div className={styles.containerPrincipal}>
-            <Carousel activeIndex={index} onSelect={handleSelect}>
+            <Carousel >
                 <Carousel.Item>
                     <img src={img1} alt="First slide" />
                     <Carousel.Caption>
