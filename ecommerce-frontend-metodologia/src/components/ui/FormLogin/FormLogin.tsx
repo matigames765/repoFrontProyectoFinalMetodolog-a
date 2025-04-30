@@ -1,4 +1,4 @@
-import styles from './FormLogin.module.css'
+import styles from './FormLogin.module.css';
 
 export const FormLogin = () => {
   return (

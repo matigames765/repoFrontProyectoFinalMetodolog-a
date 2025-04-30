@@ -17,14 +17,10 @@ function App() {
   return (
     <>
 
-      <LandingScreen />
-
       <BrowserRouter>
         <AppRouter />
       </BrowserRouter>
 
-
-      
     </>
   );
 }

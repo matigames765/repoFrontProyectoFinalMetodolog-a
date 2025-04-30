@@ -1,9 +1,9 @@
 import { HeaderDescuento } from "../../ui/HeaderDescuento/HeaderDescuento";
 import styles from "./CategoriasScreen.module.css";
-import categoriaRunning from "../../Imagenes/categoriaRunning.jpg";
-import categoriaUrban from "../../Imagenes/categoriaUrban.jpg";
-import categoriaTraining from "../../Imagenes/categoriaTraining.jpg";
-import categoriaSports from "../../Imagenes/categoriaSports.jpg";
+import categoriaRunning from "../../../Imagenes/categoriaRunning.jpg";
+import categoriaUrban from "../../../Imagenes/categoriaUrban.jpg";
+import categoriaTraining from "../../../Imagenes/categoriaTraining.jpg";
+import categoriaSports from "../../../Imagenes/categoriaSports.jpg";
 
 
 export const CategoriasScreen = () => {
