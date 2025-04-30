@@ -1,4 +1,4 @@
-import { FormLogin } from '../../../ui/FormLogin/FormLogin'
+import { FormLogin } from '../../ui/FormLogin/FormLogin'
 import styles from './LoginScreen.module.css'
 
 export const LoginScreen = () => {

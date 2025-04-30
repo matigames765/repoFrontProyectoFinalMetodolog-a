@@ -1,0 +1,45 @@
+body{
+  background-color: black;
+}
+.contenedorImagenesCategoria {
+  display: flex;
+  justify-content: space-between; 
+  align-items: stretch;
+  width: 100%;
+  height: 95vh;
+  overflow: hidden;  
+}
+
+
+
+.botonImagen {
+  background-size: cover;
+  background-position: center;
+  width: 25%; 
+  height: 95vh; 
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.botonImagen button {
+  background-color: rgba(0, 0, 0, 0.6);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 18px;
+  cursor: pointer;
+  width: 100%;
+}
+
+.botonImagen:hover{
+  transform: scale(1.03);
+}
+
+.botonImagen:hover button {
+  background-color: rgba(0, 0, 0, 0.8);
+}
