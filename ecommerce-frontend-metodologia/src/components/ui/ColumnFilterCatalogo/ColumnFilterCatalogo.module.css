@@ -1,0 +1,28 @@
+.principalContainerColumFilter {
+  width: 25vw;
+  height: 86.3vh;
+  background-color: #ebebeb;
+}
+
+.containerDesplegables {
+  display: flex;
+  flex-direction: column;
+  gap: 1vw;
+  margin-left: 5vw;
+  padding-top: 1vw;
+}
+
+.desplegableFilter {
+  width: 15vw;
+  border-radius: 0.8rem;
+  border: none;
+  padding: 1vh;
+  padding-right: 2vw;
+  background-color: #d9d9d9;
+  transition: background-color 0.5s ease;
+}
+
+.desplegableFilter:hover {
+  cursor: pointer;
+  background-color: #bfbfbf;
+}

@@ -1,0 +1,36 @@
+.principalContainerSectionImagenesCatalogo {
+  width: 74vw;
+  height: 86.3vh;
+  position: absolute;
+  right: 0vw;
+  top: 9.5vw;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: auto;
+  padding-top: 5vh;
+  padding-left: 10vh;
+}
+
+.containerImagenesCatalogo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.containerPrecioInfoImagenesCatalogo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.buttonImagenesCatalogo {
+  padding: 1vh;
+  border-radius: 0.4rem;
+  border: 0.5px solid black;
+  transition: background-color 0.5s ease, transform 0.5s ease;
+}
+
+.buttonImagenesCatalogo:hover {
+  cursor: pointer;
+  transform: scale(1.05);
+}

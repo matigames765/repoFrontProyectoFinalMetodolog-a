@@ -1,0 +1,17 @@
+.containerPrincipalFooterCatalogo {
+  width: 100vw;
+  height: 15vh;
+  background-color: #525252;
+  margin-top: 3vw;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  position: absolute;
+  top: 100vh;
+}
+
+.informationFooterCatalogo {
+  color: white;
+  font-size: 0.8em;
+  margin-right: 0.5vw;
+}
