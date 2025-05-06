@@ -1,43 +1,50 @@
-.adminHomeDesplegable {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-}
 .containerPrincipal {
   display: flex;
-  height: 100;
+  height: 100%;
+  width: 100%;
   flex-direction: row;
-  overflow-x: hidden;
   background-color: #ebebeb;
 }
 
 .divHeader {
-  width: 82vw;
+  width: 80.5vw;
+  display: flex;
+  justify-content: space-evenly;
+  margin-bottom: 2vw;
 }
 
-button {
-  background-color: #f0f0f0;
-  padding: 1rem;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  width: 11rem;
+.divVisitas {
   display: flex;
-  align-items: flex-start;
-}
-button:hover {
-  background-color: #d4d4d4;
-}
-
-.div2 {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-  padding: 5rem;
-  background-color: #ebebeb;
+  gap: 1rem;
   width: 100%;
-  height: 70vh;
-  border-radius: 15px;
-  margin: 7px;
+  padding: 1rem;
+  background-color: #fafafa;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.usuario,
+.actividad,
+.dia {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.tituloColumna {
+  font-weight: bold;
+  color: #333;
+  border-bottom: 2px solid #007bff;
+  padding-bottom: 0.5rem;
+  margin-bottom: 0.5rem;
+  text-align: center;
+}
+
+.usuario p,
+.actividad p,
+.dia p {
+  background-color: #f0f0f0;
+  padding: 0.75rem;
+  text-align: center;
+  border-radius: 0.4rem;
 }

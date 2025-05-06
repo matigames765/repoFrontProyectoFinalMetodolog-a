@@ -12,33 +12,33 @@ export const VentasAdmin = () => {
           <div className={styles.divHeader}>
             <HeaderAdmin />
           </div>
-          <div className={styles.div2}>
-            <div>
-              <p>id ventas</p>
+          <div className={styles.divVentas}>
+            <div className={styles.idVentas}>
+              <h3 className={styles.tituloColumna}>Id Ventas</h3>
               <p>xxxx</p>
               <p>xxxx</p>
               <p>xxxx</p>
               <p>xxxx</p>
               <p>xxxx</p>
             </div>
-            <div>
-              <p>id clientes</p>
+            <div className={styles.idClientes}>
+              <h3 className={styles.tituloColumna}>Id Clientes</h3>
               <p>xxxx</p>
               <p>xxxx</p>
               <p>xxxx</p>
               <p>xxxx</p>
               <p>xxxx</p>
             </div>
-            <div>
-              <p>fecha</p>
+            <div className={styles.fecha}>
+              <h3 className={styles.tituloColumna}>Fecha</h3>
               <p>24/04/2025</p>
               <p>24/04/2025</p>
               <p>24/04/2025</p>
               <p>24/04/2025</p>
               <p>24/04/2025</p>
             </div>
-            <div>
-              <p>Total</p>
+            <div className={styles.total}>
+              <h3 className={styles.tituloColumna}>Total</h3>
               <p>100.000</p>
               <p>100.000</p>
               <p>100.000</p>

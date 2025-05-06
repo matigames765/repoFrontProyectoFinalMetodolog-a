@@ -1,13 +1,10 @@
-body {
-  background-color: black;
-}
+
 .contenedorImagenesCategoria {
   display: flex;
   justify-content: space-between;
   align-items: stretch;
   width: 100%;
   height: 95vh;
-  overflow: hidden;
 }
 
 .botonImagen {

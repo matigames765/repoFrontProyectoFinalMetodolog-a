@@ -1,7 +1,7 @@
 .landingContainer {
   height: 100vh;
   margin: 0;
-  overflow: auto;
+  overflow-x: hidden;
   background-color: #e0e0e0;
 }
 

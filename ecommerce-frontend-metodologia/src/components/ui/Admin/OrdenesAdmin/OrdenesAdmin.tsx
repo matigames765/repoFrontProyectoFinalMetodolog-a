@@ -8,40 +8,40 @@ export const OrdenesAdmin = () => {
       <div className={styles.containerPrincipal}>
         <NavBarAdmin />
         <div className={styles.contenido}>
-        <div className={styles.divHeader}>
+          <div className={styles.divHeader}>
             <HeaderAdmin />
           </div>
-          <div className={styles.div2}>
-            <div>
-              <p>id_ordenDeCompra</p>
+          <div className={styles.divOrdenes}>
+            <div className={styles.idOrdenDeCompra}>
+              <h3 className={styles.tituloColumna}>ID de Compra</h3>
               <p>#2657</p>
               <p>#2656</p>
               <p>#2655</p>
               <p>#2654</p>
             </div>
-            <div>
-              <p>Fecha</p>
+            <div className={styles.fechaOrden}>
+              <h3 className={styles.tituloColumna}>Fecha</h3>
               <p>28/04/2025</p>
               <p>28/04/2025</p>
               <p>28/04/2025</p>
               <p>28/04/2025</p>
             </div>
-            <div>
-              <p>direccion</p>
+            <div className={styles.direccion}>
+              <h3 className={styles.tituloColumna}>Direccion</h3>
               <p>Mendoza, Argentina</p>
               <p>San Juan, Argentina</p>
               <p>Buenos Aires, Argentina</p>
               <p>Santiago, Chile</p>
             </div>
-            <div>
-              <p>estado</p>
+            <div className={styles.estado}>
+              <h3 className={styles.tituloColumna}>Estado</h3>
               <p>En camino</p>
               <p>Entregado</p>
               <p>En camino</p>
               <p>En camino</p>
             </div>
-            <div>
-              <p>Total</p>
+            <div className={styles.totalOrden}>
+              <h3 className={styles.tituloColumna}>Total</h3>
               <p>100.000</p>
               <p>100.000</p>
               <p>100.000</p>

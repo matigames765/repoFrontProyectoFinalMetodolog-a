@@ -11,23 +11,23 @@ export const ClientesAdmin = () => {
           <div className={styles.divHeader}>
             <HeaderAdmin />
           </div>
-          <div className={styles.div2}>
-            <div>
-              <p>id clientes</p>
+          <div className={styles.divClientes}>
+            <div className={styles.idCliente}>
+              <h3 className={styles.tituloColumna}>ID Cliente</h3>
               <p>#2857</p>
               <p>#2856</p>
               <p>#2855</p>
               <p>#2854</p>
             </div>
-            <div>
-              <p>pais</p>
+            <div className={styles.pais}>
+              <h3 className={styles.tituloColumna}>Pais</h3>
               <p>Argentina</p>
               <p>Chile</p>
               <p>EE.UU.</p>
               <p>España</p>
             </div>
-            <div>
-              <p>Domicilio</p>
+            <div className={styles.domicilio}>
+              <h3 className={styles.tituloColumna}>Domicilio</h3>
               <p>Calle xx N°</p>
               <p>Calle xx N°</p>
               <p>Calle xx N°</p>
