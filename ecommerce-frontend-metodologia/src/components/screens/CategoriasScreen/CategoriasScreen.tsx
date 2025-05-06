@@ -1,15 +1,16 @@
 import { HeaderDescuento } from "../../ui/HeaderDescuento/HeaderDescuento";
 import styles from "./CategoriasScreen.module.css";
-import categoriaRunning from "../../Imagenes/categoriaRunning.jpg";
-import categoriaUrban from "../../Imagenes/categoriaUrban.jpg";
-import categoriaTraining from "../../Imagenes/categoriaTraining.jpg";
-import categoriaSports from "../../Imagenes/categoriaSports.jpg";
-
+import categoriaRunning from "../../../Imagenes/categoriaRunning.jpg";
+import categoriaUrban from "../../../Imagenes/categoriaUrban.jpg";
+import categoriaTraining from "../../../Imagenes/categoriaTraining.jpg";
+import categoriaSports from "../../../Imagenes/categoriaSports.jpg";
+import { useNavigate } from "react-router";
 
 export const CategoriasScreen = () => {
-
+  const navigate = useNavigate();
   const handleClick = () => {
     console.log("click en la tarjeta");
+    navigate("/catalogo");
   };
   return (
     <>

@@ -1,15 +1,14 @@
 .containerPrincipal {
-    margin-left: 4.8vw;
-    margin-top: 2vw;
-    width: 90%;
-    height: 80vw;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  margin-left: 4.8vw;
+  margin-top: 2vw;
+  width: 90%;
+  height: 70vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .containerPrincipal img {
-    width: 80vw; 
-    height: 50vw;
-} 
-
+  width: 90vw;
+  max-height: 70vh;
+}

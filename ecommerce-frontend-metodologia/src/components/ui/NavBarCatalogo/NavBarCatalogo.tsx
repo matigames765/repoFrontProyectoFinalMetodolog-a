@@ -1,10 +1,20 @@
 import { Menu, Search, ShoppingCart } from "lucide-react";
 import styles from "./NavBarCatalogo.module.css";
+import { useNavigate } from "react-router";
 
 export const NavBarCatalogo = () => {
+  const navigate = useNavigate();
+  const handleNavigateToLanding = () => {
+    navigate("/");
+  };
   return (
     <div className={styles.containerNavBarCatalogo}>
-      <h6 className={styles.titleNavBarCatalogo}>ClothesShopMendoza</h6>
+      <h6
+        className={styles.titleNavBarCatalogo}
+        onClick={handleNavigateToLanding}
+      >
+        ClothesShopMendoza
+      </h6>
       <div className={styles.containerCategoriesNavBarCatalogo}>
         <h4 className={styles.categorieNavBarCatalogo}>Destacados</h4>
         <h4 className={styles.categorieNavBarCatalogo}>Hombre</h4>
