@@ -1,22 +1,20 @@
-body{
+body {
   background-color: black;
 }
 .contenedorImagenesCategoria {
   display: flex;
-  justify-content: space-between; 
+  justify-content: space-between;
   align-items: stretch;
   width: 100%;
   height: 95vh;
-  overflow: hidden;  
+  overflow: hidden;
 }
-
-
 
 .botonImagen {
   background-size: cover;
   background-position: center;
-  width: 25%; 
-  height: 95vh; 
+  width: 25%;
+  height: 95vh;
   display: flex;
   align-items: flex-end;
   justify-content: center;
@@ -36,7 +34,7 @@ body{
   width: 100%;
 }
 
-.botonImagen:hover{
+.botonImagen:hover {
   transform: scale(1.03);
 }
 

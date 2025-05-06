@@ -1,0 +1,30 @@
+.adminHomeDesplegable {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.containerPrincipal {
+  display: flex;
+  height: 100;
+  flex-direction: row;
+  background-color: #ebebeb;
+
+  overflow-x: hidden;
+}
+
+.divHeader{
+    width: 82vw;
+}
+
+.div2 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5rem;
+  background-color: #ebebeb;
+  width: 100%;
+  height: 70vh;
+  border-radius: 15px;
+  margin: 7px;
+}

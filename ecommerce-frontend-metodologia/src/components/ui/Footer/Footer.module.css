@@ -1,15 +1,51 @@
-.containerPrincipalFooter{
-    width: 100vw;
-    height: 15vh;
-    background-color: #525252;
-    margin-top: 3vw;
-    display: flex;
-    justify-content: flex-end;
-    align-items: flex-end;
+.containerPrincipalFooter {
+  width: 100vw;
+  height: 20vh;
+  background-color: #525252;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  position: relative;
 }
 
-.informationFooter{
-    color: white;
-    font-size: 0.8em;
-    margin-right: 0.5vw;
+.informationFooter {
+  color: white;
+  font-size: 0.8em;
+  margin-right: 0.5vw;
+}
+
+.textFooter {
+  color: #1a1a1a;
+}
+
+.textFooterLeft {
+  position: absolute;
+  left: 10vw;
+  top: 1.5vw;
+}
+
+.textFooterRight {
+  position: absolute;
+  right: 15vw;
+  top: 1.5vw;
+}
+
+.socialMediaClothesShop {
+  position: absolute;
+  right: 50vw;
+  top: 3vw;
+  width: 5vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.icons {
+  display: flex;
+  justify-content: space-between;
+  width: 5vw;
+}
+
+.textPrincipalFooter {
+  color: #d9d9d9;
 }

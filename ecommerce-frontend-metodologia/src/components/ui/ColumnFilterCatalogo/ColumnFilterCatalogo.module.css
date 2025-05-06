@@ -2,6 +2,7 @@
   width: 25vw;
   height: 86.3vh;
   background-color: #ebebeb;
+  box-sizing: border-box;
 }
 
 .containerDesplegables {
@@ -16,13 +17,21 @@
   width: 15vw;
   border-radius: 0.8rem;
   border: none;
-  padding: 1vh;
-  padding-right: 2vw;
-  background-color: #d9d9d9;
+  padding: 0.75rem 2rem 0.75rem 1rem;
   transition: background-color 0.5s ease;
+  appearance: none;
+  background: url('data:image/svg+xml;utf8,<svg fill="%23000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>')
+    no-repeat right 1rem center;
+  background-size: 1rem;
+  border: 1px solid black;
+  background-color: white;
 }
 
+.desplegableFilter:focus {
+  outline: 2px solid #007bff;
+  outline-offset: 2px;
+}
 .desplegableFilter:hover {
-  cursor: pointer;
-  background-color: #bfbfbf;
+  background-color: #d9d9d9;
+  color: #333;
 }

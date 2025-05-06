@@ -1,36 +1,16 @@
-/* Contenedor principal */
-.containerAdminScreen {
-  width: 100vw;
-  height: 100vh;
+.navBarContainer {
+  background-color: #ebebeb;
+}
+.adminNavContainer {
+  width: 18vw;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  background-color: #f4f7fa;
-  padding: 2rem;
-  box-sizing: border-box;
+  margin: 2rem;
 }
 
-/* Título principal */
-.containerAdminScreen h2 {
-  font-size: 2rem;
-  font-weight: 600;
-  color: #333;
-  margin-bottom: 2rem;
-  text-align: center;
-}
-
-/* Contenedor de botones */
-.adminHomeDesplegable {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  align-items: center;
-  justify-content: center;
-}
-
-/* Botones de navegación */
-.buttonNav {
+/* Botones navegacion */
+.buttonNavAdmin {
   padding: 1rem 2rem;
   border: none;
   border-radius: 8px;
@@ -41,20 +21,22 @@
   transition: background-color 0.3s ease, transform 0.2s ease;
   cursor: pointer;
   width: 200px;
+  margin: 0.5rem;
 }
 
-.buttonNav:hover {
+.buttonNavAdmin:hover {
   background-color: #0056b3;
   transform: translateY(-2px);
 }
 
-.buttonNav:focus {
+.buttonNavAdmin:focus {
   outline: none;
   box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.5);
 }
 
-/* "Volver a landing" */
-.buttonBackLanding {
+/* Boton back landing */
+
+.buttonNavAdminLanding {
   padding: 1rem 2rem;
   border: none;
   border-radius: 8px;
@@ -67,7 +49,7 @@
   width: 200px;
 }
 
-.buttonBackLanding:hover {
+.buttonNavAdminLanding:hover {
   background-color: #5a6268;
   transform: translateY(-2px);
 }

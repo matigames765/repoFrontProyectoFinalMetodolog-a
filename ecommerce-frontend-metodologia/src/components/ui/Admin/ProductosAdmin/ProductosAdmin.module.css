@@ -1,0 +1,53 @@
+.adminHomeDesplegable {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.containerPrincipal {
+  display: flex;
+  height: 100;
+  flex-direction: row;
+  background-color: #ebebeb;
+  overflow-x: hidden;
+}
+
+.divHeader {
+  width: 82vw;
+}
+
+.divProductos {
+  display: flex;
+  gap: 1rem;
+  width: 100%;
+  padding: 1rem;
+  background-color: #fafafa;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.idProductos,
+.precioProductos,
+.editarProductos {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.tituloColumna {
+  font-weight: bold;
+  color: #333;
+  border-bottom: 2px solid #007bff;
+  padding-bottom: 0.5rem;
+  margin-bottom: 0.5rem;
+  text-align: center;
+}
+
+.idProductos p,
+.precioProductos p,
+.editarProductos p {
+  background-color: #f0f0f0;
+  padding: 0.75rem;
+  text-align: center;
+  border-radius: 0.4rem;
+  transition: background-color 0.3s;
+}
