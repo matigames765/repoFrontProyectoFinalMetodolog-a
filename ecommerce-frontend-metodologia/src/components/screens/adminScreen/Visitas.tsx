@@ -15,6 +15,7 @@ export const Visitas = () => {
           <button onClick={() => navigate("/admin/ordenes")}>Ordenes</button>
           <button onClick={() => navigate("/admin/clientes")}>Clientes</button>
           <button onClick={() => navigate("/admin/productos")}>Productos</button>
+          <button onClick={() => navigate("/")}>Volver a landing</button>
         </div>
         <div>
           <div className={styles.infoGeneral}>

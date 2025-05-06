@@ -6,6 +6,7 @@ import { Clientes } from "./Clientes";
 import { Productos } from "./Productos";
 import { Ventas } from "./Ventas";
 import { AdminHome } from "./adminHome";
+import { LandingScreen } from "../landingScreen/LandingScreen";
 
 
 export const AdminScreen = () => {
@@ -19,6 +20,7 @@ export const AdminScreen = () => {
         <Route path="/admin/ordenes" element={<Ordenes />} />
         <Route path="/admin/clientes" element={<Clientes />} />
         <Route path="/admin/productos" element={<Productos />} />
+        <Route path="/" element={<LandingScreen/>}></Route>
       </Routes>
     </BrowserRouter>
   );
