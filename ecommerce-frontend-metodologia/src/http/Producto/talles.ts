@@ -1,5 +1,5 @@
 import axios from "axios"
-import { ITalles } from "../types/Producto/ITalles"
+import { ITalles } from "../../types/Producto/ITalles"
 
 
 //obtener talles

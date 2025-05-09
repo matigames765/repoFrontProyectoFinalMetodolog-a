@@ -1,5 +1,5 @@
 import axios from "axios"
-import { IImagenProducto } from "../types/Producto/IImagenProducto"
+import { IImagenProducto } from "../../types/Producto/IImagenProducto"
 
 //obtener imagenes productos
 export const getAllImagenesProductos = async(): Promise<IImagenProducto[] | undefined> => {

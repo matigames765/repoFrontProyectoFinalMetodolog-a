@@ -1,5 +1,5 @@
 import axios from "axios"
-import { IDescuento } from "../types/Producto/IDescuento"
+import { IDescuento } from "../../types/Producto/IDescuento"
 
 //obtener descuentos
 export const getAllDescuentos = async(): Promise<IDescuento[] | undefined> => {

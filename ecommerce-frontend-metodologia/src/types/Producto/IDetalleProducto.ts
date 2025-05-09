@@ -1,3 +1,4 @@
+import { IImagenProducto } from "./IImagenProducto";
 import { IPrecio } from "./IPrecio";
 import { IProducto } from "./IProducto";
 import { ITalles } from "./ITalles";
@@ -9,5 +10,6 @@ export interface IDetalleProductos{
     producto: IProducto,
     color: string,
     estado: boolean,
-    precio: IPrecio
+    precio: IPrecio,
+    imagenProducto: IImagenProducto
 }

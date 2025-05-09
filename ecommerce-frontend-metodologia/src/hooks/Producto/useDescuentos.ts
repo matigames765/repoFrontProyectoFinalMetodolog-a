@@ -1,6 +1,6 @@
 import { useShallow } from "zustand/shallow"
-import { descuentoStore } from "../store/descuentoStore"
-import { getAllDescuentos } from "../http/descuento"
+import { descuentoStore } from "../../store/Producto/descuentoStore"
+import { getAllDescuentos } from "../../http/Producto/descuento"
 
 export const useDescuentos = () => {
 
@@ -22,6 +22,7 @@ export const useDescuentos = () => {
     }
 
     return({
-        getDescuentosHook
+        getDescuentosHook,
+        descuentos
     })
 }

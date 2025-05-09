@@ -1,5 +1,5 @@
 import { create } from "zustand"
-import { ITalles } from "../types/Producto/ITalles"
+import { ITalles } from "../../types/Producto/ITalles"
 
 interface ITallesStore{
     talles: ITalles[],

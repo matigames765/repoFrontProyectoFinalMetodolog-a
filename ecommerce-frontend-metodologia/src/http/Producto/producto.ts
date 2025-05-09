@@ -1,5 +1,5 @@
 import axios from "axios";
-import { IProducto } from "../types/Producto/IProducto";
+import { IProducto } from "../../types/Producto/IProducto";
 
 
 //obtener productos

@@ -1,6 +1,6 @@
 import { useShallow } from "zustand/shallow"
-import { precioStore } from "../store/precioStore"
-import { getAllPrecios } from "../http/precio"
+import { precioStore } from "../../store/Producto/precioStore"
+import { getAllPrecios } from "../../http/Producto/precio"
 
 export const usePrecios= () => {
 
@@ -22,6 +22,7 @@ export const usePrecios= () => {
     }
 
     return({
-        getPreciosHook
+        getPreciosHook,
+        precios
     })
 }

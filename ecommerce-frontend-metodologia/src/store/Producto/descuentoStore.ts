@@ -1,5 +1,5 @@
 import { create } from "zustand";
-import { IDescuento } from "../types/Producto/IDescuento";
+import { IDescuento } from "../../types/Producto/IDescuento";
 
 interface IDescuentoStore{
     descuentos: IDescuento[],

@@ -1,5 +1,5 @@
 import axios from "axios";
-import { ICategoria } from "../types/Producto/ICategoria";
+import { ICategoria } from "../../types/Producto/ICategoria";
 
 //obtener categorias
 export const getAllCategorias = async(): Promise<ICategoria[] | undefined> => {

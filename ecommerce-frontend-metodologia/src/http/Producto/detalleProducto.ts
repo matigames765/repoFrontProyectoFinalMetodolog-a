@@ -1,5 +1,5 @@
 import axios from "axios"
-import { IDetalleProductos } from "../types/Producto/IDetalleProducto"
+import { IDetalleProductos } from "../../types/Producto/IDetalleProducto"
 
 //obtener detalles productos
 export const getAllDetallesProductos = async(): Promise<IDetalleProductos[] | undefined> => {

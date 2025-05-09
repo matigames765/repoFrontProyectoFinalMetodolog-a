@@ -1,5 +1,5 @@
 import axios from "axios"
-import { IPrecio } from "../types/Producto/IPrecio"
+import { IPrecio } from "../../types/Producto/IPrecio"
 
 //obtener precios
 export const getAllPrecios = async(): Promise<IPrecio[] | undefined> => {

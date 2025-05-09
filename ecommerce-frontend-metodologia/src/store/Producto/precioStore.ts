@@ -1,5 +1,5 @@
 import { create } from "zustand"
-import { IPrecio } from "../types/Producto/IPrecio"
+import { IPrecio } from "../../types/Producto/IPrecio"
 
 interface IPrecioStore{
     precios: IPrecio[],

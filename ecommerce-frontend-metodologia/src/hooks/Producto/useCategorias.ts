@@ -1,6 +1,6 @@
 import { useShallow } from "zustand/shallow"
-import { categoriaStore } from "../store/categoriaStore"
-import { getAllCategorias } from "../http/categoria"
+import { categoriaStore } from "../../store/Producto/categoriaStore"
+import { getAllCategorias } from "../../http/Producto/categoria"
 
 export const useCategorias = () => {
     //traer variables y actions de la store de categorias
@@ -22,7 +22,8 @@ export const useCategorias = () => {
     }
 
     return ({
-        getCategoriasHook
+        getCategoriasHook,
+        categorias
     })
 
 }

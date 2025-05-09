@@ -1,6 +1,6 @@
 import { useShallow } from "zustand/shallow"
-import { tallesStore } from "../store/tallesStore"
-import { getAllTalles } from "../http/talles"
+import { tallesStore } from "../../store/Producto/tallesStore"
+import { getAllTalles } from "../../http/Producto/talles"
 
 export const useTalles = () => {
 
@@ -22,6 +22,7 @@ export const useTalles = () => {
     }
 
     return({
-        getTallesHook
+        getTallesHook,
+        talles
     })
 }

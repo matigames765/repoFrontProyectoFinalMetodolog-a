@@ -1,5 +1,5 @@
 import { create } from "zustand";
-import { IProducto } from "../types/Producto/IProducto";
+import { IProducto } from "../../types/Producto/IProducto";
 
 interface IProductoStore{
     productos: IProducto[],

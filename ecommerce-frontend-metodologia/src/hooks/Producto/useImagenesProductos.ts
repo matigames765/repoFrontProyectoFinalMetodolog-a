@@ -1,6 +1,6 @@
 import { useShallow } from "zustand/shallow"
-import { imagenProductoStore } from "../store/imagenProductoStore"
-import { getAllImagenesProductos } from "../http/imagenProducto"
+import { imagenProductoStore } from "../../store/Producto/imagenProductoStore"
+import { getAllImagenesProductos } from "../../http/Producto/imagenProducto"
 
 export const useImagenesProductos = () => {
 
@@ -22,6 +22,7 @@ export const useImagenesProductos = () => {
     }
 
     return({
-        getImagenesProductosHook
+        getImagenesProductosHook,
+        imagenesProductos
     })
 }

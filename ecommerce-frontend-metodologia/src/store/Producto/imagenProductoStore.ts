@@ -1,5 +1,5 @@
 import { create } from "zustand"
-import { IImagenProducto } from "../types/Producto/IImagenProducto"
+import { IImagenProducto } from "../../types/Producto/IImagenProducto"
 
 interface IImagenProductoStore{
     imagenesProductos: IImagenProducto[],

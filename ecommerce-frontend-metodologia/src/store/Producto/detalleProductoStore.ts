@@ -1,5 +1,5 @@
 import { create } from "zustand"
-import { IDetalleProductos } from "../types/Producto/IDetalleProducto"
+import { IDetalleProductos } from "../../types/Producto/IDetalleProducto"
 
 interface IDetalleProductoStore{
     detallesProductos: IDetalleProductos[],

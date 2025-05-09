@@ -1,6 +1,6 @@
 import { useShallow } from "zustand/shallow"
-import { detalleProductoStore } from "../store/detalleProductoStore"
-import { getAllDetallesProductos } from "../http/detalleProducto"
+import { detalleProductoStore } from "../../store/Producto/detalleProductoStore"
+import { getAllDetallesProductos } from "../../http/Producto/detalleProducto"
 
 export const useDetallesProductos = () => {
 
@@ -22,6 +22,7 @@ export const useDetallesProductos = () => {
     }
 
     return({
-        getDetallesProductosHook
+        getDetallesProductosHook,
+        detallesProductos
     })
 }
