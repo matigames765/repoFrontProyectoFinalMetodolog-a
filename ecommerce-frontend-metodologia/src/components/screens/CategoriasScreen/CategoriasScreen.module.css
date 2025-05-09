@@ -1,10 +1,11 @@
-
 .contenedorImagenesCategoria {
   display: flex;
   justify-content: space-between;
   align-items: stretch;
   width: 100%;
   height: 95vh;
+  overflow-y: hidden;
+  background-color: black;
 }
 
 .botonImagen {
@@ -29,6 +30,7 @@
   font-size: 18px;
   cursor: pointer;
   width: 100%;
+  transition: 0.3s ease-out;
 }
 
 .botonImagen:hover {
@@ -37,4 +39,5 @@
 
 .botonImagen:hover button {
   background-color: rgba(0, 0, 0, 0.8);
+  padding-bottom: 40px;
 }
