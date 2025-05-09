@@ -1,0 +1,94 @@
+.containerNavBarLanding {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  position: relative;
+  background-color: #f5f5f5;
+}
+
+.titleNavBarLanding {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.containerCategoriesNavBarLanding {
+  display: flex;
+  justify-content: flex-start;
+  width: 100%;
+  gap: 5px;
+}
+
+.categorieNavBarLanding {
+  font-size: 16px;
+  font-weight: 500;
+  padding: 8px 12px;
+  color: #333;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.categorieNavBarLanding:hover {
+  background-color: black;
+  color: white;
+  transform: translateY(-2px);
+  border-radius: 0.4rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.containerGral {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Contenedor para la barra de búsqueda y carrito */
+.searchAndCartContainer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  width: 100%;
+  gap: 15px;
+}
+
+.searchContainer {
+  position: relative;
+}
+
+.barraBusquedaCatalogo {
+  width: 250px;
+  padding: 8px 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.searchIconCalogo {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+
+.cartContainer {
+  position: relative;
+}
+
+.iconShoppinCartLanding {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.popupWrapper {
+  position: absolute;
+  top: 70px;
+  right: 20px;
+}
+
+.popupCartVisible {
+  display: block;
+}

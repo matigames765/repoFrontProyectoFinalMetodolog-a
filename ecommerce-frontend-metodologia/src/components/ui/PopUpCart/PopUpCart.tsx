@@ -7,7 +7,7 @@ type ICardPopUp = {
   handleCloseModal: () => void;
   visible: boolean;
 };
-const articulosEnCarrito = " "
+const articulosEnCarrito = ""
 
 export const PopUpCart: FC<ICardPopUp> = ({ handleCloseModal, visible }) => {
 
@@ -24,13 +24,12 @@ export const PopUpCart: FC<ICardPopUp> = ({ handleCloseModal, visible }) => {
           </div>
           <div>
 
-            <ArticuloTarjeta/>
           </div>
-          {/* {articulosEnCarrito.length > 0 ?(
-              ArticuloTarjeta()
+          {articulosEnCarrito.length > 0 ?(
+             <ArticuloTarjeta/>
             ):(
               <h6 className={styles.sinArticulos}> <CircleAlert /> El carrito de compras esta vacío.</h6>
-            )} */}
+            )}
 
         </div>
       </div>
