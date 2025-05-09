@@ -61,3 +61,16 @@
   right: 24vw;
   z-index: 10;
 }
+.iconShoppinCartCatalogo {
+  position: absolute;
+  top: 3vw;
+  right: 1.5vw;
+  border: none;
+  border-radius: 5px;
+  padding: 5px;
+  background-color: #ebebeb;
+}
+.iconShoppinCartCatalogo:hover{
+  background-color: #dedede;
+  transition: 0.5s;
+}

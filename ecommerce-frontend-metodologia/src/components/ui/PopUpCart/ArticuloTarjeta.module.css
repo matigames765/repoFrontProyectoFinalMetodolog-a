@@ -1,0 +1,69 @@
+.containerTarjetaArticulo {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #fff;
+    height: 7rem;
+    border-radius: 4px;
+    box-shadow: 0 1px 6px rgba(0, 0, 0, 0.3);
+    margin: 12px;
+    padding: 10px;
+}
+
+.ArticuloCargado{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+}
+
+.containerDescripcionArticulo {
+    height: 6rem;
+    padding: 10px;
+    font-size: 12px;
+
+}
+
+.cantidadSelector {
+    display: flex;
+    align-items: center;
+    width: 74px;
+    height: 35px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    overflow: hidden;
+    font-size: 15px;
+    background-color: #fff;
+    margin-top: 10px;
+}
+
+.cantidadSelector button {
+    background: none;
+    border: none;
+    padding: 8px 12px;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+/* .cantidadSelector span {
+    padding: 0 120px;
+    font-weight: bold;
+} */
+.precioArticulo{
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    gap: 2rem;
+}
+.precioArticulo button{
+    border: none;
+    border-radius: 5px;
+    padding: 5px;
+    background-color: #FFF;
+}
+
+.precioArticulo button:hover{
+    background-color: #dedede;
+    transition: 0.5s;
+}
