@@ -1,48 +1,33 @@
+import { Container, Navbar } from "react-bootstrap";
+import { House } from "lucide-react";
 import { useNavigate } from "react-router";
+
 import styles from "./NavBarAdmin.module.css";
 export const NavBarAdmin = () => {
   const navigate = useNavigate();
+
+  const handleNavigateToLanding = () => {
+    navigate("/");
+  };
+
   return (
-    <div className={styles.navBarContainer}>
-      <div className={styles.adminNavContainer}>
-        <h2>Administracion</h2>
-        <button
-          onClick={() => navigate("/admin/ventas")}
-          className={styles.buttonNavAdmin}
+    <Navbar className={styles.navContainerPrincipal}>
+      <Container>
+        <Navbar.Brand
+          onClick={handleNavigateToLanding}
+          style={{ cursor: "pointer" }}
+          className={styles.navContainer}
         >
-          Ventas
-        </button>
-        <button
-          onClick={() => navigate("/admin/visitas")}
-          className={styles.buttonNavAdmin}
-        >
-          Visitas
-        </button>
-        <button
-          onClick={() => navigate("/admin/ordenes")}
-          className={styles.buttonNavAdmin}
-        >
-          Ordenes
-        </button>
-        <button
-          onClick={() => navigate("/admin/clientes")}
-          className={styles.buttonNavAdmin}
-        >
-          Clientes
-        </button>
-        <button
-          onClick={() => navigate("/admin/productos")}
-          className={styles.buttonNavAdmin}
-        >
-          Productos
-        </button>
-        <button
-          onClick={() => navigate("/")}
-          className={styles.buttonNavAdminLanding}
-        >
-          Volver a landing
-        </button>
-      </div>
-    </div>
+          <House style={{ marginRight: "8px" }} />
+          Volver a Inicio
+        </Navbar.Brand>
+        <Navbar.Toggle />
+        <Navbar.Collapse className="justify-content-end">
+          <Navbar.Text className={styles.navContainer}>
+            Usuario: Usuario
+          </Navbar.Text>
+        </Navbar.Collapse>
+      </Container>
+    </Navbar>
   );
 };

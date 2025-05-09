@@ -1,0 +1,64 @@
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: flex-end;
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease-in-out, visibility 0s 0.3s;
+}
+.overlay.show {
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.3s ease-in-out, visibility 0s 0s;
+}
+.popupCart {
+    width: 35vw;
+    height: 100%;
+    background-color: #FFF;
+    transform: translateX(100%);
+    transition: transform 0.4s ease-in-out;
+}
+.popupCart.show {
+    transform: translateX(0%);
+}
+.popupContent {
+    padding: 20px;
+    color: black;
+}
+
+.sinArticulos{
+    color: #3D9CCC;
+    border: 1px solid #3D9CCC;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2rem;
+    padding: 8px 10px;
+    font-size: 12px;
+
+}
+
+.navbarCarrito{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.navbarCarritoBoton{
+    top: 3vw;
+    right: 1.5vw;
+    border: none;
+    border-radius: 5px;
+    padding: 5px;
+    background-color: #FFF;
+}
+
+.navbarCarritoBoton:hover{
+    background-color: #dedede;
+    transition: 0.5s;
+}

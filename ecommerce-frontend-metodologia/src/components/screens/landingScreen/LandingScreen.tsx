@@ -1,15 +1,16 @@
 
 import CarouselComponent from '../../ui/Landing/Carrusel/CarouselComponent'
 import { Footer } from '../../ui/Footer/Footer'
-import { HeaderDescuento } from '../../ui/HeaderDescuento/HeaderDescuento'
+
 import { NavBarLanding } from '../../ui/Landing/NavBarLanding/NavBarLanding'
 import { PrincipalImagesLanding } from '../../ui/Landing/PrincipalImagesLanding/PrincipalImagesLanding'
 import styles from './LandingScreen.module.css'
+import { HeaderDescuento } from '../../ui/HeaderDescuento/HeaderDescuento'
 
 export const LandingScreen = () => {
   return (
     <div className={styles.landingContainer}>
-      <HeaderDescuento />
+      <HeaderDescuento/>
       <NavBarLanding />
       <PrincipalImagesLanding />
       <CarouselComponent/>
