@@ -1,55 +1,14 @@
-.navBarContainer {
-  background-color: #ebebeb;
+.navContainerPrincipal {
+  background-color: #1e3a8a;
 }
-.adminNavContainer {
-  width: 15vw;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin: 2rem;
-}
-
-/* Botones navegacion */
-.buttonNavAdmin {
-  padding: 1rem 2rem;
-  border: none;
-  border-radius: 8px;
-  background-color: #007bff;
+.navContainer {
   color: white;
-  font-size: 1.1rem;
-  font-weight: 600;
-  transition: background-color 0.3s ease, transform 0.2s ease;
-  cursor: pointer;
-  width: 200px;
-  margin: 0.5rem;
 }
 
-.buttonNavAdmin:hover {
-  background-color: #0056b3;
-  transform: translateY(-2px);
-}
-
-.buttonNavAdmin:focus {
-  outline: none;
-  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.5);
-}
-
-/* Boton back landing */
-
-.buttonNavAdminLanding {
-  padding: 1rem 2rem;
-  border: none;
-  border-radius: 8px;
-  background-color: #6c757d;
+.navContainer a {
   color: white;
-  font-size: 1.1rem;
-  font-weight: 600;
-  transition: background-color 0.3s ease, transform 0.2s ease;
-  cursor: pointer;
-  width: 200px;
 }
 
-.buttonNavAdminLanding:hover {
-  background-color: #5a6268;
-  transform: translateY(-2px);
+.navContainer:hover {
+    color: #ccc;
 }

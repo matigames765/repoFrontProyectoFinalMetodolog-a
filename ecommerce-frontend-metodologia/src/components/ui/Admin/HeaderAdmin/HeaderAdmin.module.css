@@ -1,6 +1,13 @@
 .ContainerPrincipalHeaderADmin {
   display: flex;
-  width: 100%;
+  width: 100vw;
+  flex-direction: column;
+  overflow: scroll;
+}
+
+.infoCardContainer {
+  display: flex;
+  flex-direction: row;
   justify-content: space-around;
   align-items: center;
   background-color: #f8f9fa;
@@ -8,7 +15,9 @@
   border-bottom: 1px solid #ddd;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
   box-sizing: border-box;
-  border-radius: 0 0 0.4rem 0.4rem;
+  border-radius: 0.4rem;
+  margin-top: 2vh;
+  height: 15vh;
 }
 
 .infoCards {

@@ -1,0 +1,11 @@
+.rutasContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.rutas {
+  display: flex;
+  flex-direction: row;
+}
+
+
