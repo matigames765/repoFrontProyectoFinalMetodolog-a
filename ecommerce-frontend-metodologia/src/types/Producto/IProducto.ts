@@ -3,7 +3,7 @@ import { IDetalleProductos } from "./IDetalleProducto";
 import { TipoProducto } from "./TipoProducto";
 
 export interface IProducto{
-    id: string,
+    id: number,
     nombre: string,
     categoria: ICategoria,
     tipoProducto: TipoProducto;

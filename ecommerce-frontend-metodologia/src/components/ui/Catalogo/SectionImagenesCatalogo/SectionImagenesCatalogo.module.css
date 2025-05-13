@@ -17,6 +17,12 @@
   align-items: center;
 }
 
+.imagenesCatalogo {
+  width:60%;
+  height:40%;
+  border-radius: 0.4rem;
+}
+
 .containerPrecioInfoImagenesCatalogo {
   display: flex;
   flex-direction: column;
