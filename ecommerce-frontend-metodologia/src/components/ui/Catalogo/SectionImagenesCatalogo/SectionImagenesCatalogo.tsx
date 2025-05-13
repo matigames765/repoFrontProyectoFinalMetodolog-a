@@ -1,8 +1,8 @@
 import { useEffect } from "react";
 import styles from "./SectionImagenesCatalogo.module.css";
-import { imagenProductoStore } from "../../../../store/Producto/imagenProductoStore";
-import { useImagenesProductos } from "../../../../hooks/Producto/useImagenesProductos";
-import { getAllImagenesProductos } from "../../../../http/Producto/imagenProducto";
+// import { imagenProductoStore } from "../../../../store/Producto/imagenProductoStore";
+// import { useImagenesProductos } from "../../../../hooks/Producto/useImagenesProductos";
+// import { getAllImagenesProductos } from "../../../../http/Producto/imagenProducto";
 import { useDetallesProductos } from "../../../../hooks/Producto/useDetallesProductos";
 
 export const SectionImagenesCatalogo = () => {
