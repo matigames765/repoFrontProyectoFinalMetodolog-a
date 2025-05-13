@@ -4,10 +4,13 @@ import styles from "./SectionImagenesCatalogo.module.css";
 // import { useImagenesProductos } from "../../../../hooks/Producto/useImagenesProductos";
 // import { getAllImagenesProductos } from "../../../../http/Producto/imagenProducto";
 import { useDetallesProductos } from "../../../../hooks/Producto/useDetallesProductos";
+import { tallesStore } from "../../../../store/Producto/tallesStore";
 
 export const SectionImagenesCatalogo = () => {
 
   const {detallesProductos, getDetallesProductosHook} = useDetallesProductos()
+
+  const talleActivo = tallesStore((state) => state.talleActivo)
 
   useEffect(() => {
     getDetallesProductosHook()
@@ -25,7 +28,7 @@ export const SectionImagenesCatalogo = () => {
             height="60%"
           />
           <div className={styles.containerPrecioInfoImagenesCatalogo}>
-            <h6>{detalleProducto.precio.precioVenta}</h6>
+            <h6>precio: ${detalleProducto.precio.precioVenta}</h6>
             <button className={styles.buttonImagenesCatalogo}>Ver más</button>
           </div>
         </div>
