@@ -10,18 +10,24 @@ interface IViewProduct {
 
 const ViewProduct: FC<IViewProduct> = ({ show, detalle, handleClose }) => {
 
+    // Si el detalleProducto es null o undefined no se muestra el modal
     if (detalle == null) {
         return;
     }
-
     return (
+        // importamos un modal de react-boostrap para generar un modal, y nesesita una variable booleana para mostrarse y una voidFunction para cerrarlo
         <Modal show={show} onHide={handleClose}>
+            {/* // esta es la cabecera del modal  */}
             <Modal.Header closeButton>
                 <Modal.Title>Detalle del Producto</Modal.Title>
             </Modal.Header>
+            {/* Este es el cuerpo de modal */}
             <Modal.Body>
+                {/* Contiene un container para hacer un grid a la imagen y los texto */}
                 <Container>
+                    {/* El row ayusta el grid dependiendo de la cantidad de columnas que tenga*/}
                     <Row>
+                        {/* Tiene 2 columnas una para la imagen y otra para los atributos */}
                         <Col>
                             <img
                                 src={detalle.imagenProducto?.url || "https://via.placeholder.com/200"}
