@@ -7,19 +7,14 @@ export const Footer = () => {
   const handleAdmin = () => {
     navigate("/admin");
   };
-  const handleRegister = () => {
-    navigate("/register");
-  };
-  const handleLogin = () => {
-    navigate("/login");
-  };
+
   return (
     <div className={styles.containerPrincipalFooter}>
       <div className={styles.textFooterLeft}>
-        <h6 className={styles.textFooter}>Legal Warning</h6>
-        <h6 className={styles.textFooter}>Privacy Policy</h6>
-        <h6 className={styles.textFooter}>Cookies Policy</h6>
-        <h6 className={styles.textFooter}>Quality Policy</h6>
+        <h6 className={styles.textFooter}>Seguinos</h6>
+        <h6 className={styles.textFooter}>Seguinos</h6>
+        <h6 className={styles.textFooter}>Seguinos</h6>
+        <h6 className={styles.textFooter}>Seguinos</h6>
       </div>
       <div className={styles.textFooterRight}>
         <h6 className={styles.textFooter}>Clothes Shop Mendoza</h6>
@@ -45,12 +40,6 @@ export const Footer = () => {
       <div>
         <h6 className={styles.informationFooter} onClick={handleAdmin}>
           admin
-        </h6>
-        <h6 className={styles.informationFooter} onClick={handleRegister}>
-          register
-        </h6>
-        <h6 className={styles.informationFooter} onClick={handleLogin}>
-          login
         </h6>
       </div>
     </div>
