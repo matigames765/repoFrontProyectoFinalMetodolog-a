@@ -5,11 +5,11 @@ import { ITalles } from "./ITalles";
 
 export interface IDetalleProductos{
     id: number,
-    talles: ITalles[],
+    tallesDetalleProductos: ITalles[],
     stock: number,
-    producto: IProducto,
     color: string,
     estado: boolean,
+    producto: IProducto,
     precio: IPrecio,
     imagenProducto: IImagenProducto
 }

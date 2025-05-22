@@ -10,5 +10,6 @@ export const categoriaStore = create<ICategoriaStore>((set) => ({
     categorias: [],
 
     //setear arrays de categorias
-    setArrayCategorias: (categoriasIn) => set(() => ({categorias: categoriasIn}))
+    setArrayCategorias: (categoriasIn) => set(() => ({categorias: categoriasIn})),
+
 }))

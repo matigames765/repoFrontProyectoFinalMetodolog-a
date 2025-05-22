@@ -13,7 +13,7 @@ export const precioStore = create<IPrecioStore>((set) => ({
     ordenPrecio: null,
 
     //setear la ordenacion por precion en catalogo
-    setOrdenPrecio: (ordenPrecioIn) => (() => ({ordenPrecio: ordenPrecioIn})),
+    setOrdenPrecio: (ordenPrecioIn) => set(() => ({ordenPrecio: ordenPrecioIn})),
 
     //setear array de descuentos
     setArrayPrecios: (preciosIn) => set(() => ({precios: preciosIn}))

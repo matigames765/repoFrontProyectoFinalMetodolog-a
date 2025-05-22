@@ -10,3 +10,4 @@ export const getAllImagenesProductos = async(): Promise<IImagenProducto[] | unde
         console.log("Error en getAllImagenesProductos http: " + error)
     }
 }
+

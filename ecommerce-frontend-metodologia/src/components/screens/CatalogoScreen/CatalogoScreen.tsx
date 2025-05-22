@@ -5,13 +5,17 @@ import { SectionImagenesCatalogo } from "../../ui/Catalogo/SectionImagenesCatalo
 import styles from "./CatalogoScreen.module.css";
 import { NavBarLanding } from "../../ui/Landing/NavBarLanding/NavBarLanding";
 
+
+//VER TEMA DE COMO MANEJAR FILTROS CUANDO HACEMOS PARA ATRAS Y PARA ADELANTE
+
 export const CatalogoScreen = () => {
+
   return (
     <div className={styles.catalogoContainer}>
       <HeaderDescuento />
       <NavBarLanding />
-      <ColumnFilterCatalogo />
-      <SectionImagenesCatalogo />
+      <ColumnFilterCatalogo/>
+      <SectionImagenesCatalogo/>
       <Footer />
     </div>
   );

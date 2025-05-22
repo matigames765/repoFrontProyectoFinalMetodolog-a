@@ -2,7 +2,7 @@ import { Route, Routes } from "react-router";
 import { LandingScreen } from "../components/screens/landingScreen/LandingScreen";
 import { CategoriasScreen } from "../components/screens/CategoriasScreen/CategoriasScreen";
 import { CatalogoScreen } from "../components/screens/CatalogoScreen/CatalogoScreen";
-import { AdminScreen } from "../components/screens/AdminScreen/AdminScreen";
+import { AdminScreen } from "../components/screens/adminScreen/AdminScreen";
 import { LoginScreen } from "../components/screens/LoginScreen/LoginScreen";
 import { RegisterScreen } from "../components/screens/registerScreen/RegisterScreen";
 import { RutasAdmin } from "./RutasAdmin";
@@ -13,7 +13,8 @@ export const AppRouter = () => {
       <Routes>
         {/* Rutas eCommerce */}
         <Route path="/" element={<LandingScreen />} />
-        <Route path="/categorias" element={<CategoriasScreen />} />
+        <Route path="/categorias/:seccion" element={<CategoriasScreen />} />
+        <Route path="/catalogo/:seccion/:categoria" element={<CatalogoScreen />} />
         <Route path="/catalogo" element={<CatalogoScreen />} />
 
         {/* Rutas login y register */}
