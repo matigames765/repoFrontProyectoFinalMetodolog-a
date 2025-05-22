@@ -1,0 +1,14 @@
+.navContainerPrincipal {
+  background-color: #1e3a8a;
+}
+.navContainer {
+  color: white;
+}
+
+.navContainer a {
+  color: white;
+}
+
+.navContainer:hover {
+    color: #ccc;
+}

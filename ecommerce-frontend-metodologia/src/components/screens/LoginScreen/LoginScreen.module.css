@@ -1,12 +1,13 @@
-.titleLoginEcommerce{
-    position: absolute;
-    top: 14vh;
-    left: 36vw;
-    font-size: 3em;
+.loginContainer {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  background: linear-gradient(135deg, #e0eafc, #cfdef3);
 }
-
-.titleLoginLogin{
-    position: absolute;
-    top: 22vh;
-    left: 47.5vw;
+.titleLoginEcommerce {
+  font-size: 3rem;
 }

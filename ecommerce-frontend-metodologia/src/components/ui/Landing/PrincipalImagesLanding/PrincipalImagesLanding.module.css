@@ -1,0 +1,53 @@
+.containerPrincipalImages {
+  width: 90vw;
+  max-width: 1200px;
+  margin: 2rem auto;
+  display: flex;
+  
+  gap: 1rem;
+}
+
+.imageContainer {
+  position: relative;
+  width: 60vw;
+  height: 70vh;
+  border-radius: 12px;
+  overflow: hidden;
+  transition: 0.3s ease-out;
+}
+.imageContainer:hover {
+  scale: 1.1;
+}
+.imagenesPrincipales {
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+  border-radius: 12px;
+  display: block;
+  border-radius: 0.4rem;
+}
+
+.buttonPrincipalImageMujer,
+.buttonPrincipalImageHombre,
+.buttonPrincipalImageNenio {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 1rem;
+  background: rgba(0, 0, 0, 0.6);
+  color: #fff;
+  font-weight: 600;
+  border: none;
+  text-align: center;
+  transition: background 0.3s ease, color 0.3s ease;
+  border-radius: 0;
+}
+
+.buttonPrincipalImageMujer:hover,
+.buttonPrincipalImageHombre:hover,
+.buttonPrincipalImageNenio:hover {
+  background: rgba(255, 255, 255, 0.8);
+  color: #000;
+  cursor: pointer;
+}

@@ -1,0 +1,56 @@
+.containerPrincipalFormRegister {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.containerForm {
+  background-color: #fff;
+  padding: 2rem;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  width: 90%;
+  max-width: 400px;
+  height: auto;
+}
+
+.containerElementsForm {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.containerElementsForm label {
+  font-weight: 600;
+  color: #333;
+}
+.inputFormRegister {
+  padding: 0.75rem 1rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+}
+.inputFormRegister:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+.buttonRegistrarme {
+  background-color: black;
+  color: white;
+  padding: 0.75rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  justify-content: center;
+  width: 100%;
+}
+
+.buttonRegistrarme:hover {
+  background-color: #007bff;
+}
