@@ -26,13 +26,13 @@ export const Footer = () => {
         <h1 className={styles.textPrincipalFooter}>ClothesShopMendoza</h1>
         <div className={styles.icons}>
           <h6>
-            <Instagram color="black" size={20} />
+            <Instagram color="white" size={20} />
           </h6>
           <h6>
-            <Facebook color="black" size={20} />
+            <Facebook color="white" size={20} />
           </h6>
           <h6>
-            <Youtube color="black" size={20} />
+            <Youtube color="white" size={20} />
           </h6>
         </div>
       </div>

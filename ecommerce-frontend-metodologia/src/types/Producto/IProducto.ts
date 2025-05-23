@@ -10,3 +10,5 @@ export interface IProducto{
     sexo: string,
     detallesProductos: IDetalleProductos,
 }
+
+

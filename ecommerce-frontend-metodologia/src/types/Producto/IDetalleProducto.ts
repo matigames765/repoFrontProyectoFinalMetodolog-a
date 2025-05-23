@@ -7,7 +7,7 @@ export interface IDetalleProductos {
     id: number;
     tallesDetalleProductos: ITalles[];
     stock: number;
-    producto: IProducto;
+    producto?: IProducto; 
     color: string;
     estado: boolean;
     precio: IPrecio;
