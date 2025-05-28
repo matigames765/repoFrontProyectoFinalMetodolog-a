@@ -102,39 +102,6 @@ export const NavBarLanding = () => {
             Catálogo completo
           </h4>
         </div>
-        <div className={styles.searchAndCartContainer}>
-          <div className={styles.searchContainer}>
-            <input
-              type="text"
-              placeholder="busque un producto"
-              className={styles.barraBusquedaCatalogo}
-            ></input>
-            <Search
-              className={styles.searchIconCalogo}
-              color="black"
-              size={20}
-            />
-          </div>
-
-          <div className={styles.cartContainer}>
-            <button
-              onClick={() => setOpenModalPopUpCart((prev) => !prev)}
-              className={styles.iconShoppinCartLanding}
-            >
-              <ShoppingCart color="black" size={30} />
-            </button>
-            <div
-              className={`${styles.popupWrapper} ${
-                openModalPopUpCart ? styles.popupCartVisible : ""
-              }`}
-            >
-              <PopUpCart
-                handleCloseModal={() => setOpenModalPopUpCart(false)}
-                visible={openModalPopUpCart}
-              />
-            </div>
-          </div>
-        </div>
       </div>
     </div>
   );

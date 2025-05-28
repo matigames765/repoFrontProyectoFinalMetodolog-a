@@ -3,7 +3,7 @@ import { Footer } from "../../ui/Footer/Footer";
 import { HeaderDescuento } from "../../ui/HeaderDescuento/HeaderDescuento";
 import { SectionImagenesCatalogo } from "../../ui/Catalogo/SectionImagenesCatalogo/SectionImagenesCatalogo";
 import styles from "./CatalogoScreen.module.css";
-import { NavBarLanding } from "../../ui/Landing/NavBarLanding/NavBarLanding";
+import { NavBarCatalogo } from "../../ui/Catalogo/NavBarCatalogo/NavBarCatalogo";
 
 
 //VER TEMA DE COMO MANEJAR FILTROS CUANDO HACEMOS PARA ATRAS Y PARA ADELANTE
@@ -13,7 +13,7 @@ export const CatalogoScreen = () => {
   return (
     <div className={styles.catalogoContainer}>
       <HeaderDescuento />
-      <NavBarLanding />
+      <NavBarCatalogo />
       <ColumnFilterCatalogo/>
       <SectionImagenesCatalogo/>
       <Footer />

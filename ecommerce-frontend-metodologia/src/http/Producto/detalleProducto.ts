@@ -10,10 +10,10 @@ import { useShallow } from "zustand/shallow"
 //obtener detalles productos
 export const getAllDetallesProductos = async(): Promise<IDetalleProductos[] | undefined> => {
     
-    const { talleActivo, categoriaActiva, seccionActiva, ordenPrecioActivo, tipoProductoSeleccionadoActivo } = filterStore.getState()
+    const { talleActivo, categoriaActiva, seccionActiva, ordenPrecioActivo, tipoProductoSeleccionadoActivo, buscadorActivo } = filterStore.getState()
 
-    if(talleActivo === "" && tipoProductoSeleccionadoActivo === "" && ordenPrecioActivo === "" && seccionActiva === "" && ordenPrecioActivo === ""){
-        console.log(`http://localhost:9000/detalleProducto?seccion=${seccionActiva}&categoria=${categoriaActiva}&talle=${talleActivo}&tipo=${tipoProductoSeleccionadoActivo}&orden=${ordenPrecioActivo}`)
+    if(talleActivo === "" && tipoProductoSeleccionadoActivo === "" && ordenPrecioActivo === "" && seccionActiva === "" && ordenPrecioActivo === "" && buscadorActivo === ""){
+        console.log(`http://localhost:9000/detalleProducto/filter?seccion=${seccionActiva}&categoria=${categoriaActiva}&talle=${talleActivo}&tipo=${tipoProductoSeleccionadoActivo}&orden=${ordenPrecioActivo}`)
         try{
             const response = await axios.get<IDetalleProductos[]>('http://localhost:9000/detalleProducto')
 
@@ -23,9 +23,10 @@ export const getAllDetallesProductos = async(): Promise<IDetalleProductos[] | un
         }
     }else{
         try{
-            console.log(`http://localhost:9000/detalleProducto?seccion=${seccionActiva}&categoria=${categoriaActiva}&talle=${talleActivo}&tipo=${tipoProductoSeleccionadoActivo}&orden=${ordenPrecioActivo}`)
-            //response para el filtrado
-            const response = await axios.get<IDetalleProductos[]>(`http://localhost:9000/detalleProducto?seccion=${seccionActiva}&categoria=${categoriaActiva}&talle=${talleActivo}&tipo=${tipoProductoSeleccionadoActivo}&orden=${ordenPrecioActivo}`)
+             console.log(`http://localhost:9000/detalleProducto/filter?seccion=${seccionActiva}&categoria=${categoriaActiva}&talle=${talleActivo}&tipo=${tipoProductoSeleccionadoActivo}&orden=${ordenPrecioActivo}&buscador=${buscadorActivo}`)
+            const response = await axios.get<IDetalleProductos[]>(`http://localhost:9000/detalleProducto/filter?seccion=${seccionActiva}&categoria=${categoriaActiva}&talle=${talleActivo}&tipo=${tipoProductoSeleccionadoActivo}&orden=${ordenPrecioActivo}&buscador=${buscadorActivo}`)
+            console.log(response.data)
+            
             return response.data
         }catch(error){
             console.log("Error en getAllDetallesProductos http: " + error)

@@ -12,6 +12,7 @@ export const SectionImagenesCatalogo = () => {
   const ordenPrecioActivo = filterStore(state => state.ordenPrecioActivo)
   const tipoProductoSeleccionadoActivo = filterStore(state => state.tipoProductoSeleccionadoActivo)
   const categoriaActiva = filterStore(state => state.categoriaActiva)
+  const buscadorActivo = filterStore(state => state.buscadorActivo)
 
   useEffect(() => {
     getDetallesProductosHook()
@@ -19,7 +20,7 @@ export const SectionImagenesCatalogo = () => {
 
   useEffect(() => {
     getDetallesProductosHook()
-  }, [talleActivo, ordenPrecioActivo, tipoProductoSeleccionadoActivo])
+  }, [talleActivo, ordenPrecioActivo, tipoProductoSeleccionadoActivo, buscadorActivo])
 
   return (
     <div className={styles.principalContainerSectionImagenesCatalogo}>
