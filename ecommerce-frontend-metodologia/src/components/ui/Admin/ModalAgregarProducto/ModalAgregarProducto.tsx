@@ -50,7 +50,7 @@ export const ModalAgregarProducto = ({
 }: ModalAgregarProductoProps) => {
   const handleFormSubmit = async (producto: IProducto) => {
     //lamar a la api para guardar
-
+    
     console.log("Producto guardado!", producto);
     toast.success("Producto guardado!");
     onClose();

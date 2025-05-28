@@ -3,7 +3,7 @@
   max-width: 1200px;
   margin: 2rem auto;
   display: flex;
-  
+
   gap: 1rem;
 }
 
@@ -50,4 +50,14 @@
   background: rgba(255, 255, 255, 0.8);
   color: #000;
   cursor: pointer;
+}
+
+
+@media screen and (max-width: 650px) {
+  .containerPrincipalImages{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
 }

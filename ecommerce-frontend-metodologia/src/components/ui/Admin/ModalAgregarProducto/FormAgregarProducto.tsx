@@ -12,6 +12,8 @@ const categoriasEjemplo = [
 
 const sexos = ["Hombre", "Mujer", "Unisex"];
 
+
+
 interface IFormAgregarProductoProps {
   initialState: IProducto;
   onSubmit: (product: IProducto) => void;
