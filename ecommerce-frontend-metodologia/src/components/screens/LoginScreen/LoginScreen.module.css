@@ -1,12 +1,10 @@
 .loginContainer {
   width: 100vw;
-  height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  justify-content: start;
+  align-items: start;
   overflow: hidden;
-  background: linear-gradient(135deg, #e0eafc, #cfdef3);
 }
 .titleLoginEcommerce {
   font-size: 3rem;

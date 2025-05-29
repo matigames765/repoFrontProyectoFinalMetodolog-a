@@ -1,7 +1,7 @@
 .containerPrincipalFooter {
   width: 100vw;
   height: 20vh;
-  background-color: #525252;
+  background-color: #3a3a3a ;
   display: flex;
   justify-content: flex-end;
   align-items: flex-end;
@@ -15,7 +15,7 @@
 }
 
 .textFooter {
-  color: #1a1a1a;
+  color: white;
 }
 
 .textFooterLeft {

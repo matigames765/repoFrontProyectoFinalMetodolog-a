@@ -1,0 +1,111 @@
+.containerNavBarHome {
+  width: 100vw;
+  height: 150px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  ;
+  padding: 0px;
+}
+
+.containerGral {
+  width: 100%;
+  height: 100px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: black;
+  padding: 10px;
+}
+/* estilos para la barra de busqueda */
+.searchContainer {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.barraBusquedaCatalogo {
+  width: 320px;
+  margin-left: 30px;
+  padding: 8px 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.searchIconCalogo {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+
+/* Estilos para el titulo de la pagina */
+.titleNavBarLanding {
+  display: flex;
+  align-items: center;
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #FFF;
+}
+
+/* Contenedor para el carrito */
+.loginAndCartContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+
+}
+.containerLogin{
+  margin: 0;
+  padding: 0;
+  line-height: 1;
+}
+
+.cartContainer {
+  margin: 0;
+  padding: 0;
+  line-height: 1;
+}
+
+
+.iconShoppinCartLanding {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.popupWrapper {
+  position: absolute;
+  top: 70px;
+  right: 20px;
+}
+
+.popupCartVisible {
+  display: block;
+}
+
+.loginButton {
+  background-color: transparent;
+  border: none;
+  color: white;
+  font-size: 1.2rem;
+  transition: 0.2s ease;
+  margin-bottom: 1vh;
+}
+
+.loginLogo {
+  padding-bottom: 0.5vh;
+  color: #FFF;
+}
+
+/* Estilos para la seccion de categorias */
+.containerLanding {
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+}

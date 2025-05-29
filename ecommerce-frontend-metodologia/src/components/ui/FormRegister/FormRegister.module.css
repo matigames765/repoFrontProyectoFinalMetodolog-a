@@ -1,25 +1,28 @@
 .containerPrincipalFormRegister {
   width: 100vw;
-  height: 100vh;
+  height: 100%;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  flex-direction: column;
+  justify-content: start;
+  align-items: start;
+  padding-left: 50px;
+  padding-top: 30px;
+  background-color: #FFF;
+  gap: 2rem;
 }
 
 .containerForm {
-  background-color: #fff;
-  padding: 2rem;
-  border-radius: 16px;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
-  width: 90%;
-  max-width: 400px;
   height: auto;
+  width: 40%;
+  font-size: small;
 }
 
 .containerElementsForm {
   display: flex;
   flex-direction: column;
   gap: 1rem;
+
 }
 .containerElementsForm label {
   font-weight: 600;
@@ -28,9 +31,10 @@
 .inputFormRegister {
   padding: 0.75rem 1rem;
   border: 1px solid #ccc;
-  border-radius: 8px;
+  border-radius: 3px;
   font-size: 1rem;
   transition: border-color 0.3s ease;
+  font-size: small;
 }
 .inputFormRegister:focus {
   border-color: #007bff;
@@ -53,4 +57,24 @@
 
 .buttonRegistrarme:hover {
   background-color: #007bff;
+}
+.register{
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+}
+.register h5{
+  margin: 0;
+  padding: 0;
+  line-height: 1;
+}
+.register button{
+  background: transparent;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+  border: none;
+  font-size: 20px;
+  color: rgb(111, 111, 253);
 }

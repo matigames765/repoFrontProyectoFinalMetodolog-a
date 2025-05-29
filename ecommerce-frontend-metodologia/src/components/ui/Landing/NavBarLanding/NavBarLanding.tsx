@@ -7,7 +7,6 @@ import { useShallow } from "zustand/shallow";
 import { filterStore } from "../../../../store/Producto/filterStore";
 
 export const NavBarLanding = () => {
-  const [openModalPopUpCart, setOpenModalPopUpCart] = useState<boolean>(false);
   const navigate = useNavigate();
 
   const setSeccionActiva = filterStore(useShallow((state) => state.setSeccionActiva))

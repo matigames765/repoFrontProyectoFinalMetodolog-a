@@ -1,9 +1,13 @@
 import { Container, Navbar } from "react-bootstrap";
-import { House } from "lucide-react";
+import { House, Plus } from "lucide-react";
 import { useNavigate } from "react-router";
 
 import styles from "./NavBarAdmin.module.css";
-export const NavBarAdmin = () => {
+interface NavBarAdminProps {
+  onOpenModal: () => void;
+}
+
+export const NavBarAdmin = ({ onOpenModal }: NavBarAdminProps) => {
   const navigate = useNavigate();
 
   const handleNavigateToLanding = () => {
@@ -21,12 +25,17 @@ export const NavBarAdmin = () => {
           <House style={{ marginRight: "8px" }} />
           Volver a Inicio
         </Navbar.Brand>
-        <Navbar.Toggle />
-        <Navbar.Collapse className="justify-content-end">
-          <Navbar.Text className={styles.navContainer}>
-            Usuario: Usuario
-          </Navbar.Text>
-        </Navbar.Collapse>
+
+        <Navbar.Text className={styles.navContainer}>
+          Usuario: Usuario
+        </Navbar.Text>
+        <Navbar.Text
+          onClick={onOpenModal}
+          className={styles.addProductContainer}
+        >
+          Añadir un producto
+          <Plus size={20} />
+        </Navbar.Text>
       </Container>
     </Navbar>
   );

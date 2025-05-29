@@ -1,5 +1,6 @@
-export interface IDescuento{
-    id: number,
-    fechaInicio: Date,
-    fechaFin: Date
+export interface IDescuento {
+  id: number;
+  porcentaje: number;
+  fechaInicio: Date;
+  fechaFin: Date;
 }

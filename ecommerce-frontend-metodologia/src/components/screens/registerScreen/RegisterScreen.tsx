@@ -1,11 +1,15 @@
 import { FormRegister } from "../../ui/FormRegister/FormRegister";
+import { HeaderDescuento } from "../../ui/HeaderDescuento/HeaderDescuento";
+import { NavBarHome } from "../../ui/Landing/NavBarHome/NavBarHome";
+
 import styles from "./RegisterScreen.module.css";
 
 export const RegisterScreen = () => {
+  
   return (
     <div className={styles.registerContainer}>
-      <h1 className={styles.titleRegisterEcommerce}>ClothesShopMendoza</h1>
-      <h2>Registrate</h2>
+      <HeaderDescuento/>
+      <NavBarHome/>
       <FormRegister />
     </div>
   );

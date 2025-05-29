@@ -1,11 +1,15 @@
 import { FormLogin } from "../../ui/FormLogin/FormLogin";
+import { HeaderDescuento } from "../../ui/HeaderDescuento/HeaderDescuento";
+import { NavBarHome } from "../../ui/Landing/NavBarHome/NavBarHome";
+
 import styles from "./LoginScreen.module.css";
 
 export const LoginScreen = () => {
+  
   return (
     <div className={styles.loginContainer}>
-      <h1 className={styles.titleLoginEcommerce}>ClothesShopMendoza</h1>
-      <h2>Login</h2>
+      <HeaderDescuento />
+      <NavBarHome/>
       <FormLogin />
     </div>
   );
