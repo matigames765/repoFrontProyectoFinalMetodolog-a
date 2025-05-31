@@ -3,12 +3,12 @@ import { IDetalleProductos } from "./IDetalleProducto";
 import { TipoProducto } from "./TipoProducto";
 
 export interface IProducto{
-    id: number,
+    id?: number,
     nombre: string,
     categoria: ICategoria,
-    tipoProducto: TipoProducto;
-    sexo: string,
-    detallesProductos: IDetalleProductos,
+    seccion: string,
+    tipoProducto: TipoProducto
+    detallesProductos: IDetalleProductos[],
 }
 
 

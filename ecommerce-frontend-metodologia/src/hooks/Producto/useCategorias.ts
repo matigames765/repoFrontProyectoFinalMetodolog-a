@@ -14,7 +14,7 @@ export const useCategorias = () => {
         try{
             const categorias = await getAllCategorias()
             if (categorias) setArrayCategorias(categorias)
-
+            console.log("categorias hook: " , categorias)
             return categorias
         }catch(error){
             console.log("Error en getCategoriasHook: " + error)

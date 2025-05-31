@@ -1,17 +1,17 @@
 import { Search, ShoppingCart} from "lucide-react";
 import styles from "./NavBarLanding.module.css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { PopUpCart } from "../../PopUpCart/PopUpCart";
 import { useNavigate} from "react-router";
 import { useShallow } from "zustand/shallow";
 import { filterStore } from "../../../../store/Producto/filterStore";
+import { useCategorias } from "../../../../hooks/Producto/useCategorias";
 
 export const NavBarLanding = () => {
   const navigate = useNavigate();
 
   const setSeccionActiva = filterStore(useShallow((state) => state.setSeccionActiva))
   const resetFiltros = filterStore((state) => state.resetFiltros)
-
 
 
   const handleNavigateDestacados = () => {
