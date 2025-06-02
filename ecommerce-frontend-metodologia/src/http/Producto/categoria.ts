@@ -3,7 +3,7 @@ import { ICategoria } from "../../types/Producto/ICategoria";
 
 //obtener categorias
 export const getAllCategorias = async(): Promise<ICategoria[] | undefined> => {
-    const token = 'eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJNYXRpYXMgZ2FtZXMiLCJpYXQiOjE3NDg2NTIwMzAsImV4cCI6MTc0ODY1MzQ3MH0.aPBAcapFTX7xIDiK4cRviZI0_e6JhKL0baEOWCmgivo'
+    const token = 'eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJNYXRpYXMgZ2FtZXMiLCJpYXQiOjE3NDg4NzQ1OTYsImV4cCI6MTc0ODg3NjAzNn0.9th5WLGqKadGNOQNJJctdlcODiMZPDoOPNt5xrmhbcQ'
     try{
         const response = await axios.get<ICategoria[]>('http://localhost:9000/categorias', {
             headers: {

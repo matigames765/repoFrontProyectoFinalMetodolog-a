@@ -16,7 +16,7 @@ export const getAllProductos = async (): Promise<IProducto[] | undefined> => {
 };
 
 export const crearProducto = async(producto: IProducto) => {
-  const token = "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJNYXRpYXMgZ2FtZXMiLCJpYXQiOjE3NDg2NTIwMzAsImV4cCI6MTc0ODY1MzQ3MH0.aPBAcapFTX7xIDiK4cRviZI0_e6JhKL0baEOWCmgivo"
+  const token = "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJNYXRpYXMgZ2FtZXMiLCJpYXQiOjE3NDg4NzQ1OTYsImV4cCI6MTc0ODg3NjAzNn0.9th5WLGqKadGNOQNJJctdlcODiMZPDoOPNt5xrmhbcQ"
     try{
         const response = await axios.post<IProducto>('http://localhost:9000/producto/crear', {producto}, {headers: {
     "Content-Type": "application/json",
