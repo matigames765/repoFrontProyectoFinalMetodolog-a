@@ -1,6 +1,6 @@
 import styles from "./NavBarHome.module.css";
 import { useNavigate } from "react-router";
-import { LogIn, Search, ShoppingCart } from "lucide-react";
+import { LogIn, ShoppingCart } from "lucide-react";
 import { useState } from "react";
 import { PopUpCart } from "../../PopUpCart/PopUpCart";
 import { NavBarLanding } from "../NavBarLanding/NavBarLanding";
@@ -18,14 +18,6 @@ export const NavBarHome = () => {
   return (
     <div className={styles.containerNavBarHome}>
       <div className={styles.containerGral}>
-        <div className={styles.searchContainer}>
-          <input
-            type="text"
-            placeholder="¿Qué estas buscando?"
-            className={styles.barraBusquedaCatalogo}
-          ></input>
-          <Search className={styles.searchIconCalogo} color="black" size={20} />
-        </div>
         <h3
           className={styles.titleNavBarLanding}
           onClick={goHome}
@@ -47,7 +39,7 @@ export const NavBarHome = () => {
             >
               <ShoppingCart color="white" size={30} />
             </button>
-            
+
             <div
               className={`${styles.popupWrapper} ${
                 openModalPopUpCart ? styles.popupCartVisible : ""

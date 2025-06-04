@@ -10,8 +10,6 @@ export const SectionImagenesCatalogo = () => {
   const { detallesProductos, getDetallesProductosHook } =
     useDetallesProductos();
 
-  
-
   const { detalleActivo, setDetalleActivo } = detalleProductoStore(
     useShallow((state) => ({
       detalleActivo: state.detalleActivo,
@@ -19,19 +17,26 @@ export const SectionImagenesCatalogo = () => {
     }))
   );
 
-  const talleActivo = filterStore(state => state.talleActivo)
-  const ordenPrecioActivo = filterStore(state => state.ordenPrecioActivo)
-  const tipoProductoSeleccionadoActivo = filterStore(state => state.tipoProductoSeleccionadoActivo)
-  const categoriaActiva = filterStore(state => state.categoriaActiva)
-  const buscadorActivo = filterStore(state => state.buscadorActivo)
+  const talleActivo = filterStore((state) => state.talleActivo);
+  const ordenPrecioActivo = filterStore((state) => state.ordenPrecioActivo);
+  const tipoProductoSeleccionadoActivo = filterStore(
+    (state) => state.tipoProductoSeleccionadoActivo
+  );
+  const categoriaActiva = filterStore((state) => state.categoriaActiva);
+  const buscadorActivo = filterStore((state) => state.buscadorActivo);
 
   useEffect(() => {
-    getDetallesProductosHook()
-  }, [])
+    getDetallesProductosHook();
+  }, []);
 
-  useEffect(() =>  {
-    getDetallesProductosHook()
-  }, [talleActivo, ordenPrecioActivo, tipoProductoSeleccionadoActivo, buscadorActivo])
+  useEffect(() => {
+    getDetallesProductosHook();
+  }, [
+    talleActivo,
+    ordenPrecioActivo,
+    tipoProductoSeleccionadoActivo,
+    buscadorActivo,
+  ]);
 
   // usamos una variable para mostrar el modal del detalleProducto
   const [view, setView] = useState<boolean>(false);
@@ -51,18 +56,19 @@ export const SectionImagenesCatalogo = () => {
   useEffect(() => {
     console.log("Detalle activo: ", detalleActivo);
   }, [detalleActivo]);
-  
 
   return (
     <>
       <div className={styles.principalContainerSectionImagenesCatalogo}>
         {detallesProductos.map((detalleProducto, index) => (
           <div key={index} className={styles.containerImagenesCatalogo}>
-            <img
-              src={detalleProducto.imagenProducto.url || "no hay imagen"}
-              alt={detalleProducto.imagenProducto.alt || "imagen de producto"}
-              className={styles.imagenesCatalogo}
-            />
+            <div className={styles.imagenContainer}>
+              <img
+                src={detalleProducto.imagenProducto.url || "no hay imagen"}
+                alt={detalleProducto.imagenProducto.alt || "imagen de producto"}
+                className={styles.imagenesCatalogo}
+              />
+            </div>
             <div className={styles.containerPrecioInfoImagenesCatalogo}>
               <h6>precio: ${detalleProducto.precio.precioVenta}</h6>
               <button

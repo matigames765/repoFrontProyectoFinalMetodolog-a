@@ -1,45 +1,27 @@
 .containerNavBarHome {
   width: 100vw;
-  height: 150px;
+  height: auto;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-between;
-  ;
-  padding: 0px;
+  justify-content: start;
+  padding: 0;
+  background-color: #fff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  z-index: 1000;
+  position: sticky;
+  top: 0;
 }
 
 .containerGral {
   width: 100%;
-  height: 100px;
   display: flex;
-  flex-direction: row;
   justify-content: space-between;
-  background-color: black;
-  padding: 10px;
-}
-/* estilos para la barra de busqueda */
-.searchContainer {
-  display: flex;
   align-items: center;
-  position: relative;
+  background-color: #000;
+  padding: 1rem 2rem;
 }
 
-.barraBusquedaCatalogo {
-  width: 320px;
-  margin-left: 30px;
-  padding: 8px 12px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-}
-
-.searchIconCalogo {
-  position: absolute;
-  right: 10px;
-  top: 50%;
-  transform: translateY(-50%);
-  cursor: pointer;
-}
 
 /* Estilos para el titulo de la pagina */
 .titleNavBarLanding {
@@ -48,7 +30,7 @@
   font-size: 24px;
   font-weight: bold;
   margin-bottom: 10px;
-  color: #FFF;
+  color: #fff;
 }
 
 /* Contenedor para el carrito */
@@ -57,9 +39,8 @@
   align-items: center;
   justify-content: center;
   gap: 15px;
-
 }
-.containerLogin{
+.containerLogin {
   margin: 0;
   padding: 0;
   line-height: 1;
@@ -71,12 +52,16 @@
   line-height: 1;
 }
 
-
 .iconShoppinCartLanding {
   background: none;
   border: none;
   cursor: pointer;
   padding: 0;
+  transition: transform 0.2s ease;
+}
+
+.iconShoppinCartLanding:hover {
+  transform: scale(1.1);
 }
 
 .popupWrapper {
@@ -93,19 +78,18 @@
   background-color: transparent;
   border: none;
   color: white;
-  font-size: 1.2rem;
+  font-size: 1rem;
   transition: 0.2s ease;
-  margin-bottom: 1vh;
 }
 
 .loginLogo {
   padding-bottom: 0.5vh;
-  color: #FFF;
+  color: #fff;
 }
 
 /* Estilos para la seccion de categorias */
 .containerLanding {
   width: 100vw;
-  display: flex;
-  flex-direction: column;
+  border-top: 1px solid #eaeaea;
+  background-color: #fff;
 }

@@ -3,9 +3,9 @@ import styles from "./FormLogin.module.css";
 
 export const FormLogin = () => {
   const navigate = useNavigate();
-  const handleRegister = () =>{
+  const handleRegister = () => {
     navigate("/register");
-  }
+  };
   return (
     <div className={styles.containerPrincipalFormLogin}>
       <h4 className={styles.titleLoginEcommerce}>Iniciar sesion</h4>

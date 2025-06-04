@@ -4,8 +4,7 @@
   background-color: black;
   display: flex;
   flex-direction: row;
-  align-items: flex-end;
-  justify-content: space-between;
+  justify-content: center;
 }
 .containerTitulo{
   width: 60%;
@@ -35,3 +34,9 @@
   color: #ccc;
 }
 
+@media screen and (max-width: 650px) {
+  .containerPrincipalHeaderDescuento{
+    justify-content: center;
+    font-size: 10px;
+  }
+}

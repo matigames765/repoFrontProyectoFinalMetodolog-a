@@ -1,69 +1,97 @@
 .containerTarjetaArticulo {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background-color: #fff;
-    height: 7rem;
-    border-radius: 4px;
-    box-shadow: 0 1px 6px rgba(0, 0, 0, 0.3);
-    margin: 12px;
-    padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #ffffff;
+  border-radius: 1rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+  padding: 1rem;
+  margin-bottom: 1.2rem;
+  transition: box-shadow 0.3s ease;
 }
 
-.ArticuloCargado{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    border-radius: 5px;
+.containerTarjetaArticulo:hover {
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+}
+
+.ArticuloCargado {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  flex: 1;
 }
 
 .containerDescripcionArticulo {
-    height: 6rem;
-    padding: 10px;
-    font-size: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #333;
+}
 
+.containerDescripcionArticulo h3 {
+  font-size: 0.85rem;
+  font-weight: 400;
+  color: #555;
+  margin: 0;
 }
 
 .cantidadSelector {
-    display: flex;
-    align-items: center;
-    width: 74px;
-    height: 35px;
-    border: 1px solid #ccc;
-    border-radius: 6px;
-    overflow: hidden;
-    font-size: 15px;
-    background-color: #fff;
-    margin-top: 10px;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
 }
 
 .cantidadSelector button {
-    background: none;
-    border: none;
-    padding: 8px 12px;
-    cursor: pointer;
-    font-size: 15px;
+  background-color: #f0f0f0;
+  border: none;
+  padding: 0.3rem 0.6rem;
+  font-size: 1rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: background 0.2s ease;
 }
 
-/* .cantidadSelector span {
-    padding: 0 120px;
-    font-weight: bold;
-} */
-.precioArticulo{
-    display: flex;
-    flex-direction: column;
-    align-items: end;
-    gap: 2rem;
-}
-.precioArticulo button{
-    border: none;
-    border-radius: 5px;
-    padding: 5px;
-    background-color: #FFF;
+.cantidadSelector button:hover {
+  background-color: #e0e0e0;
 }
 
-.precioArticulo button:hover{
-    background-color: #dedede;
-    transition: 0.5s;
+.cantidadSelector span {
+  font-weight: 600;
+  font-size: 1rem;
+  min-width: 1.5rem;
+  text-align: center;
+}
+
+.precioArticulo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  min-width: 80px;
+}
+
+.precioArticulo button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #ff5e5e;
+  transition: color 0.2s ease;
+}
+
+.precioArticulo button:hover {
+  color: #e04040;
+}
+
+.precioArticulo div {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #111;
+}
+
+.talles h3 {
+  margin: 0;
+  font-size: 0.85rem;
+  color: #666;
 }

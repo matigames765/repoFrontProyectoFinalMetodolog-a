@@ -10,41 +10,47 @@ import { useShallow } from "zustand/shallow";
 import { useEffect } from "react";
 
 export const CategoriasScreen = () => {
-  const {seccion} = useParams();
+  const { seccion } = useParams();
 
   const navigate = useNavigate();
 
-  const setCategoriaActiva = filterStore(useShallow((state) => state.setCategoriaActiva))
-  const setSeccionactiva = filterStore(useShallow((state) => state.setSeccionActiva))
-  const resetFiltros = filterStore(useShallow((state) => state.resetFiltros))
+  const setCategoriaActiva = filterStore(
+    useShallow((state) => state.setCategoriaActiva)
+  );
+  const setSeccionactiva = filterStore(
+    useShallow((state) => state.setSeccionActiva)
+  );
+  const resetFiltros = filterStore(useShallow((state) => state.resetFiltros));
 
   useEffect(() => {
-    setSeccionactiva(seccion!)
-    resetFiltros()
-  }, [])
+    setSeccionactiva(seccion!);
+    resetFiltros();
+  }, []);
 
   const handleClickRunning = () => {
-    setCategoriaActiva('running')
+    setCategoriaActiva("running");
     navigate(`/catalogo/${seccion}/running`);
   };
 
   const handleClickTraining = () => {
-    setCategoriaActiva('training')
+    setCategoriaActiva("training");
     navigate(`/catalogo/${seccion}/training`);
   };
 
   const handleClickUrban = () => {
-    setCategoriaActiva('urbano')
+    setCategoriaActiva("urbano");
     navigate(`/catalogo/${seccion}/urbano`);
   };
 
   const handleClickSports = () => {
-    setCategoriaActiva('deportes')
+    setCategoriaActiva("deportes");
     navigate(`/catalogo/${seccion}/deportes`);
   };
   return (
     <>
-      <HeaderDescuento />
+      <div>
+        <HeaderDescuento />
+      </div>
       <div className={styles.contenedorImagenesCategoria}>
         <div
           className={styles.botonImagen}
