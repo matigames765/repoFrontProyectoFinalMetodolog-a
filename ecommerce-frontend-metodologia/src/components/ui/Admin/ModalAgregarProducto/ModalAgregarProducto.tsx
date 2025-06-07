@@ -1,11 +1,8 @@
 import { Modal } from "react-bootstrap";
 import { FormAgregarProducto } from "./FormAgregarProducto";
-import { toast } from "react-toastify";
 import { IProducto } from "../../../../types/Producto/IProducto";
 import { TipoProducto } from "../../../../types/Producto/TipoProducto";
 import { ICategoria } from "../../../../types/Producto/ICategoria";
-import { IDetalleProductos } from "../../../../types/Producto/IDetalleProducto";
-import { productoStore } from "../../../../store/Producto/productoStore";
 import { useProductos } from "../../../../hooks/Producto/useProductos";
 
 const initialStateCategoria: ICategoria = {

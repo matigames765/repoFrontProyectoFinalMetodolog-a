@@ -1,11 +1,48 @@
 import { useNavigate } from "react-router";
 import styles from "./FormRegister.module.css";
+import { IUsuario } from "../../../types/Usuario/IUsuario";
+import { IRol } from "../../../types/Usuario/IRol";
+import { ChangeEvent, FormEvent, useState } from "react";
+import { registerController } from "../../../http/authenticate/authenticate";
+
+const estadoInicial: IUsuario = {
+  id: 0,
+  nombre: "",
+  contraseña: "",
+  rol: IRol.CLIENTE,
+  email: "",
+  dni: 0,
+
+}
 
 export const FormRegister = () => {
   const navigate = useNavigate();
+
+  const [ formValues, setFormValues ] = useState<IUsuario>(estadoInicial)
+
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target
+    setFormValues((prev) => ({...prev, [`${name}`]: value}))
+  }
+
+  const handleLanding = () => {
+    navigate("/")
+  }
+
   const handleLogin = () => {
     navigate("/login");
   };
+
+  const handleSubmit = async(e: FormEvent) => {
+    e.preventDefault()
+    const data = await registerController(formValues)
+    if (data) {
+      const token = localStorage.setItem("authentication", data.token)
+      console.log("Token en el register: ", token)
+    }
+    handleLanding()
+  }
+
   return (
     <div className={styles.containerPrincipalFormRegister}>
       <h4>Crear cuenta</h4>
@@ -13,15 +50,17 @@ export const FormRegister = () => {
         Comprá más rápido y llevá el control de tus pedidos, ¡en un solo lugar!
       </h6>
       <div className={styles.containerForm}>
-        <form>
+        <form onSubmit={handleSubmit}>
           <div className={styles.containerElementsForm}>
-            <label htmlFor="name">Nombre y apellido</label>
+            <label htmlFor="nombre">nombre de usuario</label>
             <input
               type="text"
-              id="nameUser"
+              id="nombre"
               required
               placeholder="Ej.: Luciano Martinez"
-              name="nameUser"
+              name="nombre"
+              value={formValues.nombre}
+              onChange={handleChange}
               className={styles.inputFormRegister}
             />
             <label htmlFor="email">Email</label>
@@ -31,14 +70,18 @@ export const FormRegister = () => {
               required
               placeholder="Ej.: tunombre@email.com"
               name="email"
+              value={formValues.email}
+              onChange={handleChange}
               className={styles.inputFormRegister}
             />
-            <label htmlFor="telefono">Telefono (opcional)</label>
+            <label htmlFor="dni">Telefono (opcional)</label>
             <input
               type="number"
-              id="telefono"
-              placeholder="Ej.: 2612345678"
-              name="telefono"
+              id="dni"
+              placeholder="Ej.: 45234798"
+              name="dni"
+              value={formValues.dni}
+              onChange={handleChange}
               className={styles.inputFormRegister}
             />
             <label htmlFor="contraseña">Crear contraseña</label>
@@ -48,9 +91,11 @@ export const FormRegister = () => {
               required
               placeholder="Ej.:tucontraseña"
               name="contraseña"
+              value={formValues.contraseña}
+              onChange={handleChange}
               className={styles.inputFormRegister}
             />
-            <label htmlFor="contraseñaRepetida">Confirmar contraseña</label>
+            {/* <label htmlFor="contraseñaRepetida">Confirmar contraseña</label>
             <input
               type="text"
               id="contraseñaRepetida"
@@ -58,8 +103,8 @@ export const FormRegister = () => {
               placeholder="Ej.:tucontraseña"
               name="contraseñaRepetida"
               className={styles.inputFormRegister}
-            />
-            <button className={styles.buttonRegistrarme}>Crear cuenta</button>
+            /> */}
+            <button type='submit' className={styles.buttonRegistrarme}>Crear cuenta</button>
             <div className={styles.register}>
               <h5>¿Ya tenés una cuenta?</h5>
               <button onClick={handleLogin}>Inicia sesión</button>
