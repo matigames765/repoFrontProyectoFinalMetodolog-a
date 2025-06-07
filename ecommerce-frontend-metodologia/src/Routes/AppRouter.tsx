@@ -6,6 +6,7 @@ import { AdminScreen } from "../components/screens/adminScreen/AdminScreen";
 import { LoginScreen } from "../components/screens/LoginScreen/LoginScreen";
 import { RegisterScreen } from "../components/screens/registerScreen/RegisterScreen";
 import { RutasAdmin } from "./RutasAdmin";
+import { CheckoutScreen } from "../components/screens/CheckoutScreen/CheckoutScreen";
 
 export const AppRouter = () => {
   return (
@@ -14,8 +15,14 @@ export const AppRouter = () => {
         {/* Rutas eCommerce */}
         <Route path="/" element={<LandingScreen />} />
         <Route path="/categorias/:seccion" element={<CategoriasScreen />} />
-        <Route path="/catalogo/:seccion/:categoria" element={<CatalogoScreen />} />
+        <Route
+          path="/catalogo/:seccion/:categoria"
+          element={<CatalogoScreen />}
+        />
         <Route path="/catalogo" element={<CatalogoScreen />} />
+
+        {/* Ruta Checkout y pasarela de pagos */}
+        <Route path="/checkout" element={<CheckoutScreen />} />
 
         {/* Rutas login y register */}
         <Route path="/login" element={<LoginScreen />} />

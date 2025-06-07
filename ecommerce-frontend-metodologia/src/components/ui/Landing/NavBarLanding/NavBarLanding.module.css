@@ -4,16 +4,11 @@
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  background-color: #FFF;
   padding-top: 12px;
-
+  background-color: #fafafa;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  border-bottom: 1px solid #eaeaea;
 }
-
-/* .titleNavBarLanding {
-  font-size: 24px;
-  font-weight: bold;
-  margin-bottom: 10px;
-} */
 
 .containerCategoriesNavBarLanding {
   display: flex;
@@ -32,59 +27,9 @@
 }
 
 .categorieNavBarLanding:hover {
-  background-color: black;
-  color: white;
-  transform: translateY(-2px);
+  background-color: #000;
+  color: #fff;
+  transform: scale(1.03);
   border-radius: 0.4rem;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: all 0.2s ease-in-out;
 }
-
-
-/* Contenedor para la barra de búsqueda y carrito */
-/* .searchAndCartContainer {
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  width: 100%;
-  gap: 15px;
-}
-
-.searchContainer {
-  position: relative;
-}
-
-.barraBusquedaCatalogo {
-  width: 250px;
-  padding: 8px 12px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-}
-
-.searchIconCalogo {
-  position: absolute;
-  right: 10px;
-  top: 50%;
-  transform: translateY(-50%);
-  cursor: pointer;
-}
-
-.cartContainer {
-  position: relative;
-}
-
-.iconShoppinCartLanding {
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: 0;
-}
-
-.popupWrapper {
-  position: absolute;
-  top: 70px;
-  right: 20px;
-}
-
-.popupCartVisible {
-  display: block;
-} */

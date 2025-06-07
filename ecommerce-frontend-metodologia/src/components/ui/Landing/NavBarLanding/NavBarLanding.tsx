@@ -1,4 +1,3 @@
-import { Search, ShoppingCart} from "lucide-react";
 import styles from "./NavBarLanding.module.css";
 import { useEffect, useState } from "react";
 import { PopUpCart } from "../../PopUpCart/PopUpCart";
@@ -15,53 +14,43 @@ export const NavBarLanding = () => {
 
 
   const handleNavigateDestacados = () => {
-    resetFiltros()
-    setSeccionActiva('destacados')
+    resetFiltros();
+    setSeccionActiva("destacados");
     navigate("/categorias/destacados");
   };
 
-  const handleNavigateHombre= () => {
-    resetFiltros()
-    setSeccionActiva('MASCULINO')
+  const handleNavigateHombre = () => {
+    resetFiltros();
+    setSeccionActiva("MASCULINO");
     navigate("/categorias/masculino");
   };
 
   const handleNavigateMujer = () => {
-    resetFiltros()
-    setSeccionActiva('FEMENINO')
+    resetFiltros();
+    setSeccionActiva("FEMENINO");
     navigate("/categorias/femenino");
   };
 
   const handleNavigateNinios = () => {
-    resetFiltros()
-    setSeccionActiva('niños')
+    resetFiltros();
+    setSeccionActiva("niños");
     navigate("/categorias/niños");
   };
 
   const handleNavigateAccesorios = () => {
-    resetFiltros()
-    setSeccionActiva('accesorios')
+    resetFiltros();
+    setSeccionActiva("accesorios");
     navigate("/categorias/accesorios");
   };
 
   const handleNavigateCatalogoCompleto = () => {
-    resetFiltros()
-    setSeccionActiva('')
+    resetFiltros();
+    setSeccionActiva("");
     navigate("/catalogo");
   };
-  
-  const goHome = () => {
-    navigate("/");
-  };
+
   return (
     <div className={styles.containerNavBarLanding}>
-      <h3
-        className={styles.titleNavBarLanding}
-        onClick={goHome}
-        style={{ cursor: "pointer" }}
-      >
-        ClothesShopMendoza
-      </h3>
       <div className={styles.containerGral}>
         <div className={styles.containerCategoriesNavBarLanding}>
           <h4

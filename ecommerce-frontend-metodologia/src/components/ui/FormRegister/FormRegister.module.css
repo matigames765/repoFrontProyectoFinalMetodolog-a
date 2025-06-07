@@ -1,20 +1,21 @@
 .containerPrincipalFormRegister {
-  width: 100vw;
-  height: 100%;
+  width: 100%;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: start;
-  align-items: start;
-  padding-left: 50px;
-  padding-top: 30px;
-  background-color: #FFF;
+  align-items: center;
+  padding: 3rem 1rem;
+  background-color: #fff;
   gap: 2rem;
 }
 
 .containerForm {
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
-  height: auto;
-  width: 40%;
+  width: 100%;
+  max-width: 500px;
+  background-color: #fafafa;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
   font-size: small;
 }
 
@@ -22,7 +23,6 @@
   display: flex;
   flex-direction: column;
   gap: 1rem;
-
 }
 .containerElementsForm label {
   font-weight: 600;
@@ -31,50 +31,60 @@
 .inputFormRegister {
   padding: 0.75rem 1rem;
   border: 1px solid #ccc;
-  border-radius: 3px;
-  font-size: 1rem;
+  border-radius: 6px;
+  font-size: 0.95rem;
   transition: border-color 0.3s ease;
-  font-size: small;
+  background-color: #fff;
 }
 .inputFormRegister:focus {
   border-color: #007bff;
+  box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.2);
   outline: none;
 }
 
 .buttonRegistrarme {
-  background-color: black;
-  color: white;
+  background-color: #000;
+  color: #fff;
   padding: 0.75rem;
   border: none;
-  border-radius: 8px;
+  border-radius: 6px;
   font-size: 1rem;
   font-weight: 600;
   cursor: pointer;
-  transition: background-color 0.3s ease;
-  justify-content: center;
+  transition: background-color 0.3s ease, transform 0.2s ease;
   width: 100%;
 }
-
 .buttonRegistrarme:hover {
   background-color: #007bff;
+  transform: scale(1.01);
 }
-.register{
+
+.register {
   display: flex;
-  gap: 1rem;
+  gap: 0.5rem;
   justify-content: center;
   align-items: center;
+  margin-top: 1rem;
 }
-.register h5{
+.register button {
+  background: transparent;
+  border: none;
+  color: #007bff;
+  font-size: 0.95rem;
+  cursor: pointer;
+  text-decoration: underline;
+  padding: 0;
+}
+
+.register h5 {
   margin: 0;
   padding: 0;
   line-height: 1;
 }
-.register button{
-  background: transparent;
-  padding: 0;
-  margin: 0;
-  cursor: pointer;
-  border: none;
-  font-size: 20px;
-  color: rgb(111, 111, 253);
+
+@media (max-width: 600px) {
+  .containerForm {
+    padding: 1.5rem;
+    box-shadow: none;
+  }
 }

@@ -1,38 +1,66 @@
 import { Trash2 } from "lucide-react";
 import styles from "./ArticuloTarjeta.module.css";
-import { useState } from "react";
+import { FC } from "react";
+import { ICarritoItems } from "../../../types/Producto/ICarritoItems";
+import { useCarritoStore } from "../../../store/Producto/carritoStore";
+import { toast } from "react-toastify";
 
-export const ArticuloTarjeta = () => {
-  const [cantidad, setCantidad] = useState(1);
+type ArticuloTarjetaProps = {
+  item: ICarritoItems;
+};
 
-  const aumentar = () => setCantidad((prev) => prev + 1);
-  const disminuir = () => {
-    if (cantidad > 1) setCantidad((prev) => prev - 1);
+export const ArticuloTarjeta: FC<ArticuloTarjetaProps> = ({ item }) => {
+  const { setCantidad, eliminarDelCarrito } = useCarritoStore();
+
+  const aumentar = () => {
+    setCantidad(item.producto.id, item.talleId, item.cantidad + 1);
   };
+
+  const disminuir = () => {
+    if (item.cantidad > 1) {
+      setCantidad(item.producto.id, item.talleId, item.cantidad - 1);
+    }
+  };
+
+  const eliminar = () => {
+    eliminarDelCarrito(item.producto.id, item.talleId);
+    toast.success("Producto eliminado!", { position: "top-left" });
+  };
+  const talleNombre =
+    item.producto.tallesDetalleProductos.find((t) => t.id === item.talleId)
+      ?.talle || "N/A";
+
+  console.log(item);
   return (
     <div className={styles.containerTarjetaArticulo}>
       <div className={styles.ArticuloCargado}>
         <img
-          src="src/Imagenes/ImagenPrincipalNiño.avif"
-          alt="articulo en el carrito"
+          src={
+            item.producto.imagenProducto?.url ||
+            "https://via.placeholder.com/70"
+          }
+          alt={item.producto.imagenProducto?.alt || "Imagen no disponible"}
           width="70px"
           height="80px"
         />
         <div className={styles.containerDescripcionArticulo}>
-          Remera Running(M)
-        <div className={styles.cantidadSelector}>
-          <button onClick={disminuir}>&lt;</button>
-          <span>{cantidad}</span>
-          <button onClick={aumentar}>&gt;</button>
+          {item.producto?.producto?.nombre || `Producto ID:${item.producto.id}`}
+          <div className={styles.cantidadSelector}>
+            <button onClick={disminuir}>&lt;</button>
+            <span>{item.cantidad}</span>
+            <button onClick={aumentar}>&gt;</button>
+          </div>
+          <div className={styles.talles}>
+            <h3>Talle: {talleNombre}</h3>
+          </div>
         </div>
       </div>
-      </div>
-      
+
       <div className={styles.precioArticulo}>
-        <button>
-          <Trash2 size={30}/>
+        <button onClick={eliminar}>
+          <Trash2 size={30} />
         </button>
-        <div>$100.000</div>
+        <div>${item.producto.precio?.precioVenta || 0}</div>
       </div>
     </div>
   );
