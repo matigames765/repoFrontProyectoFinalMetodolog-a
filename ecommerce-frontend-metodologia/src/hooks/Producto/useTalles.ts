@@ -14,6 +14,7 @@ export const useTalles = () => {
     const getTallesHook = async() => {
         try{
             const talles = await getAllTalles()
+            console.log("Talles backend: ", talles)
             if(talles) setArrayTalles(talles)
             return talles
         }catch(error){

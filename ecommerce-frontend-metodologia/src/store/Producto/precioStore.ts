@@ -5,7 +5,8 @@ interface IPrecioStore{
     precios: IPrecio[],
     ordenPrecio: string | null,
     setArrayPrecios: (precios: IPrecio[]) => void,
-    setOrdenPrecio: (ordenPrecio: string | null) => void
+    setOrdenPrecio: (ordenPrecio: string | null) => void,
+    crearPrecioStore: (precio: IPrecio) => void
 }
 
 export const precioStore = create<IPrecioStore>((set) => ({
@@ -16,5 +17,10 @@ export const precioStore = create<IPrecioStore>((set) => ({
     setOrdenPrecio: (ordenPrecioIn) => set(() => ({ordenPrecio: ordenPrecioIn})),
 
     //setear array de descuentos
-    setArrayPrecios: (preciosIn) => set(() => ({precios: preciosIn}))
+    setArrayPrecios: (preciosIn) => set(() => ({precios: preciosIn})),
+
+    //crear precio
+    crearPrecioStore: (precioIn) => set((state) => ({
+        precios: [...state.precios, precioIn]
+    }))
 }))

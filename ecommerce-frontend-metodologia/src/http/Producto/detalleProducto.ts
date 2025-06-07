@@ -2,6 +2,7 @@ import axios from "axios"
 import { IDetalleProductos } from "../../types/Producto/IDetalleProducto"
 import { filterStore } from "../../store/Producto/filterStore"
 import { useShallow } from "zustand/shallow"
+import { ITalles } from "../../types/Producto/ITalles"
 
 
 
@@ -38,11 +39,31 @@ export const getAllDetallesProductos = async(): Promise<IDetalleProductos[] | un
 
 export const crearDetalleProducto = async(detalleProducto: IDetalleProductos) => {
     try{
-        const response = await axios.post<IDetalleProductos>('http://localhost:9000/detalleProducto', {detalleProducto})
+        const response = await axios.post<IDetalleProductos>('http://localhost:9000/detalleProducto', detalleProducto)
 
         return response.data
     }catch(error){
         console.log('Error en crearDetalleProducto http: ' + error)
+    }
+}
+
+export const eliminadoLogicoDetalleProducto = async(idDetalle: number) => {
+    try{
+        const response = await axios.patch<IDetalleProductos>(`http://localhost:9000/detalleProducto/${idDetalle}/eliminadoLogico`)
+
+        return response.data
+    }catch(error){
+        console.log("Error en el eliminado logico detalle producto http: " + error)
+    }
+}
+
+export const addTalleOnDetalleProducto = async(idDetalle: number, talle: ITalles) => {
+    try{
+        const response = await axios.put<IDetalleProductos>(`http://localhost:9000/detalleProducto/${idDetalle}/agregarTalle`, talle)
+
+        return response.data
+    }catch(error){
+        console.log("Error en addTalleOnDetalleProducto http: ", error)
     }
 }
 
@@ -56,10 +77,3 @@ export const editarDetalleProducto = async(detalleProductoActualizado: IDetalleP
     }
 }
 
-export const deleteDetalleProducto = async(id: number) => {
-    try{
-        await axios.delete(`http://localhost:9000/detalleProducto/:${id}`)
-    }catch(error){
-        console.log('Error en eliminar deleteDetalleProducto http: ' + error)
-    }
-}

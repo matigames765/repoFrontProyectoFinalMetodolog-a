@@ -1,6 +1,8 @@
 import { FC } from "react";
 import { Button, Col, Container, Form, Modal, Row } from "react-bootstrap";
 import { IDetalleProductos } from "../../../../types/Producto/IDetalleProducto";
+import { ITalles } from "../../../../types/Producto/ITalles";
+import { getTalleById } from "../../../../http/Producto/talles";
 
 interface IViewProduct {
   show: boolean;
@@ -12,6 +14,14 @@ const ViewProduct: FC<IViewProduct> = ({ show, detalle, handleClose }) => {
   // Si el detalleProducto es null o undefined no se muestra el modal
   if (!detalle) {
     return null;
+  }
+
+  const getTalleByIdCatalogo = async(idTalle: number): Promise<string> => {
+    const talleResponse = await getTalleById(idTalle)
+
+    console.log(talleResponse?.talle)
+
+    return talleResponse?.talle!
   }
   return (
     // importamos un modal de react-boostrap para generar un modal, y nesesita una variable booleana para mostrarse y una voidFunction para cerrarlo
@@ -42,9 +52,13 @@ const ViewProduct: FC<IViewProduct> = ({ show, detalle, handleClose }) => {
               <h6>Talles:</h6>
               <Form.Select aria-label="talles">
                 <option>Seleccionar talle</option>
-                {detalle.tallesDetalleProductos.map((talle) => (
+                {detalle.tallesDetalleProductos!.map((talle) => (
                   <option key={talle.id} value={talle.id}>
-                    {talle.talle}
+                    {talle.talle 
+                    ? 
+                    talle.talle: 
+                    (getTalleByIdCatalogo(Number(talle)), "Cargando...")
+                    }
                   </option>
                 ))}
               </Form.Select>

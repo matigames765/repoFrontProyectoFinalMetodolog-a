@@ -4,11 +4,11 @@ import { TipoProducto } from "./TipoProducto";
 
 export interface IProducto{
     id?: number,
-    nombre: string,
-    categoria: ICategoria,
-    seccion: string,
-    tipoProducto: TipoProducto
-    detallesProductos: IDetalleProductos[],
+    nombre?: string,
+    categoria?: ICategoria,
+    seccion?: string,
+    tipoProducto?: TipoProducto
+    detallesProductos?: IDetalleProductos[],
 }
 
 

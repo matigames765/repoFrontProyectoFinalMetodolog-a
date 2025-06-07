@@ -1,17 +1,20 @@
 import { useShallow } from "zustand/shallow"
 import { productoStore } from "../../store/Producto/productoStore"
-import { crearProducto, deleteProducto, getAllProductos } from "../../http/Producto/producto"
+import { addDetalleProductoOnProducto, crearProducto, deleteProducto, getAllProductos } from "../../http/Producto/producto"
 import { IProducto } from "../../types/Producto/IProducto"
 import { toast } from "react-toastify"
+import { IDetalleProductos } from "../../types/Producto/IDetalleProducto"
 
 export const useProductos = () => {
 
     //traemos las variables y las actions de la store de producto
-    const {productos, setArrayProductos, crearProductoStore, eliminarProductoStore} = productoStore(useShallow((state) => ({
+    const {productos, setArrayProductos, crearProductoStore, editarProductoStore} = productoStore(useShallow((state) => ({
         productos: state.productos,
         setArrayProductos: state.setArrayProductos,
         crearProductoStore: state.crearProductoStore,
-        eliminarProductoStore: state.eliminarProductoStore
+        eliminarProductoStore: state.eliminarProductoStore,
+        addDetalleProductoOnProductoStore: state.addDetalleProductoOnProductoStore,
+        editarProductoStore: state.editarProductoStore
     })))
 
     //traemos los productos en el hook
@@ -37,11 +40,22 @@ export const useProductos = () => {
         }
     }
 
+    const addDetalleProductoOnProductoHook = async(detalleProducto: IDetalleProductos, idProducto: number) => {
+        try{
+            const productoBD = await addDetalleProductoOnProducto(detalleProducto, idProducto)
+            editarProductoStore(productoBD!)
+            
+        }catch(error){
+            console.log("Hubo un error al añadir el detalle del producto en el producto hook: " + error)
+        }
+    }
+
 
 
     return({
         getProductosHook,
         productos,
-        crearProductoHook
+        crearProductoHook,
+        addDetalleProductoOnProductoHook
     })
 }

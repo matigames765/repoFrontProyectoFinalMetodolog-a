@@ -21,6 +21,8 @@ export const useCategorias = () => {
         }
     }
 
+    
+
     return ({
         getCategoriasHook,
         categorias

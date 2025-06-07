@@ -1,34 +1,69 @@
+import { useEffect, useState } from "react";
+import { useProductos } from "../../../../hooks/Producto/useProductos";
 import styles from "./ProductosAdmin.module.css";
+import { useNavigate } from "react-router";
+import { IProducto } from "../../../../types/Producto/IProducto";
+import { ModalDetallesProductosAdmin } from "../ModalDetallesProductosAdmin/ModalDetallesProductosAdmin";
+import { productoStore } from "../../../../store/Producto/productoStore";
+import { ModalAgregarDetalleProducto } from "../ModalAgregarDetalleProducto/ModalAgregarDetalleProducto";
 
 export const ProductosAdmin = () => {
+
+  const {productos, getProductosHook} = useProductos()
+  const [openModalDetallesProductos, setOpenModalDetallesProductos] = useState(false)
+  const [productoVerDetalles, setProductoVerDetalles] = useState<IProducto>()
+  const [openModalAgregarDetalleProducto, setOpenModalAgregarDetalleProducto] = useState(false)
+  const [idProductoState, setIdProductoState] = useState(0)
+  const [productoDetalle, setProductoDetalle] = useState<IProducto>()
+
+
+  const onClose = () => {
+    setOpenModalDetallesProductos(false)
+    getProductosHook()
+  }
+
+  const onCloseAgregarDetalle = () => {
+    setOpenModalAgregarDetalleProducto(false)
+    getProductosHook()
+  }
+
+  useEffect(() => {
+    getProductosHook()
+    console.log("Productos obtenidos: ",productos)
+  }, [])
+
+  useEffect(() => {
+    getProductosHook()
+  }, [])
+
+
   return (
     <>
       <div className={styles.containerPrincipal}>
         <div className={styles.divProductos}>
-          <div className={styles.idProductos}>
-            <h3 className={styles.tituloColumna}>ID Producto</h3>
-
-            <p>#1114</p>
-            <p>#1113</p>
-            <p>#1112</p>
-            <p>#1111</p>
+          {productos.map((producto) => (<div key={producto.id} className={styles.containerProducto}>
+            <div className={styles.informationProducto}>
+              <p>Nombre producto: {producto.nombre}</p>
+              <p>Seccion: {producto.seccion}</p>
+              <p>Tipo de producto: {producto.tipoProducto}</p>
+              <p>Categoria: {producto.categoria!.nombre}</p>
+            </div>
+          <div className={styles.buttonsProducto}>
+            <button className={styles.buttonProducto} onClick={() => {
+              setOpenModalAgregarDetalleProducto(true)
+              setIdProductoState(producto.id!)
+              setProductoDetalle(producto)
+            }}>Añadir detalle producto</button>
+            <button className={styles.buttonProducto} onClick={() => {
+              setProductoVerDetalles(producto)
+              setOpenModalDetallesProductos(true)
+            }}>Ver detalles del producto</button>
           </div>
-          <div className={styles.precioProductos}>
-            <h3 className={styles.tituloColumna}>Precio Unitario</h3>
-            <p>$49.990</p>
-            <p>$79.990</p>
-            <p>$59.990</p>
-            <p>$119.990</p>
-          </div>
-          <div className={styles.editarProductos}>
-            <h3 className={styles.tituloColumna}>Editar</h3>
-            <p>editar producto</p>
-            <p>editar producto</p>
-            <p>editar producto</p>
-            <p>editar producto</p>
-          </div>
+          </div>))}
         </div>
       </div>
+      {openModalDetallesProductos && <ModalDetallesProductosAdmin producto={productoVerDetalles!} show={openModalDetallesProductos} onClose={onClose} />}
+      {openModalAgregarDetalleProducto && <ModalAgregarDetalleProducto productoDetalle = {productoDetalle!} idProducto={idProductoState} show={openModalAgregarDetalleProducto} onClose={onCloseAgregarDetalle}/>}
     </>
   );
 };

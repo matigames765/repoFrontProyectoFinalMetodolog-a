@@ -51,20 +51,43 @@ export const SectionImagenesCatalogo = () => {
   useEffect(() => {
     console.log("Detalle activo: ", detalleActivo);
   }, [detalleActivo]);
+
+  console.log(detallesProductos)
+
+  const detallesFiltrados: IDetalleProductos[] = []
+
+  
+  for (let i = 0; i < detallesProductos.length; i++) {
+    const detallePrimero = detallesProductos[i];
+    const detalleSegundo = detallesProductos[i + 1];
+
+    if (detalleSegundo && detallePrimero.color === detalleSegundo.color) {
+      if (detallePrimero.estado === true && detalleSegundo.estado === false) {
+        detallesFiltrados.push(detalleSegundo);
+      } else if (detallePrimero.estado === false && detalleSegundo.estado === true) {
+        detallesFiltrados.push(detallePrimero);
+      } else {
+      detallesFiltrados.push(detallePrimero);
+      }
+      i++; 
+    } else {
+    detallesFiltrados.push(detallePrimero);
+    }
+  }
   
 
   return (
     <>
       <div className={styles.principalContainerSectionImagenesCatalogo}>
-        {detallesProductos.map((detalleProducto, index) => (
+        {detallesFiltrados.map((detalleProducto, index) => (detalleProducto.estado === true &&
           <div key={index} className={styles.containerImagenesCatalogo}>
             <img
-              src={detalleProducto.imagenProducto.url || "no hay imagen"}
-              alt={detalleProducto.imagenProducto.alt || "imagen de producto"}
+              src={detalleProducto.imagenProducto!.url || "no hay imagen"}
+              alt={detalleProducto.imagenProducto!.alt || "imagen de producto"}
               className={styles.imagenesCatalogo}
             />
             <div className={styles.containerPrecioInfoImagenesCatalogo}>
-              <h6>precio: ${detalleProducto.precio.precioVenta}</h6>
+              <h6>precio: ${detalleProducto.precio!.precioVenta}</h6>
               <button
                 onClick={() => handleView(detalleProducto)}
                 className={styles.buttonImagenesCatalogo}

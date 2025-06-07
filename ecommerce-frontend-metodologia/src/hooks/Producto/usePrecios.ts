@@ -1,13 +1,15 @@
 import { useShallow } from "zustand/shallow"
 import { precioStore } from "../../store/Producto/precioStore"
-import { getAllPrecios } from "../../http/Producto/precio"
+import { crearPrecio, getAllPrecios } from "../../http/Producto/precio"
+import { IPrecio } from "../../types/Producto/IPrecio"
 
 export const usePrecios= () => {
 
     //traemos las variables y las actions de la store de precio
-    const {precios, setArrayPrecios} = precioStore(useShallow((state) => ({
+    const {precios, setArrayPrecios, crearPrecioStore} = precioStore(useShallow((state) => ({
         precios: state.precios,
-        setArrayPrecios: state.setArrayPrecios
+        setArrayPrecios: state.setArrayPrecios,
+        crearPrecioStore: state.crearPrecioStore
     })))
 
     //traemos los descuentos en el hook
@@ -21,8 +23,20 @@ export const usePrecios= () => {
         }
     }
 
+    const crearPrecioHook = async(precio: IPrecio) => {
+            try{
+                const precioBD = await crearPrecio(precio)
+                crearPrecioStore({...precioBD, id: precioBD?.id!})
+
+                return precioBD
+            }catch(error){
+                console.log("Hubo un error al crear el precio en el hook: " + error)
+            }
+        }
+
     return({
         getPreciosHook,
-        precios
+        precios,
+        crearPrecioHook
     })
 }

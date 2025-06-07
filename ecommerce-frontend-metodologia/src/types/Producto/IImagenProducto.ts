@@ -1,5 +1,5 @@
 export interface IImagenProducto{
-    id: number,
-    url: string,
-    alt: string
+    id?: number,
+    url?: string,
+    alt?: string
 }

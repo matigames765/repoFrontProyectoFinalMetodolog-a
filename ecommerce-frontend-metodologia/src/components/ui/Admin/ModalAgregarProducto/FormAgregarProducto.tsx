@@ -38,10 +38,13 @@ export const FormAgregarProducto: FC<IFormAgregarProductoProps> = ({
   const { name, value } = e.target;
 
   if (name === "categoria") {
+    const categoriaSeleccionada = categorias.find(cat => cat.id === Number(value));
     
     setFormValuesProducto((prev) => ({
       ...prev,
-      categoria: { id: Number(value) }, 
+      categoria: { 
+        id: Number(value),
+        nombre: categoriaSeleccionada?.nombre }, 
     }));
   } else {
     setFormValuesProducto((prev) => ({
@@ -71,16 +74,19 @@ export const FormAgregarProducto: FC<IFormAgregarProductoProps> = ({
       </Form.Group>
 
       <Form.Group className="mb-3" controlId="categoria">
-        <Form.Label>Categoría</Form.Label>
-        <Form.Select
-          name="categoria"
-          value={formValuesProducto.categoria ? formValuesProducto.categoria.id : ""}
-          onChange={handleChangeProducto}
-          required
-        >
-        {categorias.map((cat) => <option key={cat.id} value={cat.id}>{cat.nombre}</option>)}
-        </Form.Select>
-      </Form.Group>
+        <Form.Label>Categoria</Form.Label>
+      <Form.Select
+        name="categoria"
+        value={formValuesProducto.categoria?.id ? String(formValuesProducto.categoria.id) : ""}
+        onChange={handleChangeProducto}
+        required
+      >
+        <option value="" disabled>-- Categoria --</option>
+        {categorias.map((cat) => (
+          <option key={cat.id} value={String(cat.id)}>{cat.nombre}</option>
+        ))}
+      </Form.Select>
+        </Form.Group>
 
       <Form.Group className="mb-3" controlId="tipoProducto">
         <Form.Label>Tipo Producto</Form.Label>

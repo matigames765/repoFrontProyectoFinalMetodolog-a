@@ -1,13 +1,15 @@
 import { useShallow } from "zustand/shallow"
 import { imagenProductoStore } from "../../store/Producto/imagenProductoStore"
-import { getAllImagenesProductos } from "../../http/Producto/imagenProducto"
+import { crearImagenProducto, getAllImagenesProductos } from "../../http/Producto/imagenProducto"
+import { IImagenProducto } from "../../types/Producto/IImagenProducto"
 
 export const useImagenesProductos = () => {
 
     //traemos las variables y las actions de la store de imagen producto
-    const {imagenesProductos, setArrayImagenesProductos} = imagenProductoStore(useShallow((state) => ({
+    const {imagenesProductos, setArrayImagenesProductos, crearImagenProductoStore} = imagenProductoStore(useShallow((state) => ({
         imagenesProductos: state.imagenesProductos,
-        setArrayImagenesProductos: state.setArrayImagenesProductos
+        setArrayImagenesProductos: state.setArrayImagenesProductos,
+        crearImagenProductoStore: state.crearImagenProductoStore
     })))
 
     //traemos las imagenes productos en el hook
@@ -21,8 +23,20 @@ export const useImagenesProductos = () => {
         }
     }
 
+    const crearImagenProductoHook = async(imagenProducto: IImagenProducto) => {
+                try{
+                    const imagenProductoBD = await crearImagenProducto(imagenProducto)
+                    crearImagenProductoStore({...imagenProductoBD, id: imagenProductoBD?.id!})
+
+                    return imagenProductoBD
+                }catch(error){
+                    console.log("Hubo un error al crear la imagen del producto en el hook: " + error)
+                }
+            }
+
     return({
         getImagenesProductosHook,
-        imagenesProductos
+        imagenesProductos,
+        crearImagenProductoHook
     })
 }
