@@ -19,8 +19,20 @@
   padding: 0.3rem;
 }
 .conector {
+  position: relative;
   margin-top: 15px;
   height: 1px;
   background-color: #000;
   flex-grow: 1;
+  overflow: hidden;
+}
+
+.progressBar{
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 50%; /* Cambiar dinámicamente según el paso actual */
+  background-color: rgb(0, 255, 0);
+  transition: width 0.5s ease;
 }

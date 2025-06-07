@@ -9,13 +9,17 @@ export const HeaderFormCheckout = () => {
           <Check />
         </div>
 
-        <div className={styles.conector}></div>
+        <div className={styles.conector}>
+          <div className={styles.progressBar}></div>
+        </div>
 
         <div className={styles.containerSteps}>
           <Truck />
         </div>
 
-        <div className={styles.conector}></div>
+        <div className={styles.conector}>
+          <div className={styles.progressBar}></div>
+        </div>
 
         <div className={styles.containerSteps}>
           <CreditCard />
