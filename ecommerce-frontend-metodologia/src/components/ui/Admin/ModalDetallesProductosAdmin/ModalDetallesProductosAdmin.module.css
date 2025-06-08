@@ -39,3 +39,7 @@
     background-color: #fafafa;
     transform: scale(1.1);
 }
+
+.imagenDetalleAdmin{
+    border-radius: 0.4rem;
+}

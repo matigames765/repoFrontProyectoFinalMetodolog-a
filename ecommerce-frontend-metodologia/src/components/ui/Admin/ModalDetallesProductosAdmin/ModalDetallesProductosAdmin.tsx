@@ -38,7 +38,7 @@ export const ModalDetallesProductosAdmin: FC<ModalDetalleProductoProps> = ({show
                 <div className={styles.infoDetalle}>
                     <p>Stock: {detalle.stock}</p>
                     <p>Color: {detalle.color}</p>
-                    <label>Imagen: {<img src={detalle.imagenProducto!.url} alt={detalle.imagenProducto!.alt} width='90vw' height='90vh'></img>}</label>
+                    <label>Imagen: {<img src={detalle.imagenProducto!.url} alt={detalle.imagenProducto!.alt} width='90vw' height='90vh' className={styles.imagenDetalleAdmin}></img>}</label>
                     <p>Precio: {detalle.precio!.precioVenta}</p>
                     <label>Talles: </label>
                     {<p>{detalle.tallesDetalleProductos!.map(t => t.talle).join(', ')}</p>}

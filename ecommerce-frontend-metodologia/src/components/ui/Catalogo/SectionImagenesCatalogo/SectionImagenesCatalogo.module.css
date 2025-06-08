@@ -1,4 +1,5 @@
 .principalContainerSectionImagenesCatalogo {
+  margin-top: 2vw;
   width: 74vw;
   height: 86.3vh;
   position: absolute;
@@ -24,8 +25,7 @@
 
 .containerImagenesCatalogo {
   width: 100%;
-  min-height: 300px;
-  max-height: 320px;
+  height: 400px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -36,7 +36,7 @@
   padding: 1rem;
   transition: box-shadow 0.3s ease;
   cursor: pointer;
-  overflow: hidden;
+  overflow: visible;
 }
 
 .containerImagenesCatalogo:hover {
@@ -53,7 +53,7 @@
 
 .imagenesCatalogo {
   width: 100%;
-  height: 100%;
+  height: 290px;
   object-fit: cover;
   transition: transform 0.3s ease;
 }
