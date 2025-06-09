@@ -106,7 +106,9 @@
 
 .checkoutContainer {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  gap: 1vw;
   padding: 1rem 0 1.5rem;
   border-top: 1px solid #e0e0e0;
 }
@@ -121,7 +123,7 @@
   border-radius: 8px;
   cursor: pointer;
   transition: background-color 0.3s ease;
-  width: 100%;
+  width:20vw;
   max-width: 300px;
   box-shadow: 0 4px 8px rgba(61, 156, 204, 0.3);
 }
@@ -129,4 +131,8 @@
 .checkoutButton:hover {
   background-color: #337ab7;
   box-shadow: 0 6px 12px rgba(51, 122, 183, 0.5);
+}
+
+.walletContainer{
+  width: 20vw;
 }

@@ -22,9 +22,9 @@ export const OrdenesAdmin = () => {
           </div>
           <div className={styles.fechaOrden}>
             <h3 className={styles.tituloColumna}>Fecha</h3>
-            {ordenesCompra.map((orden) => <p>{orden.fechaCompra.getDate()}</p>)}
+            {ordenesCompra.map((orden) => <p>{orden.fechaCompra}</p>)}
           </div>
-          <div className={styles.direccion}>
+          {/* <div className={styles.direccion}>
             <h3 className={styles.tituloColumna}>Direccion</h3>
             {ordenesCompra.map((orden) => 
             <>
@@ -33,17 +33,17 @@ export const OrdenesAdmin = () => {
               <p>Departamento: {orden.direccionEnvio.departamento}</p>
               <p>Localidad: {orden.direccionEnvio.localidad}</p>
             </>)}
-          </div>
+          </div> */}
           <div className={styles.estado}>
             <h3 className={styles.tituloColumna}>Total</h3>
             {ordenesCompra.map((orden) => <p>{orden.total}</p>)}
           </div>
-          <div className={styles.totalOrden}>
+          {/* <div className={styles.totalOrden}>
             <h3 className={styles.tituloColumna}>Detalle</h3>
             <button className={styles.verDetalleOrden} onClick={() => {
               setOpenModalOrdenDetalle(true)
             }}>Ver detalle</button>
-          </div>
+          </div> */}
         </div>
       </div>
       {openModalOrdenDetalle && <ModalDetalleOrden />}

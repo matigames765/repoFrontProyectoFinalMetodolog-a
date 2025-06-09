@@ -13,21 +13,21 @@ export const ArticuloTarjeta: FC<ArticuloTarjetaProps> = ({ item }) => {
   const { setCantidad, eliminarDelCarrito } = useCarritoStore();
 
   const aumentar = () => {
-    setCantidad(item.producto.id, item.talleId, item.cantidad + 1);
+    setCantidad(item.producto.id!, item.talleId, item.cantidad + 1);
   };
 
   const disminuir = () => {
     if (item.cantidad > 1) {
-      setCantidad(item.producto.id, item.talleId, item.cantidad - 1);
+      setCantidad(item.producto.id!, item.talleId, item.cantidad - 1);
     }
   };
 
   const eliminar = () => {
-    eliminarDelCarrito(item.producto.id, item.talleId);
+    eliminarDelCarrito(item.producto.id!, item.talleId);
     toast.success("Producto eliminado!", { position: "top-left" });
   };
   const talleNombre =
-    item.producto.tallesDetalleProductos.find((t) => t.id === item.talleId)
+    item.producto.tallesDetalleProductos?.find((t) => t.id === item.talleId)
       ?.talle || "N/A";
 
   console.log(item);

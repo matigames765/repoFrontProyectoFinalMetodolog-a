@@ -1,4 +1,5 @@
 import { IDescuento } from "../Producto/IDescuento";
+import { IDetalleProductos } from "../Producto/IDetalleProducto";
 import { IDireccion } from "./IDireccion";
 import { IUsuarioDireccion } from "./IUsuarioDireccion";
 
@@ -8,6 +9,7 @@ export interface IOrdenCompra{
     usuarioDireccion: IUsuarioDireccion,
     total: number,
     descuento: IDescuento, //aca iria el descuento de tipo descuento o como number?
-    fechaCompra: Date,
+    fechaCompra: string,
     direccionEnvio: IDireccion //aca iria la direccion como tipo direccion?
+    detallesProductos: IDetalleProductos[]
 }
