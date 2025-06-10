@@ -48,6 +48,7 @@ export const useDetallesProductos = () => {
 
     const addTalleOnDetalleProductoHook = async(idDetalle: number, talle: ITalles) => {
         try{
+            console.log("Talle: ", talle)
             const detalleProductoBD = await addTalleOnDetalleProducto(idDetalle, talle)
             editarDetalleProductoStore(detalleProductoBD!)
         }catch(error){

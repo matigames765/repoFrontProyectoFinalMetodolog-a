@@ -66,7 +66,6 @@ export const ModalAgregarDetalleProducto: FC<ModalDetalleProductoProps> = ({prod
         getTallesHook()
     }, [])
 
-    console.log("Talles: " + talles)
 
     const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
         const {name, value} = e.target
@@ -118,7 +117,10 @@ export const ModalAgregarDetalleProducto: FC<ModalDetalleProductoProps> = ({prod
 
         const detalle = await crearDetalleProductoHook(detalleConIdsActualizados)
 
+        console.log("TALLES SELECT: ", tallesSelect)
+
         for(let i = 0; i < tallesSelect.length; i++){
+            console.log("Talle select I: ", tallesSelect[i])
             await addTalleOnDetalleProductoHook(detalle?.id!, tallesSelect[i])
         }
 

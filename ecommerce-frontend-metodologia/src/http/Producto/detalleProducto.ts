@@ -58,8 +58,14 @@ export const eliminadoLogicoDetalleProducto = async(idDetalle: number) => {
 }
 
 export const addTalleOnDetalleProducto = async(idDetalle: number, talle: ITalles) => {
+    console.log("Talle en htpp: ", talle)
     try{
-        const response = await axios.put<IDetalleProductos>(`http://localhost:9000/detalleProducto/${idDetalle}/agregarTalle`, talle)
+        const response = await axios.put<IDetalleProductos>(`http://localhost:9000/detalleProducto/${idDetalle}/agregarTalle`, 
+            JSON.stringify(talle),
+         {
+  headers: {
+    'Content-Type': 'application/json'
+  }})
 
         return response.data
     }catch(error){
