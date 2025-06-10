@@ -1,11 +1,62 @@
 import { useNavigate } from "react-router";
 import styles from "./FormRegister.module.css";
+import { ChangeEvent, FormEvent, useState } from "react";
+import { registerController } from "../../../http/authenticate/authenticate";
+import { IRegister } from "../../../types/authenticate/IRegister";
+import { jwtDecode } from "jwt-decode";
+import { handleUsuario } from "../../../hooks/UsuarioActivo/handleUsuario";
+import { usuarioStore } from "../../../store/Usuario/usuarioStore";
+import { useShallow } from "zustand/shallow";
+
+
+const estadoInicial: IRegister = {
+  nombre: "",
+  contraseña: "",
+  email: "",
+  dni: 0,
+
+}
 
 export const FormRegister = () => {
   const navigate = useNavigate();
+
+  const [formValues, setFormValues] = useState<IRegister>(estadoInicial)
+const { usuarios, setUsuarioActivo } = usuarioStore(useShallow((state) => ({
+    usuarios: state.usuarios,
+    setUsuarioActivo: state.setUsuarioActivo
+  })))
+
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target
+    setFormValues((prev) => ({ ...prev, [`${name}`]: value }))
+  }
+
+  const handleLanding = () => {
+    navigate("/")
+  }
+
   const handleLogin = () => {
     navigate("/login");
   };
+
+  const handleSubmit = async (e: FormEvent) => {
+    e.preventDefault()
+    const data = await registerController(formValues)
+    if (data) {
+      localStorage.setItem("authentication", data)
+      console.log("Token en el register: ", data)
+
+      const payload = jwtDecode(data)
+      const nombrePayload = payload.sub;
+      if (nombrePayload) {
+        handleUsuario(nombrePayload, usuarios, setUsuarioActivo)
+      }
+      
+    }
+    handleLanding()
+
+  }
+
   return (
     <div className={styles.containerPrincipalFormRegister}>
       <h4>Crear cuenta</h4>
@@ -13,15 +64,17 @@ export const FormRegister = () => {
         Comprá más rápido y llevá el control de tus pedidos, ¡en un solo lugar!
       </h6>
       <div className={styles.containerForm}>
-        <form>
+        <form onSubmit={handleSubmit}>
           <div className={styles.containerElementsForm}>
-            <label htmlFor="name">Nombre y apellido</label>
+            <label htmlFor="nombre">nombre de usuario</label>
             <input
               type="text"
-              id="nameUser"
+              id="nombre"
               required
               placeholder="Ej.: Luciano Martinez"
-              name="nameUser"
+              name="nombre"
+              value={formValues.nombre}
+              onChange={handleChange}
               className={styles.inputFormRegister}
             />
             <label htmlFor="email">Email</label>
@@ -31,14 +84,18 @@ export const FormRegister = () => {
               required
               placeholder="Ej.: tunombre@email.com"
               name="email"
+              value={formValues.email}
+              onChange={handleChange}
               className={styles.inputFormRegister}
             />
-            <label htmlFor="telefono">Telefono (opcional)</label>
+            <label htmlFor="dni">Ingrese su Dni</label>
             <input
               type="number"
-              id="telefono"
-              placeholder="Ej.: 2612345678"
-              name="telefono"
+              id="dni"
+              placeholder="Ej.: 45234798"
+              name="dni"
+              value={formValues.dni}
+              onChange={handleChange}
               className={styles.inputFormRegister}
             />
             <label htmlFor="contraseña">Crear contraseña</label>
@@ -48,9 +105,11 @@ export const FormRegister = () => {
               required
               placeholder="Ej.:tucontraseña"
               name="contraseña"
+              value={formValues.contraseña}
+              onChange={handleChange}
               className={styles.inputFormRegister}
             />
-            <label htmlFor="contraseñaRepetida">Confirmar contraseña</label>
+            {/* <label htmlFor="contraseñaRepetida">Confirmar contraseña</label>
             <input
               type="text"
               id="contraseñaRepetida"
@@ -58,8 +117,8 @@ export const FormRegister = () => {
               placeholder="Ej.:tucontraseña"
               name="contraseñaRepetida"
               className={styles.inputFormRegister}
-            />
-            <button className={styles.buttonRegistrarme}>Crear cuenta</button>
+            /> */}
+            <button type='submit' className={styles.buttonRegistrarme}>Crear cuenta</button>
             <div className={styles.register}>
               <h5>¿Ya tenés una cuenta?</h5>
               <button onClick={handleLogin}>Inicia sesión</button>

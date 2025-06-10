@@ -1,42 +1,22 @@
 import { Modal } from "react-bootstrap";
 import { FormAgregarProducto } from "./FormAgregarProducto";
-import { toast } from "react-toastify";
 import { IProducto } from "../../../../types/Producto/IProducto";
 import { TipoProducto } from "../../../../types/Producto/TipoProducto";
+import { ICategoria } from "../../../../types/Producto/ICategoria";
+import { useProductos } from "../../../../hooks/Producto/useProductos";
 
-const initialState: IProducto = {
-  id: 0,
+const initialStateCategoria: ICategoria = {
+  nombre: ""
+}
+
+const initialStateProducto: IProducto = {
   nombre: "",
   categoria: {
-    id: 0,
-    nombre: "",
-    categoriaPadre: null,
+    id: 0
   },
   tipoProducto: "" as TipoProducto,
-  sexo: "",
-  detallesProductos: {
-    id: 0,
-    tallesDetalleProductos: [],
-    stock: 0,
-    color: "",
-    estado: true,
-    precio: {
-      id: 0,
-      precioCompra: 0,
-      precioVenta: 0,
-      descuento: {
-        id: 0,
-        porcentaje: 0,
-        fechaInicio: new Date(),
-        fechaFin: new Date(),
-      },
-    },
-    imagenProducto: {
-      id: 0,
-      url: "",
-      alt: "",
-    },
-  },
+  seccion: "",
+  detallesProductos: []
 };
 
 interface ModalAgregarProductoProps {
@@ -48,13 +28,16 @@ export const ModalAgregarProducto = ({
   show,
   onClose,
 }: ModalAgregarProductoProps) => {
+
+  const {crearProductoHook} = useProductos()
+
   const handleFormSubmit = async (producto: IProducto) => {
-    //lamar a la api para guardar
     
-    console.log("Producto guardado!", producto);
-    toast.success("Producto guardado!");
+    crearProductoHook(producto)
+    
     onClose();
   };
+
   return (
     <Modal show={show} onHide={onClose} centered size="lg">
       <Modal.Header closeButton>
@@ -62,7 +45,8 @@ export const ModalAgregarProducto = ({
       </Modal.Header>
       <Modal.Body>
         <FormAgregarProducto
-          initialState={initialState}
+          initialStateProducto={initialStateProducto}
+          initialStateCategoria={initialStateCategoria}
           onSubmit={handleFormSubmit}
         />
       </Modal.Body>

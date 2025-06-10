@@ -1,11 +1,23 @@
 import { Facebook, Instagram, Youtube } from "lucide-react";
 import styles from "./Footer.module.css";
 import { useNavigate } from "react-router";
+import { usuarioStore } from "../../../store/Usuario/usuarioStore";
+import Swal from "sweetalert2";
 
 export const Footer = () => {
   const navigate = useNavigate();
+  const usuarioActivo = usuarioStore((state) => state.usuarioActivo)
+
   const handleAdmin = () => {
-    navigate("/admin");
+    if (usuarioActivo) {
+      console.log(usuarioActivo, ' && ', usuarioActivo.rol)
+      console.log('CLIENTE')
+      if (usuarioActivo && usuarioActivo.rol === 'CLIENTE') {
+        Swal.fire("No tienes Acceso a esta ruta!");
+        return
+      }
+      navigate("/admin");
+    }
   };
 
   return (
@@ -35,11 +47,18 @@ export const Footer = () => {
         </div>
       </div>
 
-      <div>
-        <h6 className={styles.informationFooter} onClick={handleAdmin}>
-          admin
-        </h6>
-      </div>
+      {
+        usuarioActivo?.rol === "ADMIN" ? (
+          <div>
+            <h6 className={styles.informationFooter} onClick={handleAdmin}>
+              admin
+            </h6>
+          </div>
+        ) : (
+          <div>...</div>
+        )
+      }
+
     </div>
   );
 };

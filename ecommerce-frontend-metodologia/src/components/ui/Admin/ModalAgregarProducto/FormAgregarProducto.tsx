@@ -1,126 +1,61 @@
 import { TipoProducto } from "../../../../types/Producto/TipoProducto";
 
 import { IProducto } from "../../../../types/Producto/IProducto";
-import React, { FC, useState } from "react";
+import React, { ChangeEvent, FC, useEffect, useState } from "react";
 import { Button, Form } from "react-bootstrap";
+import { useCategorias } from "../../../../hooks/Producto/useCategorias";
+import { ICategoria } from "../../../../types/Producto/ICategoria";
 
-const categoriasEjemplo = [
-  { id: 1, nombre: "Training", categoriaPadre: null },
-  { id: 2, nombre: "Urbano", categoriaPadre: null },
-  { id: 3, nombre: "Niños", categoriaPadre: null },
-];
 
-const sexos = ["Hombre", "Mujer", "Unisex"];
+
+const seccion = ["DESTACADOS", "MASCULINO", "FEMENINO", "NIÑOS", "ACCESORIOS"];
 
 
 
 interface IFormAgregarProductoProps {
-  initialState: IProducto;
+  initialStateProducto: IProducto;
+  initialStateCategoria: ICategoria;
   onSubmit: (product: IProducto) => void;
 }
 
 export const FormAgregarProducto: FC<IFormAgregarProductoProps> = ({
-  initialState,
-  onSubmit,
+  initialStateProducto,
+  onSubmit
 }) => {
-  const [producto, setProducto] = useState<IProducto>(initialState);
 
-  const handleChange = (
-    e: React.ChangeEvent<
-      HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement
-    >
-  ) => {
-    const { name, value } = e.target;
-    switch (name) {
-      case "nombre":
-        setProducto({ ...producto, nombre: value });
-        break;
 
-      case "categoria": {
-        const categoriaSeleccionada = categoriasEjemplo.find(
-          (cat) => cat.id === Number(value)
-        );
-        if (categoriaSeleccionada) {
-          setProducto({ ...producto, categoria: categoriaSeleccionada });
-        }
-        break;
-      }
+  const [formValuesProducto, setFormValuesProducto] = useState(initialStateProducto)
 
-      case "tipoProducto":
-        setProducto({ ...producto, tipoProducto: value as TipoProducto });
-        break;
 
-      case "sexo":
-        setProducto({ ...producto, sexo: value });
-        break;
+  const {categorias, getCategoriasHook} = useCategorias()
 
-      case "color":
-        setProducto({
-          ...producto,
-          detallesProductos: {
-            ...producto.detallesProductos,
-            color: value,
-          },
-        });
-        break;
+  useEffect(() => {
+    getCategoriasHook()
+  }, [])
 
-      case "stock":
-        setProducto({
-          ...producto,
-          detallesProductos: {
-            ...producto.detallesProductos,
-            stock: Number(value),
-          },
-        });
-        break;
 
-      case "precioVenta":
-        setProducto({
-          ...producto,
-          detallesProductos: {
-            ...producto.detallesProductos,
-            precio: {
-              ...producto.detallesProductos.precio,
-              precioVenta: Number(value),
-            },
-          },
-        });
-        break;
+  const handleChangeProducto = (e: ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
+  const { name, value } = e.target;
 
-      case "imagenUrl":
-        setProducto({
-          ...producto,
-          detallesProductos: {
-            ...producto.detallesProductos,
-            imagenProducto: {
-              ...producto.detallesProductos.imagenProducto,
-              url: value,
-            },
-          },
-        });
-        break;
+  if (name === "categoria") {
+    
+    setFormValuesProducto((prev) => ({
+      ...prev,
+      categoria: { id: Number(value) }, 
+    }));
+  } else {
+    setFormValuesProducto((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  }
+};
 
-      case "imagenAlt":
-        setProducto({
-          ...producto,
-          detallesProductos: {
-            ...producto.detallesProductos,
-            imagenProducto: {
-              ...producto.detallesProductos.imagenProducto,
-              alt: value,
-            },
-          },
-        });
-        break;
-
-      default:
-        break;
-    }
-  };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    onSubmit(producto);
+    console.log(formValuesProducto)
+    onSubmit(formValuesProducto);
   };
   return (
     <Form onSubmit={handleSubmit}>
@@ -129,8 +64,8 @@ export const FormAgregarProducto: FC<IFormAgregarProductoProps> = ({
         <Form.Control
           type="text"
           name="nombre"
-          value={producto.nombre}
-          onChange={handleChange}
+          value={formValuesProducto.nombre}
+          onChange={handleChangeProducto}
           required
         />
       </Form.Group>
@@ -139,18 +74,11 @@ export const FormAgregarProducto: FC<IFormAgregarProductoProps> = ({
         <Form.Label>Categoría</Form.Label>
         <Form.Select
           name="categoria"
-          value={producto.categoria.id}
-          onChange={handleChange}
+          value={formValuesProducto.categoria ? formValuesProducto.categoria.id : ""}
+          onChange={handleChangeProducto}
           required
         >
-          <option value="0" disabled>
-            -- Categoria --
-          </option>
-          {categoriasEjemplo.map((cat) => (
-            <option key={cat.id} value={cat.id}>
-              {cat.nombre}
-            </option>
-          ))}
+        {categorias.map((cat) => <option key={cat.id} value={cat.id}>{cat.nombre}</option>)}
         </Form.Select>
       </Form.Group>
 
@@ -158,8 +86,8 @@ export const FormAgregarProducto: FC<IFormAgregarProductoProps> = ({
         <Form.Label>Tipo Producto</Form.Label>
         <Form.Select
           name="tipoProducto"
-          value={producto.tipoProducto}
-          onChange={handleChange}
+          value={formValuesProducto.tipoProducto}
+          onChange={handleChangeProducto}
           required
         >
           <option value="" disabled>-- Tipo de Producto --</option>
@@ -171,82 +99,22 @@ export const FormAgregarProducto: FC<IFormAgregarProductoProps> = ({
         </Form.Select>
       </Form.Group>
 
-      <Form.Group className="mb-3" controlId="sexo">
-        <Form.Label>Sexo</Form.Label>
+      <Form.Group className="mb-3" controlId="seccion">
+        <Form.Label>Seccion</Form.Label>
         <Form.Select
-          name="sexo"
-          value={producto.sexo}
-          onChange={handleChange}
+          name="seccion"
+          value={formValuesProducto.seccion}
+          onChange={handleChangeProducto}
           required
         >
-          <option value="" disabled>-- Sexo --</option>
-          {sexos.map((s) => (
-            <option key={s} value={s}>
-              {s}
+          <option value="" disabled>-- Seccion --</option>
+          {seccion.map((seccionPart) => (
+            <option key={seccionPart} value={seccionPart}>
+              {seccionPart}
             </option>
           ))}
         </Form.Select>
       </Form.Group>
-
-      <fieldset>
-        <legend>Detalles del Producto</legend>
-
-        <Form.Group className="mb-3" controlId="color">
-          <Form.Label>Color</Form.Label>
-          <Form.Control
-            type="text"
-            name="color"
-            value={producto.detallesProductos.color}
-            onChange={handleChange}
-            required
-          />
-        </Form.Group>
-
-        <Form.Group className="mb-3" controlId="stock">
-          <Form.Label>Stock</Form.Label>
-          <Form.Control
-            type="number"
-            name="stock"
-            value={producto.detallesProductos.stock}
-            onChange={handleChange}
-            required
-            min={0}
-          />
-        </Form.Group>
-
-        <Form.Group className="mb-3" controlId="precioVenta">
-          <Form.Label>Precio de Venta</Form.Label>
-          <Form.Control
-            type="number"
-            name="precioVenta"
-            value={producto.detallesProductos.precio.precioVenta}
-            onChange={handleChange}
-            required
-            min={0}
-            step="0.01"
-          />
-        </Form.Group>
-
-        <Form.Group className="mb-3" controlId="imagenUrl">
-          <Form.Label>URL Imagen</Form.Label>
-          <Form.Control
-            type="text"
-            name="imagenUrl"
-            value={producto.detallesProductos.imagenProducto.url}
-            onChange={handleChange}
-          />
-        </Form.Group>
-
-        <Form.Group className="mb-3" controlId="imagenAlt">
-          <Form.Label>Alt Texto Imagen</Form.Label>
-          <Form.Control
-            type="text"
-            name="imagenAlt"
-            value={producto.detallesProductos.imagenProducto.alt}
-            onChange={handleChange}
-          />
-        </Form.Group>
-      </fieldset>
 
       <Button variant="primary" type="submit">
         Guardar Producto
