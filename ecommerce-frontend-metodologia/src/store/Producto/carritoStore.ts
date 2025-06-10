@@ -3,6 +3,7 @@ import { ICarritoItems } from "../../types/Producto/ICarritoItems";
 
 interface EstadoCarrito {
   carrito: ICarritoItems[];
+
   agregarAlCarrito: (item: Omit<ICarritoItems, "cantidad">) => void;
   eliminarDelCarrito: (productoId: number, talleId: number) => void;
   setCantidad: (
@@ -14,6 +15,7 @@ interface EstadoCarrito {
 
 export const useCarritoStore = create<EstadoCarrito>((set) => ({
   carrito: [],
+
   agregarAlCarrito: (item) =>
     set((state: EstadoCarrito) => {
       const existe = state.carrito.find(
@@ -32,12 +34,14 @@ export const useCarritoStore = create<EstadoCarrito>((set) => ({
         carrito: [...state.carrito, { ...item, cantidad: 1 }],
       };
     }),
+
   eliminarDelCarrito: (productoId, talleId) =>
     set((state: EstadoCarrito) => ({
       carrito: state.carrito.filter(
         (i) => i.producto.id !== productoId || i.talleId !== talleId
       ),
     })),
+
   setCantidad: (productoId, talleId, nuevaCantidad) =>
     set((state: EstadoCarrito) => ({
       carrito: state.carrito.map((i) =>

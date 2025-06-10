@@ -15,6 +15,7 @@ export const NavBarHome = () => {
   const handleLogin = () => {
     navigate("/login");
   };
+
   return (
     <div className={styles.containerNavBarHome}>
       <div className={styles.containerGral}>
@@ -27,7 +28,11 @@ export const NavBarHome = () => {
         </h3>
         <div className={styles.loginAndCartContainer}>
           <div className={styles.containerLogin}>
-            <LogIn size={20} className={styles.loginLogo} />
+            <LogIn
+              size={30}
+              className={styles.loginLogo}
+              onClick={handleLogin}
+            />
             <button className={styles.loginButton} onClick={handleLogin}>
               Iniciar Sesion
             </button>

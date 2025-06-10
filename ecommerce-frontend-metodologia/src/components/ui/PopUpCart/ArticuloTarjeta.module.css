@@ -95,3 +95,39 @@
   font-size: 0.85rem;
   color: #666;
 }
+
+/* Responsive */
+@media (max-width: 768px) {
+  .containerTarjetaArticulo {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 1rem;
+    gap: 5vh;
+  }
+
+  .ArticuloCargado {
+    
+    flex-direction: row-reverse;
+    align-items: center;
+    justify-content: space-between;
+    text-align: center;
+  }
+
+  .containerDescripcionArticulo {
+    align-items: center;
+    gap: 1vh;
+  }
+
+  .precioArticulo {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .precioArticulo button {
+    order: 2;
+  }
+
+  .precioArticulo div {
+    order: 1;
+  }
+}
