@@ -17,11 +17,13 @@ export const getAllProductos = async (): Promise<IProducto[] | undefined> => {
 };
 
 export const crearProducto = async(producto: IProducto) => {
-  const token = "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJNYXRpYXMgZ2FtZXMiLCJpYXQiOjE3NDg2NTIwMzAsImV4cCI6MTc0ODY1MzQ3MH0.aPBAcapFTX7xIDiK4cRviZI0_e6JhKL0baEOWCmgivo"
+  //const token = localStorage.getItem("authentication")
+
     try{
         const response = await axios.post<IProducto>('http://localhost:9000/producto', producto, {headers: {
-    "Content-Type": "application/json"
-  }})
+          "Content-Type": "application/json",
+          //"Authorization": `Bearer ${token}`
+        }})
 
         return response.data
     }catch(error){

@@ -1,4 +1,4 @@
-import { FC, useState } from "react";
+import { FC, useEffect, useState } from "react";
 import { Button, Col, Container, Form, Modal, Row } from "react-bootstrap";
 import { IDetalleProductos } from "../../../../types/Producto/IDetalleProducto";
 import { ITalles } from "../../../../types/Producto/ITalles";
@@ -14,9 +14,13 @@ interface IViewProduct {
 
 const ViewProduct: FC<IViewProduct> = ({ show, detalle, handleClose }) => {
   const { agregarAlCarrito } = useCarritoStore();
+
   const [talleSeleccionado, setTalleSeleccionado] = useState<number | null>(
     null
   );
+
+  
+
   const handleAddCart = () => {
     if (!talleSeleccionado) {
       toast.error("Selecciona un talle antes de añadirlo al carrito!");
@@ -30,18 +34,14 @@ const ViewProduct: FC<IViewProduct> = ({ show, detalle, handleClose }) => {
     handleClose();
   };
 
+  
   // Si el detalleProducto es null o undefined no se muestra el modal
   if (!detalle) {
     return null;
   }
 
-  const getTalleByIdCatalogo = async(idTalle: number): Promise<string> => {
-    const talleResponse = await getTalleById(idTalle)
+  
 
-    console.log(talleResponse?.talle)
-
-    return talleResponse?.talle!
-  }
   return (
     // importamos un modal de react-boostrap para generar un modal, y nesesita una variable booleana para mostrarse y una voidFunction para cerrarlo
     <Modal show={show} onHide={handleClose} centered size="lg">
@@ -77,13 +77,9 @@ const ViewProduct: FC<IViewProduct> = ({ show, detalle, handleClose }) => {
                 onChange={(e) => setTalleSeleccionado(Number(e.target.value))}
               >
                 <option value=""> Seleccionar talle </option>
-                {detalle.tallesDetalleProductos?.map((talle) => (
+                {detalle.tallesDetalleProductos!.map((talle) => (
                   <option key={talle.id} value={talle.id}>
-                    {talle.talle 
-                    ? 
-                    talle.talle: 
-                    (getTalleByIdCatalogo(Number(talle)), "Cargando...")
-                    }
+                    {talle.talle}
                   </option>
                 ))}
               </Form.Select>

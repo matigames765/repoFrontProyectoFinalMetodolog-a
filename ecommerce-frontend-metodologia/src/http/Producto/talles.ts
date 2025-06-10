@@ -13,7 +13,7 @@ export const getAllTalles = async(): Promise<ITalles[] | undefined> => {
     }
 }
 
-export const getTalleById = async(idTalle: number)=> {
+export const getTalleById = async(idTalle: number): Promise<ITalles | undefined>=> {
     try{
         const response = await axios.get<ITalles>(`http://localhost:9000/talles/${idTalle}`)
 
