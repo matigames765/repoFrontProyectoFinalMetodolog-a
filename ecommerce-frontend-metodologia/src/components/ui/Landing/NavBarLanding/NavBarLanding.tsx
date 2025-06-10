@@ -1,53 +1,84 @@
-import { Search, ShoppingCart} from "lucide-react";
 import styles from "./NavBarLanding.module.css";
-import { useEffect, useState } from "react";
-import { PopUpCart } from "../../PopUpCart/PopUpCart";
-import { useNavigate} from "react-router";
-import { useShallow } from "zustand/shallow";
 import { filterStore } from "../../../../store/Producto/filterStore";
-import { useCategorias } from "../../../../hooks/Producto/useCategorias";
+import { useShallow } from "zustand/shallow";
+import { useNavigate } from "react-router";
+import { usuarioStore } from "../../../../store/Usuario/usuarioStore";
+import Swal from "sweetalert2";
 
 export const NavBarLanding = () => {
   const navigate = useNavigate();
+
+  const usuarioActivo = usuarioStore((state) => state.usuarioActivo)
 
   const setSeccionActiva = filterStore(useShallow((state) => state.setSeccionActiva))
   const resetFiltros = filterStore((state) => state.resetFiltros)
 
 
   const handleNavigateDestacados = () => {
-    resetFiltros()
-    setSeccionActiva('destacados')
-    navigate("/categorias/destacados");
+    if (usuarioActivo) {
+      resetFiltros()
+      setSeccionActiva('destacados')
+      navigate("/categorias/destacados");
+    } else {
+      Swal.fire("Iniciar Seccion para Ingresar!");
+      return
+    }
   };
 
   const handleNavigateHombre= () => {
-    resetFiltros()
-    setSeccionActiva('MASCULINO')
-    navigate("/categorias/masculino");
+    if (usuarioActivo){
+      resetFiltros()
+      setSeccionActiva('MASCULINO')
+      navigate("/categorias/masculino");
+    } else {
+      Swal.fire("Iniciar Seccion para Ingresar!");
+      return
+    }
   };
 
   const handleNavigateMujer = () => {
-    resetFiltros()
-    setSeccionActiva('FEMENINO')
-    navigate("/categorias/femenino");
+    if (usuarioActivo){
+      resetFiltros()
+      setSeccionActiva('FEMENINO')
+      navigate("/categorias/femenino");
+    } else {
+      Swal.fire("Iniciar Seccion para Ingresar!");
+      return
+    }
+
   };
 
   const handleNavigateNinios = () => {
-    resetFiltros()
-    setSeccionActiva('niños')
-    navigate("/categorias/niños");
+    if (usuarioActivo){
+      resetFiltros()
+      setSeccionActiva('niños')
+      navigate("/categorias/niños");
+    } else {
+      Swal.fire("Iniciar Seccion para Ingresar!");
+      return
+    }
   };
 
   const handleNavigateAccesorios = () => {
-    resetFiltros()
-    setSeccionActiva('accesorios')
-    navigate("/categorias/accesorios");
+    if (usuarioActivo){
+      resetFiltros()
+      setSeccionActiva('accesorios')
+      navigate("/categorias/accesorios");
+    } else {
+      Swal.fire("Iniciar Seccion para Ingresar!");
+      return
+    }
   };
 
   const handleNavigateCatalogoCompleto = () => {
-    resetFiltros()
-    setSeccionActiva('')
-    navigate("/catalogo");
+    if (usuarioActivo){
+      resetFiltros()
+      setSeccionActiva('')
+      navigate("/catalogo");
+    } else {
+      Swal.fire("Iniciar Seccion para Ingresar!");
+      return
+    }
   };
   
   const goHome = () => {
