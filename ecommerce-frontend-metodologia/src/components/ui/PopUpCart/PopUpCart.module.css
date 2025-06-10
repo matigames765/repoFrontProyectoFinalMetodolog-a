@@ -1,64 +1,165 @@
 .overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: flex-end;
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease-in-out, visibility 0s 0.3s;
+  backdrop-filter: blur(2px);
+}
+
+.overlay.show {
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.3s ease-in-out, visibility 0s 0s;
+}
+
+.popupCart {
+  width: 35vw;
+  height: 100vh;
+  background-color: #fff;
+  box-shadow: -4px 0 20px rgba(0, 0, 0, 0.1);
+  transform: translateX(100%);
+  transition: transform 0.4s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem 1.8rem;
+  border-radius: 0 0 0 10px;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: #ccc transparent;
+}
+
+.popupCart.show {
+  transform: translateX(0%);
+}
+
+.popupContent {
+  flex: 1;
+  overflow-y: auto;
+  color: #222;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  display: flex;
+  flex-direction: column;
+}
+
+.sinArticulos {
+  color: #3d9ccc;
+  border: 1px solid #3d9ccc;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2rem;
+  padding: 8px 10px;
+  font-size: 14px;
+  border-radius: 6px;
+  font-weight: 600;
+  background-color: #e6f3fb;
+}
+
+.navbarCarrito {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.2rem;
+}
+
+.navbarCarrito h5 {
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: #111;
+  margin: 0;
+}
+
+.navbarCarritoBoton {
+  border: none;
+  border-radius: 6px;
+  padding: 6px 10px;
+  background-color: transparent;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  color: #555;
+}
+
+.navbarCarritoBoton:hover {
+  background-color: #f0f0f0;
+  color: #222;
+}
+
+.totalCarritoContainer {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 1rem 0;
+  border-top: 1px solid #e0e0e0;
+  font-weight: 700;
+  font-size: 1.2rem;
+  color: #222;
+  gap: 0.5rem;
+}
+
+.checkoutContainer {
+  display: flex;
+  justify-content: center;
+  padding: 1rem 0 1.5rem;
+  border-top: 1px solid #e0e0e0;
+}
+
+.checkoutButton {
+  background-color: #3d9ccc;
+  color: white;
+  border: none;
+  padding: 12px 28px;
+  font-size: 1rem;
+  font-weight: 700;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  width: 100%;
+  max-width: 300px;
+  box-shadow: 0 4px 8px rgba(61, 156, 204, 0.3);
+}
+
+.checkoutButton:hover {
+  background-color: #337ab7;
+  box-shadow: 0 6px 12px rgba(51, 122, 183, 0.5);
+}
+
+/* Responsive */
+
+@media (max-width: 768px) {
+  .popupCart {
     width: 100vw;
     height: 100vh;
-    background-color: rgba(0, 0, 0, 0.6);
-    display: flex;
-    justify-content: flex-end;
-    z-index: 1000;
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.3s ease-in-out, visibility 0s 0.3s;
-}
-.overlay.show {
-    opacity: 1;
-    visibility: visible;
-    transition: opacity 0.3s ease-in-out, visibility 0s 0s;
-}
-.popupCart {
-    width: 35vw;
-    height: 100%;
-    background-color: #FFF;
-    transform: translateX(100%);
-    transition: transform 0.4s ease-in-out;
-}
-.popupCart.show {
-    transform: translateX(0%);
-}
-.popupContent {
-    padding: 20px;
-    color: black;
-}
+    border-radius: 0;
+    padding: 1rem;
+  }
 
-.sinArticulos{
-    color: #3D9CCC;
-    border: 1px solid #3D9CCC;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 2rem;
-    padding: 8px 10px;
-    font-size: 12px;
+  .navbarCarrito h5 {
+    font-size: 1.25rem;
+  }
 
-}
+  .checkoutButton {
+    font-size: 0.95rem;
+    padding: 10px 20px;
+    max-width: 100%;
+  }
 
-.navbarCarrito{
-    display: flex;
-    flex-direction: row;
+  .totalCarritoContainer {
+    font-size: 1rem;
     justify-content: space-between;
-}
-.navbarCarritoBoton{
-    top: 3vw;
-    right: 1.5vw;
-    border: none;
-    border-radius: 5px;
-    padding: 5px;
-    background-color: #FFF;
-}
+    padding: 0.8rem 0;
+  }
 
-.navbarCarritoBoton:hover{
-    background-color: #dedede;
-    transition: 0.5s;
+  .sinArticulos {
+    font-size: 13px;
+    padding: 6px 8px;
+    text-align: center;
+  }
 }

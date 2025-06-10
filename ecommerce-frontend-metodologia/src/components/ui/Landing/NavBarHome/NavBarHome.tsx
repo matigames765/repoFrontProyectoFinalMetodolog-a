@@ -35,14 +35,6 @@ export const NavBarHome = () => {
   return (
     <div className={styles.containerNavBarHome}>
       <div className={styles.containerGral}>
-        <div className={styles.searchContainer}>
-          <input
-            type="text"
-            placeholder="¿Qué estas buscando?"
-            className={styles.barraBusquedaCatalogo}
-          ></input>
-          <Search className={styles.searchIconCalogo} color="black" size={20} />
-        </div>
         <h3
           className={styles.titleNavBarLanding}
           onClick={goHome}

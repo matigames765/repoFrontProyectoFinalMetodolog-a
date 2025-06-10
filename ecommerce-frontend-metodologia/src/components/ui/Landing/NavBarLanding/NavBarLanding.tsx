@@ -4,43 +4,25 @@ import { useShallow } from "zustand/shallow";
 import { useNavigate } from "react-router";
 import { usuarioStore } from "../../../../store/Usuario/usuarioStore";
 import Swal from "sweetalert2";
+import { useState } from "react";
+import { Menu, X } from "lucide-react";
 
 export const NavBarLanding = () => {
   const navigate = useNavigate();
+  const [menuOpen, setMenuOpen] = useState(false);
 
   const usuarioActivo = usuarioStore((state) => state.usuarioActivo)
 
   const setSeccionActiva = filterStore(useShallow((state) => state.setSeccionActiva))
   const resetFiltros = filterStore((state) => state.resetFiltros)
+  const toggleMenu = () => setMenuOpen((prev) => !prev);
 
-
-  const handleNavigateDestacados = () => {
+  const handleNavigate = (seccion: string, ruta: string) => {
     if (usuarioActivo) {
-      resetFiltros()
-      setSeccionActiva('destacados')
-      navigate("/categorias/destacados");
-    } else {
-      Swal.fire("Iniciar Seccion para Ingresar!");
-      return
-    }
-  };
-
-  const handleNavigateHombre= () => {
-    if (usuarioActivo){
-      resetFiltros()
-      setSeccionActiva('MASCULINO')
-      navigate("/categorias/masculino");
-    } else {
-      Swal.fire("Iniciar Seccion para Ingresar!");
-      return
-    }
-  };
-
-  const handleNavigateMujer = () => {
-    if (usuarioActivo){
-      resetFiltros()
-      setSeccionActiva('FEMENINO')
-      navigate("/categorias/femenino");
+      resetFiltros();
+      setSeccionActiva(seccion);
+      navigate(ruta);
+      setMenuOpen(false); // Cierra el menú al navegar
     } else {
       Swal.fire("Iniciar Seccion para Ingresar!");
       return
@@ -48,90 +30,59 @@ export const NavBarLanding = () => {
 
   };
 
-  const handleNavigateNinios = () => {
-    if (usuarioActivo){
-      resetFiltros()
-      setSeccionActiva('niños')
-      navigate("/categorias/niños");
-    } else {
-      Swal.fire("Iniciar Seccion para Ingresar!");
-      return
-    }
-  };
-
-  const handleNavigateAccesorios = () => {
-    if (usuarioActivo){
-      resetFiltros()
-      setSeccionActiva('accesorios')
-      navigate("/categorias/accesorios");
-    } else {
-      Swal.fire("Iniciar Seccion para Ingresar!");
-      return
-    }
-  };
-
-  const handleNavigateCatalogoCompleto = () => {
-    if (usuarioActivo){
-      resetFiltros()
-      setSeccionActiva('')
-      navigate("/catalogo");
-    } else {
-      Swal.fire("Iniciar Seccion para Ingresar!");
-      return
-    }
-  };
-  
-  const goHome = () => {
-    navigate("/");
-  };
   return (
     <div className={styles.containerNavBarLanding}>
-      <h3
-        className={styles.titleNavBarLanding}
-        onClick={goHome}
-        style={{ cursor: "pointer" }}
-      >
-        ClothesShopMendoza
-      </h3>
       <div className={styles.containerGral}>
-        <div className={styles.containerCategoriesNavBarLanding}>
+        <button
+          className={`${styles.menuToggle} ${menuOpen ? styles.menuOpen : ""}`}
+          onClick={toggleMenu}
+          aria-label={menuOpen ? "Cerrar menú" : "Abrir menú"}
+        >
+          {menuOpen ? <X size={25} /> : <Menu size={25} />}
+        </button>
+
+        <nav
+          className={`${styles.containerCategoriesNavBarLanding} ${menuOpen ? styles.menuOpen : ""
+            }`}
+          aria-hidden={!menuOpen}
+        >
           <h4
             className={styles.categorieNavBarLanding}
-            onClick={handleNavigateDestacados}
+            onClick={() => handleNavigate("destacados", "/categorias/destacados")}
           >
             Destacados
           </h4>
           <h4
             className={styles.categorieNavBarLanding}
-            onClick={handleNavigateHombre}
+            onClick={() => handleNavigate("MASCULINO", "/categorias/masculino")}
           >
             Hombre
           </h4>
           <h4
             className={styles.categorieNavBarLanding}
-            onClick={handleNavigateMujer}
+            onClick={() => handleNavigate("FEMENINO", "/categorias/femenino")}
           >
             Mujer
           </h4>
           <h4
             className={styles.categorieNavBarLanding}
-            onClick={handleNavigateNinios}
+            onClick={() => handleNavigate("niños", "/categorias/niños")}
           >
             Niño/a
           </h4>
           <h4
             className={styles.categorieNavBarLanding}
-            onClick={handleNavigateAccesorios}
+            onClick={() => handleNavigate("accesorios", "/categorias/accesorios")}
           >
             Accesorios
           </h4>
           <h4
             className={styles.categorieNavBarLanding}
-            onClick={handleNavigateCatalogoCompleto}
+            onClick={() => handleNavigate("", "/catalogo")}
           >
             Catálogo completo
           </h4>
-        </div>
+        </nav>
       </div>
     </div>
   );

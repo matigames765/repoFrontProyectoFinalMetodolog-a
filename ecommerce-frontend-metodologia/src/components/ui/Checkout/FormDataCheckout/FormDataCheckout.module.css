@@ -1,4 +1,4 @@
-.containerPrincipalFormLogin {
+.containerPrincipalFormCheckout {
   width: 100%;
   min-height: 100vh;
   display: flex;
@@ -9,7 +9,7 @@
   gap: 2rem;
 }
 
-.titleLoginEcommerce {
+.titlecheckoutForm {
   font-size: 1.5rem;
   font-weight: bold;
 }
@@ -24,19 +24,19 @@
   font-size: small;
 }
 
-.containerElementsForm {
+.formGroup {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 1vw;
   font-size: small;
 }
 
-.containerElementsForm label {
+.formGroup label {
   font-weight: 600;
   color: #333;
 }
 
-.inputFormLogin {
+.inputFormCheckout {
   padding: 0.75rem 1rem;
   border: 1px solid #ccc;
   border-radius: 6px;
@@ -45,13 +45,13 @@
   background-color: #fff;
 }
 
-.inputFormLogin:focus {
+.inputFormCheckout:focus {
   border-color: #007bff;
   box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.2);
   outline: none;
 }
 
-.buttonEntrar {
+.buttonNext {
   background-color: black;
   color: white;
   padding: 0.75rem;
@@ -64,7 +64,7 @@
   width: 100%;
 }
 
-.buttonEntrar:hover {
+.buttonNext:hover {
   background-color: #007bff;
   transform: scale(1.01);
 }
@@ -72,33 +72,12 @@
 .buttonContainer {
   display: flex;
   justify-content: center;
-}
-
-.login {
-  display: flex;
-  gap: 0.5rem;
-  justify-content: center;
-  align-items: center;
   margin-top: 1rem;
 }
-
-.login h5 {
-  margin: 0;
-  padding: 0;
-  line-height: 1;
+.containerInput{
+    display: flex;
+    flex-direction: column;
 }
-
-.login button {
-  background: transparent;
-  padding: 0;
-  margin: 0;
-  cursor: pointer;
-  border: none;
-  font-size: 0.95rem;
-  color: #007bff;
-  text-decoration: underline;
-}
-
 @media (max-width: 600px) {
   .containerForm {
     padding: 1.5rem;

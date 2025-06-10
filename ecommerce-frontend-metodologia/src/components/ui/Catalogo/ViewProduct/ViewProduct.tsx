@@ -1,6 +1,8 @@
-import { FC } from "react";
+import { FC, useState } from "react";
 import { Button, Col, Container, Form, Modal, Row } from "react-bootstrap";
 import { IDetalleProductos } from "../../../../types/Producto/IDetalleProducto";
+import { useCarritoStore } from "../../../../store/Producto/carritoStore";
+import { toast } from "react-toastify";
 
 interface IViewProduct {
   show: boolean;
@@ -9,6 +11,23 @@ interface IViewProduct {
 }
 
 const ViewProduct: FC<IViewProduct> = ({ show, detalle, handleClose }) => {
+  const { agregarAlCarrito } = useCarritoStore();
+  const [talleSeleccionado, setTalleSeleccionado] = useState<number | null>(
+    null
+  );
+  const handleAddCart = () => {
+    if (!talleSeleccionado) {
+      toast.error("Selecciona un talle antes de añadirlo al carrito!");
+      return;
+    }
+    agregarAlCarrito({
+      producto: detalle,
+      talleId: talleSeleccionado,
+    });
+    toast.success("Articulo añadido al carrito!");
+    handleClose();
+  };
+
   // Si el detalleProducto es null o undefined no se muestra el modal
   if (!detalle) {
     return null;
@@ -18,7 +37,9 @@ const ViewProduct: FC<IViewProduct> = ({ show, detalle, handleClose }) => {
     <Modal show={show} onHide={handleClose} centered size="lg">
       {/* // esta es la cabecera del modal  */}
       <Modal.Header closeButton>
-        <Modal.Title>nombre producto</Modal.Title>
+        <Modal.Title>
+          {detalle?.producto?.nombre || `Producto ID:${detalle.producto?.id}`}
+        </Modal.Title>
       </Modal.Header>
       {/* Este es el cuerpo de modal */}
       <Modal.Body>
@@ -40,8 +61,12 @@ const ViewProduct: FC<IViewProduct> = ({ show, detalle, handleClose }) => {
             </Col>
             <Col>
               <h6>Talles:</h6>
-              <Form.Select aria-label="talles">
-                <option>Seleccionar talle</option>
+              <Form.Select
+                aria-label="talles"
+                value={talleSeleccionado || ""}
+                onChange={(e) => setTalleSeleccionado(Number(e.target.value))}
+              >
+                <option value=""> Seleccionar talle </option>
                 {detalle.tallesDetalleProductos.map((talle) => (
                   <option key={talle.id} value={talle.id}>
                     {talle.talle}
@@ -72,6 +97,9 @@ const ViewProduct: FC<IViewProduct> = ({ show, detalle, handleClose }) => {
         </Container>
       </Modal.Body>
       <Modal.Footer>
+        <Button variant="success" onClick={handleAddCart}>
+          Añadir al carrito
+        </Button>
         <Button variant="danger" onClick={handleClose}>
           Cerrar
         </Button>

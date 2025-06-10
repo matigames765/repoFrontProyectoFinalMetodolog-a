@@ -26,13 +26,11 @@ export const Footer = () => {
         <h6 className={styles.textFooter}>Seguinos</h6>
         <h6 className={styles.textFooter}>Seguinos</h6>
         <h6 className={styles.textFooter}>Seguinos</h6>
-        <h6 className={styles.textFooter}>Seguinos</h6>
       </div>
       <div className={styles.textFooterRight}>
         <h6 className={styles.textFooter}>Clothes Shop Mendoza</h6>
         <h6 className={styles.textFooter}>Blog</h6>
-        <h6 className={styles.textFooter}>Contact</h6>
-        <h6 className={styles.textFooter}>FAQS</h6>
+        <h6 className={styles.textFooter}>Contacto</h6>
       </div>
       <div className={styles.socialMediaClothesShop}>
         <h1 className={styles.textPrincipalFooter}>ClothesShopMendoza</h1>

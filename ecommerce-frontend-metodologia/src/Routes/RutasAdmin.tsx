@@ -20,15 +20,14 @@ export const RutasAdmin = () => {
       <div className={styles.rutas}>
         <SideBarAdmin />
         <Routes>
-          {/* header */}
-          {/* sidebar */}
+          
 
           <Route path="/ventas" element={<VentasAdmin />} />
           <Route path="/visitas" element={<VisitasAdmin />} />
           <Route path="/ordenes" element={<OrdenesAdmin />} />
           <Route path="/clientes" element={<ClientesAdmin />} />
           <Route path="/productos" element={<ProductosAdmin />} />
-          {/* footer */}
+          
         </Routes>
 
         {/* Modal Agregar Producto*/}
