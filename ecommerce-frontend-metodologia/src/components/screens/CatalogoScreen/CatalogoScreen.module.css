@@ -1,4 +1,20 @@
 .catalogoContainer {
-  background-color: #e0e0e0;
-  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.main {
+  display: flex;
+  height: 100vh; /* o la altura que quieras */
+  width: 100vw;
+  overflow: hidden;
+}
+
+/* Móvil: filtro arriba y productos debajo */
+@media (max-width: 768px) {
+  .main {
+    flex-direction: column;
+    padding: 1rem;
+  }
 }

@@ -3,23 +3,16 @@ import styles from "./NavBarCatalogo.module.css";
 import { ChangeEvent, useState } from "react";
 import { PopUpCart } from "../../PopUpCart/PopUpCart";
 import { useNavigate } from "react-router";
-import { useShallow } from "zustand/shallow";
 import { filterStore } from "../../../../store/Producto/filterStore";
 
 export const NavBarCatalogo = () => {
   const [openModalPopUpCart, setOpenModalPopUpCart] = useState<boolean>(false);
   const navigate = useNavigate();
 
-  const setSeccionActiva = filterStore(useShallow((state) => state.setSeccionActiva));
-  const resetFiltros = filterStore((state) => state.resetFiltros);
-  const categoriaActiva = filterStore((state) => state.categoriaActiva);
+  
   const setBuscadorActivo = filterStore((state) => state.setBuscadorActivo);
 
-  const handleNavigateDestacados = () => {
-    resetFiltros();
-    setSeccionActiva("destacados");
-    navigate("/categorias/destacados");
-  };
+ 
 
   const goHome = () => {
     navigate("/");
@@ -27,19 +20,22 @@ export const NavBarCatalogo = () => {
 
   return (
     <div className={styles.containerNavBarLanding}>
-      
       <div className={styles.topRow}>
-        <h3 className={styles.tituloPagina} onClick={goHome} style={{ cursor: "pointer" }}>
+        <h3
+          className={styles.tituloPagina}
+          onClick={goHome}
+          style={{ cursor: "pointer" }}
+        >
           ClothesShopMendoza
         </h3>
       </div>
 
-      
       <div className={styles.bottomRow}>
-        <h2 className={styles.categorieNavBarLanding} onClick={handleNavigateDestacados} style={{ cursor: "pointer" }}>
-          {categoriaActiva
-            ? categoriaActiva.charAt(0).toUpperCase() + categoriaActiva.slice(1)
-            : "Catálogo Completo"}
+        <h2
+          className={styles.categorieNavBarLanding}
+          style={{ cursor: "pointer" }}
+        >
+          Catalogo
         </h2>
 
         <div className={styles.searchAndCartContainer}>
@@ -48,7 +44,9 @@ export const NavBarCatalogo = () => {
               type="text"
               placeholder="Busque un producto"
               className={styles.barraBusquedaCatalogo}
-              onChange={(e: ChangeEvent<HTMLInputElement>) => setBuscadorActivo(e.target.value)}
+              onChange={(e: ChangeEvent<HTMLInputElement>) =>
+                setBuscadorActivo(e.target.value)
+              }
             />
             <Search className={styles.searchIconCalogo} size={20} />
           </div>

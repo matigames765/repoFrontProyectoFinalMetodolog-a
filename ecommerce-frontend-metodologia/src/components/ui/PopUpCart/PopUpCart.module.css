@@ -135,4 +135,36 @@
 
 .walletContainer{
   width: 20vw;
+/* Responsive */
+
+@media (max-width: 768px) {
+  .popupCart {
+    width: 100vw;
+    height: 100vh;
+    border-radius: 0;
+    padding: 1rem;
+  }
+
+  .navbarCarrito h5 {
+    font-size: 1.25rem;
+  }
+
+  .checkoutButton {
+    font-size: 0.95rem;
+    padding: 10px 20px;
+    max-width: 100%;
+  }
+
+  .totalCarritoContainer {
+    font-size: 1rem;
+    justify-content: space-between;
+    padding: 0.8rem 0;
+  }
+
+  .sinArticulos {
+    font-size: 13px;
+    padding: 6px 8px;
+    text-align: center;
+  }
+}
 }

@@ -1,15 +1,17 @@
 import { useNavigate } from "react-router";
 import styles from "./FormRegister.module.css";
-import { IUsuario } from "../../../types/Usuario/IUsuario";
-import { IRol } from "../../../types/Usuario/IRol";
 import { ChangeEvent, FormEvent, useState } from "react";
 import { registerController } from "../../../http/authenticate/authenticate";
+import { IRegister } from "../../../types/authenticate/IRegister";
+import { jwtDecode } from "jwt-decode";
+import { handleUsuario } from "../../../hooks/UsuarioActivo/handleUsuario";
+import { usuarioStore } from "../../../store/Usuario/usuarioStore";
+import { useShallow } from "zustand/shallow";
 
-const estadoInicial: IUsuario = {
-  id: 0,
+
+const estadoInicial: IRegister = {
   nombre: "",
   contraseña: "",
-  rol: IRol.CLIENTE,
   email: "",
   dni: 0,
 
@@ -18,11 +20,15 @@ const estadoInicial: IUsuario = {
 export const FormRegister = () => {
   const navigate = useNavigate();
 
-  const [ formValues, setFormValues ] = useState<IUsuario>(estadoInicial)
+  const [formValues, setFormValues] = useState<IRegister>(estadoInicial)
+const { usuarios, setUsuarioActivo } = usuarioStore(useShallow((state) => ({
+    usuarios: state.usuarios,
+    setUsuarioActivo: state.setUsuarioActivo
+  })))
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target
-    setFormValues((prev) => ({...prev, [`${name}`]: value}))
+    setFormValues((prev) => ({ ...prev, [`${name}`]: value }))
   }
 
   const handleLanding = () => {
@@ -33,14 +39,22 @@ export const FormRegister = () => {
     navigate("/login");
   };
 
-  const handleSubmit = async(e: FormEvent) => {
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault()
     const data = await registerController(formValues)
     if (data) {
-      const token = localStorage.setItem("authentication", data.token)
-      console.log("Token en el register: ", token)
+      localStorage.setItem("authentication", data)
+      console.log("Token en el register: ", data)
+
+      const payload = jwtDecode(data)
+      const nombrePayload = payload.sub;
+      if (nombrePayload) {
+        handleUsuario(nombrePayload, usuarios, setUsuarioActivo)
+      }
+      
     }
     handleLanding()
+
   }
 
   return (
@@ -74,7 +88,7 @@ export const FormRegister = () => {
               onChange={handleChange}
               className={styles.inputFormRegister}
             />
-            <label htmlFor="dni">Telefono (opcional)</label>
+            <label htmlFor="dni">Ingrese su Dni</label>
             <input
               type="number"
               id="dni"

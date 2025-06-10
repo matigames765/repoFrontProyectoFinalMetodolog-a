@@ -1,14 +1,10 @@
 .principalContainerSectionImagenesCatalogo {
-  margin-top: 2vw;
-  width: 74vw;
-  height: 80vh;
-  position: absolute;
-  right: 0;
-  top: 9.5vw;
+  flex: 1;
+  height: 100%;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   gap: 2rem;
-  padding: 5vh 10vh 0 10vh;
+  padding: 2rem;
   overflow-y: auto;
   scrollbar-width: thin;
   scrollbar-color: #aaa transparent;

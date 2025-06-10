@@ -22,7 +22,6 @@
   padding: 1rem 2rem;
 }
 
-
 /* Estilos para el titulo de la pagina */
 .titleNavBarLanding {
   display: flex;
@@ -92,4 +91,42 @@
   width: 100vw;
   border-top: 1px solid #eaeaea;
   background-color: #fff;
+}
+
+@media (max-width: 768px) {
+  .containerGral {
+    flex-direction: row;
+    width: 100vw;
+    padding: 1rem;
+    gap: 0.5rem;
+  }
+
+  .titleNavBarLanding {
+    font-size: 20px;
+    margin-bottom: 0;
+  }
+
+  .loginAndCartContainer {
+    width: 100%;
+    justify-content: flex-end;
+    align-items: flex-end;
+    flex-direction: row;
+  }
+
+  .loginButton {
+    display: none;
+  }
+
+  .iconShoppinCartLanding {
+    padding: 0;
+  }
+
+  .popupWrapper {
+    right: 10px;
+    top: 60px;
+  }
+
+  .containerLanding {
+    overflow-x: auto;
+  }
 }
