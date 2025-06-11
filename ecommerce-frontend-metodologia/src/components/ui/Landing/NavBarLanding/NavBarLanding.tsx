@@ -3,9 +3,10 @@ import { filterStore } from "../../../../store/Producto/filterStore";
 import { useShallow } from "zustand/shallow";
 import { useNavigate } from "react-router";
 import { usuarioStore } from "../../../../store/Usuario/usuarioStore";
-import Swal from "sweetalert2";
+
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
+import { toast } from "react-toastify";
 
 export const NavBarLanding = () => {
   const navigate = useNavigate();
@@ -24,7 +25,7 @@ export const NavBarLanding = () => {
       navigate(ruta);
       setMenuOpen(false); // Cierra el menú al navegar
     } else {
-      Swal.fire("Iniciar Sesion para Ingresar!");
+     toast.error("Debes iniciar sesion!")
       return
     }
 

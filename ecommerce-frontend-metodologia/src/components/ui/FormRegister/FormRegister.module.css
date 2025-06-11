@@ -9,6 +9,12 @@
   gap: 2rem;
 }
 
+.containerPrincipalFormRegister h4 {
+  font-family: "Orbitron", sans-serif;
+}
+.containerPrincipalFormRegister h6 {
+  font-family: "Orbitron", sans-serif;
+}
 .containerForm {
   width: 100%;
   max-width: 500px;
@@ -37,13 +43,14 @@
   background-color: #fff;
 }
 .inputFormRegister:focus {
-  border-color: #007bff;
-  box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.2);
+  border-color: #5cd1cb;
+  box-shadow: 6px 0 16px rgba(92, 209, 203, 0.2);
+
   outline: none;
 }
 
 .buttonRegistrarme {
-  background-color: #000;
+  background-color: #38b2ac;
   color: #fff;
   padding: 0.75rem;
   border: none;
@@ -55,8 +62,9 @@
   width: 100%;
 }
 .buttonRegistrarme:hover {
-  background-color: #007bff;
+  background-color: #5cd1cb;
   transform: scale(1.01);
+  font-family: "Orbitron", sans-serif;
 }
 
 .register {
@@ -69,11 +77,12 @@
 .register button {
   background: transparent;
   border: none;
-  color: #007bff;
+  color: #5cd1cb;
   font-size: 0.95rem;
   cursor: pointer;
   text-decoration: underline;
   padding: 0;
+  font-family: "Orbitron", sans-serif;
 }
 
 .register h5 {

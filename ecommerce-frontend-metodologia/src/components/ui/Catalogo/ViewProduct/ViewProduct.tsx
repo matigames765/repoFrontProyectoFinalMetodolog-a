@@ -1,11 +1,11 @@
-import { FC, useEffect, useState } from "react";
+import { FC, useState } from "react";
 import { Button, Col, Container, Form, Modal, Row } from "react-bootstrap";
 import { IDetalleProductos } from "../../../../types/Producto/IDetalleProducto";
-import { ITalles } from "../../../../types/Producto/ITalles";
-import { getTalleById } from "../../../../http/Producto/talles";
+
 import { useCarritoStore } from "../../../../store/Producto/carritoStore";
 import { toast } from "react-toastify";
 
+import styles from "./ViewProduct.module.css";
 interface IViewProduct {
   show: boolean;
   detalle: IDetalleProductos;
@@ -18,8 +18,6 @@ const ViewProduct: FC<IViewProduct> = ({ show, detalle, handleClose }) => {
   const [talleSeleccionado, setTalleSeleccionado] = useState<number | null>(
     null
   );
-
-  
 
   const handleAddCart = () => {
     if (!talleSeleccionado) {
@@ -34,13 +32,10 @@ const ViewProduct: FC<IViewProduct> = ({ show, detalle, handleClose }) => {
     handleClose();
   };
 
-  
   // Si el detalleProducto es null o undefined no se muestra el modal
   if (!detalle) {
     return null;
   }
-
-  
 
   return (
     // importamos un modal de react-boostrap para generar un modal, y nesesita una variable booleana para mostrarse y una voidFunction para cerrarlo
@@ -107,10 +102,18 @@ const ViewProduct: FC<IViewProduct> = ({ show, detalle, handleClose }) => {
         </Container>
       </Modal.Body>
       <Modal.Footer>
-        <Button variant="success" onClick={handleAddCart}>
+        <Button
+          variant="success"
+          onClick={handleAddCart}
+          className={styles.botonAdd}
+        >
           Añadir al carrito
         </Button>
-        <Button variant="danger" onClick={handleClose}>
+        <Button
+          variant="danger"
+          onClick={handleClose}
+          className={styles.botonCancel}
+        >
           Cerrar
         </Button>
       </Modal.Footer>

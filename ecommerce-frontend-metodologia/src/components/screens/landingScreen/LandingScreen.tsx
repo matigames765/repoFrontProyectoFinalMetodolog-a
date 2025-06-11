@@ -31,11 +31,11 @@ export const LandingScreen = () => {
 
 
   return (
-    <div className={styles.landingContainer}>
-      <HeaderDescuento/>
-      <NavBarHome/>
+  <div className={styles.landingContainer}>
+      <HeaderDescuento />
+      <NavBarHome />
+      <CarouselComponent />
       <PrincipalImagesLanding />
-      <CarouselComponent/>
       <Footer />
     </div>
   )

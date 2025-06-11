@@ -9,6 +9,7 @@
   gap: 2rem;
   flex-wrap: wrap;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  width: 100%;
 }
 
 .textFooterLeft,
@@ -24,10 +25,11 @@
   font-weight: 600;
   cursor: pointer;
   transition: color 0.3s ease;
+  font-family: "Orbitron", sans-serif;
 }
 
 .textFooter:hover {
-  color: #3d9ccc;
+  color: #5cd1cb;
 }
 
 .socialMediaClothesShop {
@@ -44,8 +46,14 @@
   font-weight: 700;
   font-size: 1.5rem;
   letter-spacing: 2px;
+  font-family: "Orbitron", sans-serif;
+  transition: 0.3s ease-in-out;
+  cursor: pointer;
 }
 
+.textPrincipalFooter:hover {
+  color: #5cd1cb;
+}
 .icons {
   display: flex;
   gap: 1.5rem;
@@ -57,27 +65,27 @@
   transition: color 0.3s ease;
 }
 
-.icons h6:hover svg {
-  color: #3d9ccc;
-}
-
-
-
 .informationFooter {
   cursor: pointer;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 768px) {
   .containerPrincipalFooter {
     flex-direction: column;
     align-items: center;
     text-align: center;
     gap: 1.5rem;
-  }
-  .textFooterLeft,
-  .textFooterRight {
-    flex-direction: row;
-    gap: 2rem;
     justify-content: center;
+  }
+
+  .textFooterLeft,
+  .textFooterRight,
+  .informationFooter {
+    display: none !important;
+  }
+
+  .socialMediaClothesShop {
+    align-items: center;
+    width: 100%;
   }
 }

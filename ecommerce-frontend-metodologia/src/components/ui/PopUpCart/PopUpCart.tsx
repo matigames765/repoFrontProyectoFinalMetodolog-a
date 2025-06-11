@@ -1,13 +1,10 @@
-import { FC, useEffect, useState } from "react";
+import { FC, useState } from "react";
 import styles from "./PopUpCart.module.css";
 import { CircleAlert, X } from "lucide-react";
 import { ArticuloTarjeta } from "./ArticuloTarjeta";
 import { useCarritoStore } from "../../../store/Producto/carritoStore";
-import { useNavigate } from "react-router";
-import { initMercadoPago, Wallet } from '@mercadopago/sdk-react';
+import { initMercadoPago, Wallet } from "@mercadopago/sdk-react";
 import { mercadoPago } from "../../../http/mercadoPago";
-
-
 
 type ICardPopUp = {
   handleCloseModal: () => void;
@@ -15,30 +12,21 @@ type ICardPopUp = {
 };
 
 export const PopUpCart: FC<ICardPopUp> = ({ handleCloseModal, visible }) => {
-  const [preferenceId, setPreferenceId] = useState<string>()
-  const [detallesIds, setDetallesIds] = useState<number[]>([])
-  const [cantidades, setCantidades] = useState<number[]>([])
+  const [preferenceId, setPreferenceId] = useState<string>();
+  const [detallesIds, setDetallesIds] = useState<number[]>([]);
+  const [cantidades, setCantidades] = useState<number[]>([]);
 
-  
   // Inicializa Mercado Pago con tu public key
-  initMercadoPago('APP_USR-a6061071-8c37-494b-b803-d5829b6894a8', {
-    locale: "es-AR"
+  initMercadoPago("APP_USR-a6061071-8c37-494b-b803-d5829b6894a8", {
+    locale: "es-AR",
   });
 
-
-
-  const handleBuy = async(detallesIds: number[], cantidades: number[]) => {
+  const handleBuy = async (detallesIds: number[], cantidades: number[]) => {
     const id = await mercadoPago(detallesIds, cantidades);
-    console.log("Preference id: ", id)
-    if (id){
-      setPreferenceId(id)
+    console.log("Preference id: ", id);
+    if (id) {
+      setPreferenceId(id);
     }
-  }
-
-
-  const navigate = useNavigate();
-  const handleNavigateToCheckout = () => {
-    navigate("/checkout");
   };
 
   const articulosEnCarrito = useCarritoStore((state) => state.carrito);
@@ -47,7 +35,6 @@ export const PopUpCart: FC<ICardPopUp> = ({ handleCloseModal, visible }) => {
     return acc + price * item.cantidad;
   }, 0);
 
-  
   return (
     <div
       className={`${styles.overlay} ${visible ? styles.show : ""}`}
@@ -85,15 +72,21 @@ export const PopUpCart: FC<ICardPopUp> = ({ handleCloseModal, visible }) => {
                 <button
                   className={styles.checkoutButton}
                   onClick={() => {
-                    handleBuy(articulosEnCarrito.map((articulo) => articulo.producto.id!), articulosEnCarrito.map((articulo) => articulo.cantidad))
+                    handleBuy(
+                      articulosEnCarrito.map(
+                        (articulo) => articulo.producto.id!
+                      ),
+                      articulosEnCarrito.map((articulo) => articulo.cantidad)
+                    );
                   }}
                 >
                   Ir a pagar
                 </button>
-                {preferenceId && 
-                <div className={styles.walletContainer}>
-                  <Wallet initialization={{ preferenceId: preferenceId }} />
-                </div>}
+                {preferenceId && (
+                  <div className={styles.walletContainer}>
+                    <Wallet initialization={{ preferenceId: preferenceId }} />
+                  </div>
+                )}
               </div>
             </>
           ) : (

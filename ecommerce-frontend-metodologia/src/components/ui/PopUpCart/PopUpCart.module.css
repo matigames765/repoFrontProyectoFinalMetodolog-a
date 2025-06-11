@@ -10,23 +10,26 @@
   z-index: 1000;
   opacity: 0;
   visibility: hidden;
-  transition: opacity 0.3s ease-in-out, visibility 0s 0.3s;
+  pointer-events: none;
+  transition: opacity 0.3s ease, visibility 0s 0.3s;
   backdrop-filter: blur(2px);
 }
 
 .overlay.show {
   opacity: 1;
   visibility: visible;
-  transition: opacity 0.3s ease-in-out, visibility 0s 0s;
+  pointer-events: auto;
+  transition: opacity 0.3s ease, visibility 0s 0s;
 }
 
 .popupCart {
   width: 35vw;
+  max-width: 100%;
   height: 100vh;
   background-color: #fff;
   box-shadow: -4px 0 20px rgba(0, 0, 0, 0.1);
   transform: translateX(100%);
-  transition: transform 0.4s ease-in-out;
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.4s ease;
   display: flex;
   flex-direction: column;
   padding: 1.5rem 1.8rem;
@@ -34,10 +37,18 @@
   overflow-y: auto;
   scrollbar-width: thin;
   scrollbar-color: #ccc transparent;
+  opacity: 0;
+  pointer-events: none;
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 1500;
 }
 
 .popupCart.show {
-  transform: translateX(0%);
+  transform: translateX(0);
+  opacity: 1;
+  pointer-events: auto;
 }
 
 .popupContent {
@@ -135,6 +146,7 @@
 
 .walletContainer{
   width: 20vw;
+}
 /* Responsive */
 
 @media (max-width: 768px) {
@@ -166,5 +178,4 @@
     padding: 6px 8px;
     text-align: center;
   }
-}
 }

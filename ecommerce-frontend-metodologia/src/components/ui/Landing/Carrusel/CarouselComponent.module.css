@@ -1,23 +1,18 @@
-.containerPrincipal {
-  margin-left: 4.8vw;
-  margin-top: 2vw;
-  margin-bottom: 3vw;
-  width: 90%;
-  height: 70vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.carouselContainer {
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden;
+  margin-bottom: 10vh;
 }
 
-.containerPrincipal img {
-  width: 90vw;
-  max-height: 70vh;
+.carouselImage {
+  width: 100%;
+  object-fit: cover;
+  height: 60vh;
 }
 
-@media screen and (max-width: 650px) {
-
-  .containerPrincipal{
-    width: 100%;
-    height: auto;
+@media (max-width: 768px) {
+  .carouselImage {
+    height: 35vh;
   }
 }
