@@ -24,7 +24,7 @@ export const NavBarHome = () => {
           onClick={goHome}
           style={{ cursor: "pointer" }}
         >
-          ClothesShopMendoza
+          UrbanIA
         </h3>
         <div className={styles.loginAndCartContainer}>
           <div className={styles.containerLogin}>

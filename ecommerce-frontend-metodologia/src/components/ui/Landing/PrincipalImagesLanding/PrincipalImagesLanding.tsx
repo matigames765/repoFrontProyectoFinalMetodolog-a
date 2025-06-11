@@ -3,44 +3,44 @@ import styles from "./PrincipalImagesLanding.module.css";
 import { filterStore } from "../../../../store/Producto/filterStore";
 import { useShallow } from "zustand/shallow";
 import { usuarioStore } from "../../../../store/Usuario/usuarioStore";
-import Swal from "sweetalert2";
+
+import { toast } from "react-toastify";
 
 export const PrincipalImagesLanding = () => {
   const navigate = useNavigate();
 
-  const setSeccionActiva = filterStore(useShallow((state) => state.setSeccionActiva))
-  const usuarioActivo = usuarioStore((state) => state.usuarioActivo)
-
+  const setSeccionActiva = filterStore(
+    useShallow((state) => state.setSeccionActiva)
+  );
+  const usuarioActivo = usuarioStore((state) => state.usuarioActivo);
 
   const handleNavigateToCategoriasMujer = () => {
     if (usuarioActivo) {
-      setSeccionActiva('FEMENINO')
+      setSeccionActiva("FEMENINO");
       navigate("/categorias/femenino");
-
     } else {
-      Swal.fire("Iniciar Seccion para Ingresar!");
-      return
+      toast.error("Debes iniciar sesion!");
+      return;
     }
   };
 
   const handleNavigateToCategoriasHombre = () => {
     if (usuarioActivo) {
-      setSeccionActiva('MASCULINO')
+      setSeccionActiva("MASCULINO");
       navigate("/categorias/masculino");
     } else {
-      Swal.fire("Iniciar Seccion para Ingresar!");
-      return
+      toast.error("Debes iniciar sesion!");
+      return;
     }
   };
 
   const handleNavigateToCategoriasNinios = () => {
     if (usuarioActivo) {
-      setSeccionActiva('niños')
+      setSeccionActiva("niños");
       navigate("/categorias/niños");
-
     } else {
-      Swal.fire("Iniciar Seccion para Ingresar!");
-      return
+      toast.error("Debes iniciar sesion!");
+      return;
     }
   };
 

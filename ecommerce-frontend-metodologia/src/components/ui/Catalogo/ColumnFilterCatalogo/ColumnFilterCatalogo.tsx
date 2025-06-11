@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import { useTalles } from "../../../../hooks/Producto/useTalles";
+
 import styles from "./ColumnFilterCatalogo.module.css";
+
 import { TipoProducto } from "../../../../types/Producto/TipoProducto";
 import { filterStore } from "../../../../store/Producto/filterStore";
 import { FunnelPlus } from "lucide-react";
@@ -37,23 +39,19 @@ export const ColumnFilterCatalogo = () => {
 
   return (
     <div className={styles.principalContainerColumFilter}>
-      
       <button
         className={styles.botonToggle}
         onClick={() => setMostrarFiltros((prev) => !prev)}
       >
         {mostrarFiltros ? "Ocultar filtros" : "Mostrar filtros"}
-        <FunnelPlus/>
+        <FunnelPlus />
       </button>
-
-      
 
       <div
         className={`${styles.containerDesplegables} ${
           mostrarFiltros ? styles.visible : styles.oculto
         }`}
       >
-
         {/* Talle */}
         <select
           className={styles.desplegableFilter}

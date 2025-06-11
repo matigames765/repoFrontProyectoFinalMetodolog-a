@@ -5,74 +5,66 @@ import { ChangeEvent, FormEvent, useState } from "react";
 import { loginController } from "../../../http/authenticate/authenticate";
 import { jwtDecode } from "jwt-decode";
 import { handleUsuario } from "../../../hooks/UsuarioActivo/handleUsuario";
-import Swal from "sweetalert2";;
+import Swal from "sweetalert2";
 import { usuarioStore } from "../../../store/Usuario/usuarioStore";
 import { useShallow } from "zustand/shallow";
 
 const estadoInicial: ILogin = {
   nombre: "",
-  contraseña: ""
-}
-
+  contraseña: "",
+};
 
 export const FormLogin = () => {
   const navigate = useNavigate();
-<<<<<<< HEAD
+
+  const [formValues, setFormValues] = useState<ILogin>(estadoInicial);
+  const { usuarios, setUsuarioActivo } = usuarioStore(
+    useShallow((state) => ({
+      usuarios: state.usuarios,
+      setUsuarioActivo: state.setUsuarioActivo,
+    }))
+  );
+
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    setFormValues((prev) => ({ ...prev, [`${name}`]: value }));
+  };
+
   const handleRegister = () => {
     navigate("/register");
   };
-=======
-
-  const [formValues, setFormValues] = useState<ILogin>(estadoInicial)
-  const { usuarios, setUsuarioActivo } = usuarioStore(useShallow((state) => ({
-    usuarios: state.usuarios,
-    setUsuarioActivo: state.setUsuarioActivo
-  })))
-
-
-  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
-    const { name, value } = e.target
-    setFormValues((prev) => ({ ...prev, [`${name}`]: value }))
-
-  }
-
-  const handleRegister = () => {
-    navigate("/register");
-  }
 
   const handleLanding = () => {
-    navigate("/")
-  }
+    navigate("/");
+  };
 
   const handleSubmit = async (e: FormEvent) => {
-    e.preventDefault()
+    e.preventDefault();
     const data = await loginController(formValues);
     if (data) {
-      localStorage.setItem("authentication", data)
-      console.log("Token en el login: ", data)
+      localStorage.setItem("authentication", data);
+      console.log("Token en el login: ", data);
 
-      const payload = jwtDecode(data)
+      const payload = jwtDecode(data);
       const nombrePayload = payload.sub;
 
-      handleUsuario(nombrePayload!, usuarios, setUsuarioActivo)
+      handleUsuario(nombrePayload!, usuarios, setUsuarioActivo);
 
       // con esta variable noExiste verificamos si el usuario ingresado existe
-      // sino no se cierra el 
-      console.log("usuario: ", usuarios)
+      // sino no se cierra el
+      console.log("usuario: ", usuarios);
       const usuarioExiste = usuarios.find((usuario) => {
-        return usuario.nombre === formValues.nombre
-      })
+        return usuario.nombre === formValues.nombre;
+      });
       if (usuarioExiste) {
-        handleLanding()
+        handleLanding();
       } else {
         Swal.fire("El usuario no existe!");
-        return
-
+        return;
       }
     }
-  }
+  };
 
->>>>>>> 3d6d58dedc2df2e9eb66e5cc950e095dc661a243
   return (
     <div className={styles.containerPrincipalFormLogin}>
       <h4 className={styles.titleLoginEcommerce}>Iniciar sesion</h4>
@@ -102,7 +94,9 @@ export const FormLogin = () => {
               className={styles.inputFormLogin}
             />
             <div className={styles.buttonContainer}>
-              <button type="submit" className={styles.buttonEntrar}>Iniciar sesion</button>
+              <button type="submit" className={styles.buttonEntrar}>
+                Iniciar sesion
+              </button>
             </div>
             <div className={styles.login}>
               <h5>¿No tenés una cuenta?</h5>

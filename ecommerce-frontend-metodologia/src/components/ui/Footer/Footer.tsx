@@ -28,12 +28,12 @@ export const Footer = () => {
         <h6 className={styles.textFooter}>Seguinos</h6>
       </div>
       <div className={styles.textFooterRight}>
-        <h6 className={styles.textFooter}>Clothes Shop Mendoza</h6>
+        <h6 className={styles.textFooter}>UrbanIA</h6>
         <h6 className={styles.textFooter}>Blog</h6>
         <h6 className={styles.textFooter}>Contacto</h6>
       </div>
       <div className={styles.socialMediaClothesShop}>
-        <h1 className={styles.textPrincipalFooter}>ClothesShopMendoza</h1>
+        <h1 className={styles.textPrincipalFooter}>UrbanIA</h1>
         <div className={styles.icons}>
           <h6>
             <Instagram color="white" size={20} />
@@ -55,10 +55,13 @@ export const Footer = () => {
             </h6>
           </div>
         ) : (
-          <div>...</div>
+          <div></div>
         )
       }
 
     </div>
   );
 };
+
+
+export default Footer

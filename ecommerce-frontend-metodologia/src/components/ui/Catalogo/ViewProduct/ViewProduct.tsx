@@ -4,6 +4,8 @@ import { IDetalleProductos } from "../../../../types/Producto/IDetalleProducto";
 import { useCarritoStore } from "../../../../store/Producto/carritoStore";
 import { toast } from "react-toastify";
 
+import styles from "./ViewProduct.module.css";
+
 interface IViewProduct {
   show: boolean;
   detalle: IDetalleProductos;
@@ -34,7 +36,7 @@ const ViewProduct: FC<IViewProduct> = ({ show, detalle, handleClose }) => {
   }
   return (
     // importamos un modal de react-boostrap para generar un modal, y nesesita una variable booleana para mostrarse y una voidFunction para cerrarlo
-    <Modal show={show} onHide={handleClose} centered size="lg">
+    <Modal show={show} onHide={handleClose} centered>
       {/* // esta es la cabecera del modal  */}
       <Modal.Header closeButton>
         <Modal.Title>
@@ -48,25 +50,24 @@ const ViewProduct: FC<IViewProduct> = ({ show, detalle, handleClose }) => {
           {/* El row ayusta el grid dependiendo de la cantidad de columnas que tenga*/}
           <Row>
             {/* Tiene 2 columnas una para la imagen y otra para los atributos */}
-            <Col>
+            <Col xs={12} md={6}>
               <img
                 src={
                   detalle.imagenProducto?.url ||
                   "https://via.placeholder.com/200"
                 }
                 alt={detalle.imagenProducto?.alt || "Imagen no disponible"}
-                width="100%"
-                height="90%"
+                className="img-fluid"
               />
             </Col>
-            <Col>
+            <Col xs={12} md={6}>
               <h6>Talles:</h6>
               <Form.Select
                 aria-label="talles"
                 value={talleSeleccionado || ""}
                 onChange={(e) => setTalleSeleccionado(Number(e.target.value))}
               >
-                <option value=""> Seleccionar talle </option>
+                <option value="">Seleccionar talle</option>
                 {detalle.tallesDetalleProductos.map((talle) => (
                   <option key={talle.id} value={talle.id}>
                     {talle.talle}
@@ -97,10 +98,18 @@ const ViewProduct: FC<IViewProduct> = ({ show, detalle, handleClose }) => {
         </Container>
       </Modal.Body>
       <Modal.Footer>
-        <Button variant="success" onClick={handleAddCart}>
+        <Button
+          variant="success"
+          onClick={handleAddCart}
+          className={styles.botonAdd}
+        >
           Añadir al carrito
         </Button>
-        <Button variant="danger" onClick={handleClose}>
+        <Button
+          variant="danger"
+          onClick={handleClose}
+          className={styles.botonCancel}
+        >
           Cerrar
         </Button>
       </Modal.Footer>

@@ -9,10 +9,7 @@ export const NavBarCatalogo = () => {
   const [openModalPopUpCart, setOpenModalPopUpCart] = useState<boolean>(false);
   const navigate = useNavigate();
 
-  
   const setBuscadorActivo = filterStore((state) => state.setBuscadorActivo);
-
- 
 
   const goHome = () => {
     navigate("/");
@@ -21,22 +18,22 @@ export const NavBarCatalogo = () => {
   return (
     <div className={styles.containerNavBarLanding}>
       <div className={styles.topRow}>
-        <h3
-          className={styles.tituloPagina}
-          onClick={goHome}
-          style={{ cursor: "pointer" }}
-        >
-          ClothesShopMendoza
-        </h3>
-      </div>
-
-      <div className={styles.bottomRow}>
         <h2
           className={styles.categorieNavBarLanding}
           style={{ cursor: "pointer" }}
         >
           Catalogo
         </h2>
+      </div>
+
+      <div className={styles.bottomRow}>
+        <h3
+          className={styles.tituloPagina}
+          onClick={goHome}
+          style={{ cursor: "pointer" }}
+        >
+          UrbanIA
+        </h3>
 
         <div className={styles.searchAndCartContainer}>
           <div className={styles.searchContainer}>

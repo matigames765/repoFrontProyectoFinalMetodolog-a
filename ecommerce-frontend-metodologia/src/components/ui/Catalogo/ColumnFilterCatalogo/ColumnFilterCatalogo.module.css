@@ -1,6 +1,6 @@
 .principalContainerColumFilter {
-  background-color: #ebebeb;
-  padding: 1rem;
+  background-color: #ffffff;
+  padding: 1vw;
   box-sizing: border-box;
   height: auto;
 }
@@ -18,46 +18,57 @@
   transition: background-color 0.3s ease;
 }
 
-
 .containerDesplegables {
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  transition: max-height 0.3s ease, opacity 0.3s ease;
 }
 
-/* Estilo de cada select */
 .desplegableFilter {
-  padding: 0.5rem;
+  padding: 1vw;
   font-size: 1rem;
   border-radius: 4px;
   border: 1px solid #ccc;
   background-color: white;
   color: #333;
+  margin-bottom: 1vh;
 }
 
-/* Mobile */
+.desplegableFilter:focus {
+  border: 2px solid #5cd1cb;
+  box-shadow: 0 4px 12px rgba(92, 209, 203, 0.4);
+}
+
 @media (max-width: 768px) {
   .principalContainerColumFilter {
     height: auto;
     background-color: white;
   }
+
   .botonToggle {
     display: flex;
     gap: 2.5vw;
   }
 
   .containerDesplegables {
-    display: none;
+    overflow: hidden;
+    max-height: 0;
+    opacity: 0;
+    pointer-events: none;
+    flex-direction: column;
+    gap: 1rem;
+    transition: max-height 0.4s ease, opacity 0.4s ease;
   }
 
   .visible {
-    display: flex;
+    max-height: 25vh;
     opacity: 1;
+    pointer-events: auto;
   }
 
   .oculto {
-    display: none;
+    max-height: 0;
     opacity: 0;
+    pointer-events: none;
   }
 }

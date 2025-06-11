@@ -1,3 +1,4 @@
+import Footer from "../../ui/Footer/Footer";
 import { FormLogin } from "../../ui/FormLogin/FormLogin";
 import { HeaderDescuento } from "../../ui/HeaderDescuento/HeaderDescuento";
 import { NavBarHome } from "../../ui/Landing/NavBarHome/NavBarHome";
@@ -11,6 +12,7 @@ export const LoginScreen = () => {
       <HeaderDescuento />
       <NavBarHome/>
       <FormLogin />
+      <Footer/>
     </div>
   );
 };

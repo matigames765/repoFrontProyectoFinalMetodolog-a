@@ -1,0 +1,21 @@
+
+.botonAdd {
+  background-color: #38b2ac;
+  border: none;
+  color: white;
+  transition: background-color 0.3s ease;
+}
+.botonAdd:hover {
+  background-color: #319795;
+}
+
+.botonCancel {
+  background-color: #718096;
+  border: none;
+  color: white;
+  transition: background-color 0.3s ease;
+}
+
+.botonCancel:hover {
+  background-color: #4a5568;
+}
