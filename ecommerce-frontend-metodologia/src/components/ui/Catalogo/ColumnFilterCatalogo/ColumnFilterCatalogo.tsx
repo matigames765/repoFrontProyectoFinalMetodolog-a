@@ -24,7 +24,11 @@ export const ColumnFilterCatalogo = () => {
   );
 
   // Solo para ver cuándo cambia en consola:
-  useEffect(() => {}, [
+  useEffect(() => {
+    console.log("Orden precio Activo: ", ordenPrecioActivo)
+    console.log("talleActivo: ", talleActivo)
+    console.log("tipo producto seleccionado activo: ", tipoProductoSeleccionadoActivo)
+  }, [
     ordenPrecioActivo,
     talleActivo,
     tipoProductoSeleccionadoActivo,
@@ -32,7 +36,6 @@ export const ColumnFilterCatalogo = () => {
 
   useEffect(() => {
     getTallesHook();
-    console.log("talles: " + talles);
   }, []);
 
   return (

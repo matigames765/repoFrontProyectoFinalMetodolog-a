@@ -24,7 +24,7 @@ export const NavBarLanding = () => {
       navigate(ruta);
       setMenuOpen(false); // Cierra el menú al navegar
     } else {
-      Swal.fire("Iniciar Seccion para Ingresar!");
+      Swal.fire("Iniciar Sesion para Ingresar!");
       return
     }
 

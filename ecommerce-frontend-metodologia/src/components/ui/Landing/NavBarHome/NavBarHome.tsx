@@ -15,7 +15,7 @@ export const NavBarHome = () => {
     if (usuarioActivo) {
       setOpenModalPopUpCart((prev) => !prev)
     } else {
-      Swal.fire("Iniciar Seccion para Ingresar!");
+      Swal.fire("Iniciar Sesion para Ingresar!");
       return
     }
   }

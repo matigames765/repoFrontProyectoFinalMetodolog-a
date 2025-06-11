@@ -22,7 +22,7 @@ export const SectionImagenesCatalogo = () => {
   const tipoProductoSeleccionadoActivo = filterStore(
     (state) => state.tipoProductoSeleccionadoActivo
   );
-  const categoriaActiva = filterStore((state) => state.categoriaActiva);
+
   const buscadorActivo = filterStore((state) => state.buscadorActivo);
 
   useEffect(() => {
@@ -53,11 +53,6 @@ export const SectionImagenesCatalogo = () => {
     setDetalleActivo(null);
   };
 
-  useEffect(() => {
-    console.log("Detalle activo: ", detalleActivo);
-  }, [detalleActivo]);
-
-  console.log(detallesProductos)
 
   const detallesFiltrados: IDetalleProductos[] = []
 

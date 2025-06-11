@@ -1,7 +1,6 @@
 import axios from "axios"
 import { IDetalleProductos } from "../../types/Producto/IDetalleProducto"
 import { filterStore } from "../../store/Producto/filterStore"
-import { useShallow } from "zustand/shallow"
 import { ITalles } from "../../types/Producto/ITalles"
 
 
@@ -9,51 +8,45 @@ import { ITalles } from "../../types/Producto/ITalles"
 
 
 //obtener detalles productos
-export const getAllDetallesProductos = async (): Promise<IDetalleProductos[] | undefined> => {
-
-    const token = localStorage.getItem("authentication");
-
+export const getAllDetallesProductos = async(): Promise<IDetalleProductos[] | undefined> => {
+    
     const { talleActivo, categoriaActiva, seccionActiva, ordenPrecioActivo, tipoProductoSeleccionadoActivo, buscadorActivo } = filterStore.getState()
 
-    if (talleActivo === "" && tipoProductoSeleccionadoActivo === "" && ordenPrecioActivo === "" && seccionActiva === "" && ordenPrecioActivo === "" && buscadorActivo === "") {
-        try {
-            const response = await axios.get<IDetalleProductos[]>('http://localhost:9000/detalleProducto',
-                {
-                    headers: {
-                        "Content-Type": "application/json",
-                        "Authorization": `Bearer ${token}`
-                    }
-                }
-            )
+    if(talleActivo === "" && tipoProductoSeleccionadoActivo === "" && ordenPrecioActivo === "" && seccionActiva === "" && ordenPrecioActivo === "" && buscadorActivo === ""){
+        console.log(`http://localhost:9000/detalleProducto/filter?seccion=${seccionActiva}&categoria=${categoriaActiva}&talle=${talleActivo}&tipo=${tipoProductoSeleccionadoActivo}&orden=${ordenPrecioActivo}`)
+        try{
+            const response = await axios.get<IDetalleProductos[]>('http://localhost:9000/detalleProducto')
 
             return response.data
-        } catch (error) {
+        }catch(error){
             console.log("Error en obtener todos los productos en getAllDetallesProductos http: " + error)
         }
-    } else {
-        try {
-            const response = await axios.get<IDetalleProductos[]>(`http://localhost:9000/detalleProducto?seccion=${seccionActiva}&categoria=${categoriaActiva}&talle=${talleActivo}&tipo=${tipoProductoSeleccionadoActivo}&orden=${ordenPrecioActivo}&buscador=${buscadorActivo}`,
-                {
-                    headers: {
-                        "Content-Type": "application/json",
-                        "Authorization": `Bearer ${token}`
-                    }
-                }
-            )
+    }else{
+        try{
+             console.log(`http://localhost:9000/detalleProducto/filter?seccion=${seccionActiva}&categoria=${categoriaActiva}&talle=${talleActivo}&tipo=${tipoProductoSeleccionadoActivo}&orden=${ordenPrecioActivo}&buscador=${buscadorActivo}`)
+            const response = await axios.get<IDetalleProductos[]>(`http://localhost:9000/detalleProducto/filter?seccion=${seccionActiva}&categoria=${categoriaActiva}&talle=${talleActivo}&tipo=${tipoProductoSeleccionadoActivo}&orden=${ordenPrecioActivo}&buscador=${buscadorActivo}`)
             console.log(response.data)
-
+            
             return response.data
-        } catch (error) {
+        }catch(error){
             console.log("Error en getAllDetallesProductos http: " + error)
         }
     }
 }
 
 
-
 export const crearDetalleProducto = async(detalleProducto: IDetalleProductos) => {
+    const token = localStorage.getItem("authentication");
     try{
-        const response = await axios.post<IDetalleProductos>('http://localhost:9000/detalleProducto', detalleProducto)
+        const response = await axios.post<IDetalleProductos>('http://localhost:9000/detalleProducto', 
+            detalleProducto,
+            {
+                headers: {
+                    "Content-Type": "application/json",
+                    "Authorization": `Bearer ${token}`
+                }
+            }
+        )
 
         return response.data
     } catch (error) {
@@ -73,13 +66,16 @@ export const eliminadoLogicoDetalleProducto = async(idDetalle: number) => {
 
 export const addTalleOnDetalleProducto = async(idDetalle: number, talle: ITalles) => {
     console.log("Talle en htpp: ", talle)
+    const token = localStorage.getItem("authentication");
     try{
         const response = await axios.put<IDetalleProductos>(`http://localhost:9000/detalleProducto/${idDetalle}/agregarTalle`, 
             JSON.stringify(talle),
          {
-  headers: {
-    'Content-Type': 'application/json'
-  }})
+                headers: {
+                    "Content-Type": "application/json",
+                    "Authorization": `Bearer ${token}`
+                }
+            })
 
         return response.data
     }catch(error){

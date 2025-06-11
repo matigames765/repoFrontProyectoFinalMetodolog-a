@@ -18,7 +18,7 @@ export const PrincipalImagesLanding = () => {
       navigate("/categorias/femenino");
 
     } else {
-      Swal.fire("Iniciar Seccion para Ingresar!");
+      Swal.fire("Iniciar Sesion para Ingresar!");
       return
     }
   };
@@ -28,7 +28,7 @@ export const PrincipalImagesLanding = () => {
       setSeccionActiva('MASCULINO')
       navigate("/categorias/masculino");
     } else {
-      Swal.fire("Iniciar Seccion para Ingresar!");
+      Swal.fire("Iniciar Sesion para Ingresar!");
       return
     }
   };
@@ -39,7 +39,7 @@ export const PrincipalImagesLanding = () => {
       navigate("/categorias/niños");
 
     } else {
-      Swal.fire("Iniciar Seccion para Ingresar!");
+      Swal.fire("Iniciar Sesiion para Ingresar!");
       return
     }
   };

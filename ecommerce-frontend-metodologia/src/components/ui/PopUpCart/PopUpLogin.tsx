@@ -35,7 +35,7 @@ export const PopUpLogin: FC<ICardPopUp> = ({ handleCloseModal, visible, usuario 
                 <div className={styles.usuarioContent}>
                     <p><b>Usuario: </b>{usuario ? (usuario.nombre) : ("")}</p>
                     <p><b>email: </b>{usuario ? (usuario.email) : ("")}</p>
-                    <button onClick={handleCerrarSeccion} className={styles.cerrarSeccion}><b>cerrar seccion</b></button>
+                    <button onClick={handleCerrarSeccion} className={styles.cerrarSeccion}><b>cerrar sesion</b></button>
                 </div>
             </div>
         </div>

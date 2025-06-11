@@ -12,11 +12,13 @@ export const getAllPrecios = async(): Promise<IPrecio[] | undefined> => {
 }
 
 export const crearPrecio = async(precio: IPrecio) => {
-  const token = "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJNYXRpYXMgZ2FtZXMiLCJpYXQiOjE3NDg2NTIwMzAsImV4cCI6MTc0ODY1MzQ3MH0.aPBAcapFTX7xIDiK4cRviZI0_e6JhKL0baEOWCmgivo"
+    const token = localStorage.getItem("authentication");
     try{
-        const response = await axios.post<IPrecio>('http://localhost:9000/precio', precio, {headers: {
-    "Content-Type": "application/json"
-  }})
+        const response = await axios.post<IPrecio>('http://localhost:9000/precio', precio, 
+            {headers: {
+          "Content-Type": "application/json",
+          "Authorization": `Bearer ${token}`
+        }})
 
         return response.data
     }catch(error){

@@ -17,7 +17,6 @@ export const useDetallesProductos = () => {
     const getDetallesProductosHook = async() => {
         try{
             const detallesProductos = await getAllDetallesProductos()
-            console.log('detalles productos: ' + detallesProductos)
             if(detallesProductos) setArrayDetallesProductos(detallesProductos)
             return detallesProductos
         }catch(error){
@@ -27,7 +26,6 @@ export const useDetallesProductos = () => {
 
     const crearDetalleProductoHook = async(detalleProducto: IDetalleProductos) => {
                 try{
-                    console.log("Detalle enviado: ", detalleProducto)
                     const detalleProductoBD = await crearDetalleProducto(detalleProducto)
                     crearDetalleProductoStore({...detalleProductoBD, id: detalleProductoBD?.id!})
                     return detalleProductoBD
