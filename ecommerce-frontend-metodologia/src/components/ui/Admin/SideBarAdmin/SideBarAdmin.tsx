@@ -6,18 +6,6 @@ export const SideBarAdmin = () => {
     <div className={styles.navBarContainer}>
       <div className={styles.adminNavContainer}>
         <button
-          onClick={() => navigate("/admin/ventas")}
-          className={styles.buttonNavAdmin}
-        >
-          Ventas
-        </button>
-        <button
-          onClick={() => navigate("/admin/visitas")}
-          className={styles.buttonNavAdmin}
-        >
-          Visitas
-        </button>
-        <button
           onClick={() => navigate("/admin/ordenes")}
           className={styles.buttonNavAdmin}
         >

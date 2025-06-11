@@ -9,18 +9,6 @@ export const AdminScreen = () => {
         <h2>Administración</h2>
         <div className={styles.adminHomeDesplegable}>
           <button
-            onClick={() => navigate("/admin/ventas")}
-            className={styles.buttonNav}
-          >
-            Ventas
-          </button>
-          <button
-            onClick={() => navigate("/admin/visitas")}
-            className={styles.buttonNav}
-          >
-            Visitas
-          </button>
-          <button
             onClick={() => navigate("/admin/ordenes")}
             className={styles.buttonNav}
           >
