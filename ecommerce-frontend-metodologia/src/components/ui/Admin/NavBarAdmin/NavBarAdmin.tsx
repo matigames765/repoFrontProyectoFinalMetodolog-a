@@ -3,11 +3,13 @@ import { House, Plus } from "lucide-react";
 import { useNavigate } from "react-router";
 
 import styles from "./NavBarAdmin.module.css";
+
 interface NavBarAdminProps {
   onOpenModal: () => void;
+  onOpenModalCrearAdmin: () => void;
 }
 
-export const NavBarAdmin = ({ onOpenModal }: NavBarAdminProps) => {
+export const NavBarAdmin = ({ onOpenModal, onOpenModalCrearAdmin }: NavBarAdminProps) => {
   const navigate = useNavigate();
 
   const handleNavigateToLanding = () => {
@@ -27,8 +29,10 @@ export const NavBarAdmin = ({ onOpenModal }: NavBarAdminProps) => {
         </Navbar.Brand>
 
         <Navbar.Text className={styles.navContainer}>
-          Usuario: Usuario
+          Usuario: Admin
         </Navbar.Text>
+        <div className={styles.buttonsNavBarAdmin}>
+          <Navbar.Text className={styles.addProductContainer} onClick={onOpenModalCrearAdmin}>Crear Admin<Plus size={20} /></Navbar.Text>
         <Navbar.Text
           onClick={onOpenModal}
           className={styles.addProductContainer}
@@ -36,6 +40,7 @@ export const NavBarAdmin = ({ onOpenModal }: NavBarAdminProps) => {
           Añadir un producto
           <Plus size={20} />
         </Navbar.Text>
+        </div>
       </Container>
     </Navbar>
   );

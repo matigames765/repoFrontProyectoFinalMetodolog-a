@@ -6,7 +6,7 @@ export const HeaderAdmin = () => {
     <>
       <div className={styles.ContainerPrincipalHeaderADmin}>
         <div className={styles.infoCardContainer}>
-          <div className={styles.infoCards}>
+          {/* <div className={styles.infoCards}>
             <h4>Total Ventas</h4>
             <p>$100.000.000</p>
           </div>
@@ -21,7 +21,7 @@ export const HeaderAdmin = () => {
           <div className={styles.infoCards}>
             <h4>Ordenes</h4>
             <p>100.000</p>
-          </div>
+          </div> */}
         </div>
       </div>
     </>

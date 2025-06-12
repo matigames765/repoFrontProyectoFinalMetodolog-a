@@ -9,7 +9,7 @@ import { ModalAgregarDetalleProducto } from "../ModalAgregarDetalleProducto/Moda
 
 export const ProductosAdmin = () => {
 
-  const {productos, getProductosHook} = useProductos()
+  const {productos, getProductosHook, inactivarProductoHook} = useProductos()
   const [openModalDetallesProductos, setOpenModalDetallesProductos] = useState(false)
   const [productoVerDetalles, setProductoVerDetalles] = useState<IProducto>()
   const [openModalAgregarDetalleProducto, setOpenModalAgregarDetalleProducto] = useState(false)
@@ -27,6 +27,11 @@ export const ProductosAdmin = () => {
     getProductosHook()
   }
 
+  const handleInactivarProducto = (idProducto: number) => {
+    inactivarProductoHook(idProducto)
+    getProductosHook()
+  }
+
   useEffect(() => {
     getProductosHook()
     console.log("Productos obtenidos: ",productos)
@@ -41,12 +46,12 @@ export const ProductosAdmin = () => {
     <>
       <div className={styles.containerPrincipal}>
         <div className={styles.divProductos}>
-          {productos.map((producto) => (<div key={producto.id} className={styles.containerProducto}>
+          {productos.map((producto) => (producto.estado === true ? <div key={producto.id} className={styles.containerProducto}>
             <div className={styles.informationProducto}>
               <p>Nombre producto: {producto.nombre}</p>
               <p>Seccion: {producto.seccion}</p>
               <p>Tipo de producto: {producto.tipoProducto}</p>
-              <p>Categoria: {producto.categoria!.nombre}</p>
+              {/* <p>Categoria: {producto.categoria!.nombre}</p> */}
             </div>
           <div className={styles.buttonsProducto}>
             <button className={styles.buttonProducto} onClick={() => {
@@ -58,8 +63,11 @@ export const ProductosAdmin = () => {
               setProductoVerDetalles(producto)
               setOpenModalDetallesProductos(true)
             }}>Ver detalles del producto</button>
+            <button className={styles.buttonProductoInactivar} onClick={() => {
+              handleInactivarProducto(producto.id!)
+            }}>Inactivar Producto</button>
           </div>
-          </div>))}
+          </div>: null))}
         </div>
       </div>
       {openModalDetallesProductos && <ModalDetallesProductosAdmin producto={productoVerDetalles!} show={openModalDetallesProductos} onClose={onClose} />}

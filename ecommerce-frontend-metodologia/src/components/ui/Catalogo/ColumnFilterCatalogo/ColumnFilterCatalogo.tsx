@@ -22,17 +22,24 @@ export const ColumnFilterCatalogo = () => {
   const setTipoProductoSeleccionadoActivo = filterStore(
     (state) => state.setTipoProductoSeleccionadoActivo
   );
+  const precioMaxActivo = filterStore((state) => state.precioMaxActivo)
+
+  const setPrecioMaxActivo = filterStore((state) => state.setPrecioMaxActivo)
 
   // Solo para ver cuándo cambia en consola:
   useEffect(() => {
     console.log("Orden precio Activo: ", ordenPrecioActivo)
     console.log("talleActivo: ", talleActivo)
     console.log("tipo producto seleccionado activo: ", tipoProductoSeleccionadoActivo)
+    console.log("Precio maximo activo: ", precioMaxActivo)
   }, [
     ordenPrecioActivo,
     talleActivo,
     tipoProductoSeleccionadoActivo,
+    precioMaxActivo
   ]);
+
+  
 
   useEffect(() => {
     getTallesHook();
@@ -115,6 +122,9 @@ export const ColumnFilterCatalogo = () => {
           <option value="ASC">Ascendente</option>
           <option value="DESC">Descendente</option>
         </select>
+
+        {/*precio maximo*/}
+        <label>{precioMaxActivo === 0 ? "Precio Maximo": `Precio Maximo: ${precioMaxActivo}`}<br /><input type="range" min="0" max={65000} step="5000" value={precioMaxActivo} onChange={(e) => setPrecioMaxActivo(Number(e.target.value))} /></label>
       </div>
     </div>
   );

@@ -1,6 +1,6 @@
 import { useShallow } from "zustand/shallow"
 import { productoStore } from "../../store/Producto/productoStore"
-import { addDetalleProductoOnProducto, crearProducto, deleteProducto, getAllProductos } from "../../http/Producto/producto"
+import { activarProducto, addDetalleProductoOnProducto, crearProducto, deleteProducto, getAllProductos, inactivarProducto } from "../../http/Producto/producto"
 import { IProducto } from "../../types/Producto/IProducto"
 import { toast } from "react-toastify"
 import { IDetalleProductos } from "../../types/Producto/IDetalleProducto"
@@ -8,13 +8,15 @@ import { IDetalleProductos } from "../../types/Producto/IDetalleProducto"
 export const useProductos = () => {
 
     //traemos las variables y las actions de la store de producto
-    const {productos, setArrayProductos, crearProductoStore, editarProductoStore} = productoStore(useShallow((state) => ({
+    const {productos, setArrayProductos, crearProductoStore, editarProductoStore, inactivarProductoStore, activarProductoStore} = productoStore(useShallow((state) => ({
         productos: state.productos,
         setArrayProductos: state.setArrayProductos,
         crearProductoStore: state.crearProductoStore,
         eliminarProductoStore: state.eliminarProductoStore,
         addDetalleProductoOnProductoStore: state.addDetalleProductoOnProductoStore,
-        editarProductoStore: state.editarProductoStore
+        editarProductoStore: state.editarProductoStore,
+        inactivarProductoStore: state.inactivarProductoStore,
+        activarProductoStore: state.activarProductoStore
     })))
 
     //traemos los productos en el hook
@@ -50,12 +52,32 @@ export const useProductos = () => {
         }
     }
 
+    const inactivarProductoHook = async(idProducto: number) => {
+        try{
+            const productoBD = await inactivarProducto(idProducto)
+            inactivarProductoStore(productoBD?.id!)
+        }catch(error){
+            console.log("Hubo un error en inactivar producto en el hook: " + error)
+        }
+    }
+
+    const activarProductoHook = async(idProducto: number) => {
+        try{
+            const productoBD = await activarProducto(idProducto)
+            activarProductoStore(productoBD?.id!)
+        }catch(error){
+            console.log("Hubo un error en activar producto en el hook: " + error)
+        }
+    }
+
 
 
     return({
         getProductosHook,
         productos,
         crearProductoHook,
-        addDetalleProductoOnProductoHook
+        addDetalleProductoOnProductoHook,
+        inactivarProductoHook,
+        activarProductoHook
     })
 }

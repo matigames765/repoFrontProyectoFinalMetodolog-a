@@ -52,6 +52,26 @@ export const addDetalleProductoOnProducto = async(detalleProducto: IDetalleProdu
   }
 }
 
+export const inactivarProducto = async(idProducto: number) => {
+  try{
+    const response = await axios.patch<IProducto>(`http://localhost:9000/producto/${idProducto}/inactivarProducto`)
+
+    return response.data
+  }catch(error){
+    console.log("Error al inactivar el producto en http: ", error)
+  }
+}
+
+export const activarProducto = async(idProducto: number) => {
+  try{
+    const response = await axios.patch<IProducto>(`http://localhost:9000/producto/${idProducto}/activarProducto`)
+
+    return response.data
+  }catch(error){
+    console.log("Error al activar el producto en http: ", error)
+  }
+}
+
 export const editarProducto = async(productoActualizado: IProducto) => {
     try{
         const response = await axios.put<IProducto>('http://localhost:9000/producto', {productoActualizado})

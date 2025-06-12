@@ -1,4 +1,5 @@
 import { create } from "zustand"
+import { persist } from "zustand/middleware"
 import { IUsuario } from "../../types/Usuario/IUsuario"
 
 interface IUsuarioStore {
@@ -8,14 +9,17 @@ interface IUsuarioStore {
     setArrayUsuarios: (usuarios: IUsuario[]) => void
 }
 
-export const usuarioStore = create<IUsuarioStore>((set) => ({
-    usuarioActivo: null,
-    usuarios: [],
+export const usuarioStore = create<IUsuarioStore>()(
+    persist(
+        (set) => ({
+            usuarioActivo: null,
+            usuarios: [],
 
-    // Setear un usuario activo
-    setUsuarioActivo: (usuario) => set(() => ({ usuarioActivo: usuario })),
-    //setear array de usuarios
-    setArrayUsuarios: (arrayUsuarios) => set(() => ({
-        usuarios: arrayUsuarios
-    }))
-}))
+            setUsuarioActivo: (usuario) => set(() => ({ usuarioActivo: usuario })),
+            setArrayUsuarios: (arrayUsuarios) => set(() => ({ usuarios: arrayUsuarios }))
+        }),
+        {
+            name: "usuario-storage", // clave en localStorage
+        }
+    )
+)

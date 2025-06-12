@@ -8,16 +8,14 @@ interface IFilterStore{
     ordenPrecioActivo: string | '',
     tipoProductoSeleccionadoActivo: TipoProducto | string,
     buscadorActivo: string | '',
-    precioMaxActivo: string | '',
-    precioMinActivo: string | '',
+    precioMaxActivo: number,
     setCategoriaActiva: (categoria: string | '') => void,
     setSeccionActiva: (seccion: string | '') => void,
     setTalleActivo: (talle: string | '') => void,
     setOrdenPrecioActivo : (ordenPrecio: string | '') => void,
     setTipoProductoSeleccionadoActivo: (tipoProducto: TipoProducto | string) => void,
     setBuscadorActivo: (buscador: string | '') => void,
-    setPrecioMaxActivo: (precioMax: string | '') => void,
-    setPrecioMinActivo: (precioMin: string | '') => void,
+    setPrecioMaxActivo: (precioMax: number) => void,
     resetFiltros: () => void
 }
 
@@ -28,8 +26,7 @@ export const filterStore = create<IFilterStore>((set) => ({
     ordenPrecioActivo: '',
     tipoProductoSeleccionadoActivo: '',
     buscadorActivo: '',
-    precioMaxActivo: '',
-    precioMinActivo: '',
+    precioMaxActivo: 0,
 
     //setear categoria activa
     setCategoriaActiva: (categoriaActivaIn) => set(() => ({categoriaActiva: categoriaActivaIn})),
@@ -52,8 +49,7 @@ export const filterStore = create<IFilterStore>((set) => ({
     //setear precio Maximo activo
     setPrecioMaxActivo: (precioMaximoActivoIn) => set(() => ({precioMaxActivo: precioMaximoActivoIn})),
 
-    //setear precio activo minimo
-    setPrecioMinActivo: (precioMinActivoIn) => set(() => ({precioMinActivo: precioMinActivoIn})),
+    
 
     //resetear todos los filtros
     resetFiltros: () => set(() => ({
@@ -62,7 +58,6 @@ export const filterStore = create<IFilterStore>((set) => ({
         ordenPrecioActivo: '',
         tipoProductoSeleccionadoActivo: '',
         buscadorActivo: '',
-        precioMaxActivo: '',
-        precioMinActivo: '',
+        precioMaxActivo: 0
     }))
 }))

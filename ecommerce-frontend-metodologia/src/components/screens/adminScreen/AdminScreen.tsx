@@ -8,7 +8,7 @@ export const AdminScreen = () => {
       <div className={styles.containerAdminScreen}>
         <h2>Administración</h2>
         <div className={styles.adminHomeDesplegable}>
-          <button
+          {/* <button
             onClick={() => navigate("/admin/ventas")}
             className={styles.buttonNav}
           >
@@ -19,7 +19,7 @@ export const AdminScreen = () => {
             className={styles.buttonNav}
           >
             Visitas
-          </button>
+          </button> */}
           <button
             onClick={() => navigate("/admin/ordenes")}
             className={styles.buttonNav}

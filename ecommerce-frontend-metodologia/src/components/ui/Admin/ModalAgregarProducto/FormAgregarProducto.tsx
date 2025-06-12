@@ -57,6 +57,7 @@ export const FormAgregarProducto: FC<IFormAgregarProductoProps> = ({
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    formValuesProducto.estado === true
     console.log(formValuesProducto)
     onSubmit(formValuesProducto);
   };

@@ -16,19 +16,19 @@ export const ClientesAdmin = () => {
         <div className={styles.divClientes}>
           <div className={styles.idCliente}>
             <h3 className={styles.tituloColumna}>ID Cliente</h3>
-            {usuarios.map((usuario) => usuario.rol === "USER" && <p>{usuario.id}</p>)}
+            {usuarios.map((usuario) => usuario.rol === "CLIENTE" && <p>{usuario.id}</p>)}
           </div>
           <div className={styles.pais}>
             <h3 className={styles.tituloColumna}>Nombre</h3>
-            {usuarios.map((usuario) => usuario.rol === "USER" && <p>{usuario.nombre}</p>)}
+            {usuarios.map((usuario) => usuario.rol === "CLIENTE" && <p>{usuario.nombre}</p>)}
           </div>
           <div className={styles.domicilio}>
             <h3 className={styles.tituloColumna}>Email</h3>
-            {usuarios.map((usuario) => usuario.rol === "USER" && <p>{usuario.email}</p>)}
+            {usuarios.map((usuario) => usuario.rol === "CLIENTE" && <p>{usuario.email}</p>)}
           </div>
           <div className={styles.dni}>
             <h3 className={styles.tituloColumna}>DNI</h3>
-            {usuarios.map((usuario) => usuario.rol === "USER" && <p>{usuario.dni}</p>)}
+            {usuarios.map((usuario) => usuario.rol === "CLIENTE" && <p>{usuario.dni}</p>)}
           </div>
         </div>
       </div>

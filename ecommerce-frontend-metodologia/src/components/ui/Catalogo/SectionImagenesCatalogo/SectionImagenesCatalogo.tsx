@@ -17,6 +17,7 @@ export const SectionImagenesCatalogo = () => {
     }))
   );
 
+  const precioMaxActivo = filterStore((state) => state.precioMaxActivo)
   const talleActivo = filterStore((state) => state.talleActivo);
   const ordenPrecioActivo = filterStore((state) => state.ordenPrecioActivo);
   const tipoProductoSeleccionadoActivo = filterStore(
@@ -36,6 +37,7 @@ export const SectionImagenesCatalogo = () => {
     ordenPrecioActivo,
     tipoProductoSeleccionadoActivo,
     buscadorActivo,
+    precioMaxActivo
   ]);
 
   // usamos una variable para mostrar el modal del detalleProducto

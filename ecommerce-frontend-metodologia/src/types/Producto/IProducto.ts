@@ -7,6 +7,7 @@ export interface IProducto{
     nombre?: string,
     categoria?: ICategoria,
     seccion?: string,
+    estado?: boolean,
     tipoProducto?: TipoProducto
     detallesProductos?: IDetalleProductos[],
 }

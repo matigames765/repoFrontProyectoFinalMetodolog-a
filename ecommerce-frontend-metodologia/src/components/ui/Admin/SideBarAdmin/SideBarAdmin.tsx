@@ -5,7 +5,7 @@ export const SideBarAdmin = () => {
   return (
     <div className={styles.navBarContainer}>
       <div className={styles.adminNavContainer}>
-        <button
+        {/* <button
           onClick={() => navigate("/admin/ventas")}
           className={styles.buttonNavAdmin}
         >
@@ -16,7 +16,7 @@ export const SideBarAdmin = () => {
           className={styles.buttonNavAdmin}
         >
           Visitas
-        </button>
+        </button> */}
         <button
           onClick={() => navigate("/admin/ordenes")}
           className={styles.buttonNavAdmin}
@@ -34,6 +34,11 @@ export const SideBarAdmin = () => {
           className={styles.buttonNavAdmin}
         >
           Productos
+        </button>
+        <button 
+        onClick={() => navigate("/admin/productosInactivos")}
+        className={styles.buttonNavAdmin}>
+          Productos Inactivos
         </button>
       </div>
     </div>

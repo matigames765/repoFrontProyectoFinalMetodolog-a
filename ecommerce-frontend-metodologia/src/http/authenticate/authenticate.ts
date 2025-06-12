@@ -5,8 +5,12 @@ import Swal from "sweetalert2";
 // import { IToken } from "../../types/authenticate/IToken";
 
 export const loginController = async (user: ILogin): Promise<string | undefined> => {
+    const token = localStorage.getItem("authentication")
     try {
-        const response = await axios.post("http://localhost:9000/auth/login", user)
+        const response = await axios.post("http://localhost:9000/auth/login", user, {headers: {
+          "Content-Type": "application/json",
+          "Authorization": `Bearer ${token}`
+        }})
         return response.data.token;
     } catch (error) {
         Swal.fire({
@@ -19,8 +23,12 @@ export const loginController = async (user: ILogin): Promise<string | undefined>
 }
 
 export const registerController = async (user: IRegister): Promise<string | undefined> => {
+    const token = localStorage.getItem("authentication")
     try {
-        const response = await axios.post("http://localhost:9000/auth/register", user)
+        const response = await axios.post("http://localhost:9000/auth/register", user, {headers: {
+          "Content-Type": "application/json",
+          "Authorization": `Bearer ${token}`
+        }})
         return response.data.token;
     } catch (error) {
 
