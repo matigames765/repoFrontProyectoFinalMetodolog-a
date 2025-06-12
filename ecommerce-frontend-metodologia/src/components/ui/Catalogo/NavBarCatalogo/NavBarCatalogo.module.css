@@ -13,16 +13,21 @@
 }
 
 .tituloPagina {
-  font-size: 1rem;
-  font-weight: 600;
-  color: #000;
+  font-weight: 700;
+  font-size: 1.8rem;
+  color: #333;
   cursor: pointer;
+  white-space: nowrap;
   margin: 0;
+  flex-shrink: 0;
   transition: color 0.3s ease;
+  font-family: "Orbitron", sans-serif;
 }
+
 .tituloPagina:hover {
-  color: #3d9ccc;
+  color: #00b894;
 }
+
 .bottomRow {
   display: flex;
   justify-content: space-between;
@@ -32,28 +37,24 @@
 }
 
 .categorieNavBarLanding {
-  font-weight: 700;
-  font-size: 1.8rem;
-  color: #333;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #000;
   cursor: pointer;
-  white-space: nowrap;
   margin: 0;
-  flex-shrink: 0;
   transition: color 0.3s ease;
 }
 
 .categorieNavBarLanding:hover {
-  color: #3d9ccc;
+  color: #00b894;
 }
 
-/* contenedor para búsqueda y carrito */
 .searchAndCartContainer {
   display: flex;
   align-items: center;
   gap: 1.5rem;
   margin-top: 2vh;
   margin-bottom: 1vh;
-  min-width: 280px;
   flex-grow: 1;
   justify-content: flex-end;
   flex-wrap: nowrap;
@@ -62,6 +63,7 @@
 .searchContainer {
   position: relative;
   width: 250px;
+  flex-shrink: 1;
 }
 
 .barraBusquedaCatalogo {
@@ -75,8 +77,8 @@
 
 .barraBusquedaCatalogo:focus {
   outline: none;
-  border-color: #3d9ccc;
-  box-shadow: 0 0 6px #3d9ccc88;
+  border-color: #5cd1cb;
+  box-shadow: 0 4px 12px rgba(92, 209, 203, 0.4);
 }
 
 .searchIconCalogo {
@@ -103,7 +105,7 @@
 }
 
 .iconShoppinCartLanding:hover {
-  color: #1a6fa5;
+  color: #5cd1cb;
 }
 
 .popupWrapper {
@@ -116,4 +118,32 @@
 
 .popupCartVisible {
   display: block;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .bottomRow {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .searchAndCartContainer {
+    justify-content: space-between;
+    width: 100%;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .searchContainer {
+    width: 100%;
+  }
+
+  .tituloPagina {
+    font-size: 1.5rem;
+  }
+
+  .categorieNavBarLanding {
+    font-size: 0.95rem;
+  }
 }

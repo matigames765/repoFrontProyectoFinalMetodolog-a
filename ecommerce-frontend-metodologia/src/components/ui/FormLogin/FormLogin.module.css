@@ -12,6 +12,7 @@
 .titleLoginEcommerce {
   font-size: 1.5rem;
   font-weight: bold;
+  font-family: "Orbitron", sans-serif;
 }
 
 .containerForm {
@@ -46,13 +47,14 @@
 }
 
 .inputFormLogin:focus {
-  border-color: #007bff;
-  box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.2);
+  border-color: #5cd1cb;
+  box-shadow: 6px 0 16px rgba(92, 209, 203, 0.2);
+
   outline: none;
 }
 
 .buttonEntrar {
-  background-color: black;
+  background-color: #38b2ac;
   color: white;
   padding: 0.75rem;
   border: none;
@@ -62,10 +64,11 @@
   cursor: pointer;
   transition: background-color 0.3s ease, transform 0.2s ease;
   width: 100%;
+  font-family: "Orbitron", sans-serif;
 }
 
 .buttonEntrar:hover {
-  background-color: #007bff;
+  background-color: #5cd1cb;
   transform: scale(1.01);
 }
 
@@ -95,8 +98,9 @@
   cursor: pointer;
   border: none;
   font-size: 0.95rem;
-  color: #007bff;
+  color: #38b2ac;
   text-decoration: underline;
+  font-family: "Orbitron", sans-serif;
 }
 
 @media (max-width: 600px) {

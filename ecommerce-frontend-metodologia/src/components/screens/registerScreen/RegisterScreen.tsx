@@ -1,3 +1,4 @@
+import { Footer } from "../../ui/Footer/Footer";
 import { FormRegister } from "../../ui/FormRegister/FormRegister";
 import { HeaderDescuento } from "../../ui/HeaderDescuento/HeaderDescuento";
 import { NavBarHome } from "../../ui/Landing/NavBarHome/NavBarHome";
@@ -11,6 +12,7 @@ export const RegisterScreen = () => {
       <HeaderDescuento/>
       <NavBarHome/>
       <FormRegister />
+      <Footer/>
     </div>
   );
 };

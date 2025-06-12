@@ -27,9 +27,9 @@
   display: flex;
   align-items: center;
   font-size: 24px;
-  font-weight: bold;
   margin-bottom: 10px;
   color: #fff;
+  font-family: "Orbitron", sans-serif;
 }
 
 /* Contenedor para el carrito */
@@ -44,7 +44,18 @@
   padding: 0;
   line-height: 1;
 }
+.containerLogin button {
+  background-color: transparent;
+  border: none;
+  color: white;
+  font-family: "Orbitron", sans-serif;
+  transition: 0.2s ease;
+}
 
+
+.containerLogin button:hover {
+  color: #ccc;
+}
 .cartContainer {
   margin: 0;
   padding: 0;

@@ -8,6 +8,7 @@
   overflow-y: auto;
   scrollbar-width: thin;
   scrollbar-color: #aaa transparent;
+  background-color: #f7f7f7;
 }
 
 .principalContainerSectionImagenesCatalogo::-webkit-scrollbar {
@@ -71,9 +72,9 @@
 .buttonImagenesCatalogo {
   padding: 0.6rem 1.2rem;
   border-radius: 0.4rem;
-  border: 1.5px solid #3d9ccc;
+  border: 1.5px solid #38b2ac;
   background-color: transparent;
-  color: #3d9ccc;
+  color: #38b2ac;
   font-weight: 600;
   font-size: 0.95rem;
   transition: background-color 0.3s ease, transform 0.3s ease, color 0.3s ease;
@@ -81,7 +82,9 @@
 
 .buttonImagenesCatalogo:hover {
   cursor: pointer;
-  background-color: #3d9ccc;
+  background-color: #38b2ac;
   color: white;
+  box-shadow: 0 4px 12px rgba(92, 209, 203, 0.4);
+
   transform: scale(1.05);
 }

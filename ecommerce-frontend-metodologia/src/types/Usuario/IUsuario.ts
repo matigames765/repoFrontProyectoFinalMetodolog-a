@@ -1,5 +1,5 @@
 import { IRol } from "./IRol";
-// import { IUsuarioDireccion } from "./IUsuarioDireccion";
+
 
 export interface IUsuario{
     id: number,
