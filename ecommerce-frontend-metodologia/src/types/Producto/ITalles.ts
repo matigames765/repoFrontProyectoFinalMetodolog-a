@@ -1,4 +1,5 @@
-export interface ITalles{
-    id: number,
-    talle?: string,
+export interface ITalles {
+  id: number;
+  talle?: string;
+  
 }

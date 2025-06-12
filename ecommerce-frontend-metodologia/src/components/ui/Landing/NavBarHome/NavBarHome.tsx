@@ -16,7 +16,7 @@ export const NavBarHome = () => {
     if (usuarioActivo) {
       setOpenModalPopUpCart((prev) => !prev);
     } else {
-      toast.error("Debes iniciar sesion!")
+      toast.error("Debes iniciar sesion!");
       return;
     }
   };
@@ -46,17 +46,15 @@ export const NavBarHome = () => {
         <div className={styles.loginAndCartContainer}>
           {usuarioActivo ? (
             <div className={styles.containerLogin}>
-              <button
-                onClick={() => setOpenLogin((prev) => !prev)}
-                style={{ backgroundColor: "transparent", border: "none" }}
-              >
+              <button onClick={() => setOpenLogin((prev) => !prev)}>
                 <CircleUserRound size={30} className={styles.loginLogo} />
+                {usuarioActivo?.nombre}
               </button>
             </div>
           ) : (
             <div className={styles.containerLogin}>
               <LogIn
-                size={25}
+                size={30}
                 className={styles.loginLogo}
                 onClick={handleLogin}
               />

@@ -12,8 +12,23 @@ type ArticuloTarjetaProps = {
 export const ArticuloTarjeta: FC<ArticuloTarjetaProps> = ({ item }) => {
   const { setCantidad, eliminarDelCarrito } = useCarritoStore();
 
+  const talleSeleccionado = item.producto.tallesDetalleProductos?.find(
+    (t) => t.id === item.talleId
+  );
+
+  const stockDisponible = 5
+  //REEMPLAZAR EL STOCK DISPONIBLE POR
+  // talleSeleccionado?.stockTalle || 0;
+  const talleNombre =
+    item.producto.tallesDetalleProductos?.find((t) => t.id === item.talleId)
+      ?.talle || "N/A";
+
   const aumentar = () => {
-    setCantidad(item.producto.id!, item.talleId, item.cantidad + 1);
+    if(item.cantidad < stockDisponible){
+      setCantidad(item.producto.id!, item.talleId, item.cantidad + 1);
+    }else{
+      toast.warn("Stock insuficiente")
+    }
   };
 
   const disminuir = () => {
@@ -26,9 +41,6 @@ export const ArticuloTarjeta: FC<ArticuloTarjetaProps> = ({ item }) => {
     eliminarDelCarrito(item.producto.id!, item.talleId);
     toast.success("Producto eliminado!", { position: "top-left" });
   };
-  const talleNombre =
-    item.producto.tallesDetalleProductos?.find((t) => t.id === item.talleId)
-      ?.talle || "N/A";
 
   console.log(item);
   return (
